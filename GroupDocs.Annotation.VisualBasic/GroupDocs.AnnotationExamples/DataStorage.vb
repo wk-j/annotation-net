@@ -715,4 +715,83 @@ Public Class DataStorage
         End Try
     End Sub
 
+    ''' <summary>
+    ''' Manages collaborator rights 
+    ''' </summary>
+    Public Shared Sub ManageCollaboratorRights()
+        Try
+            'ExStart:ManageCollaboratorRights
+            Dim pathFinder As IRepositoryPathFinder = New RepositoryPathFinder()
+
+            Dim userRepository = New UserRepository(pathFinder)
+            Dim documentRepository = New DocumentRepository(pathFinder)
+
+            ' Create instance of annotator
+            Dim annotator As IAnnotator = New Annotator(userRepository, documentRepository, New AnnotationRepository(pathFinder), New AnnotationReplyRepository(pathFinder), New AnnotationCollaboratorRepository(pathFinder))
+
+            ' Create owner. 
+            Dim johnOwner = userRepository.GetUserByEmail("john@doe.com")
+            If johnOwner Is Nothing Then
+			userRepository.Add(New User() With { _
+				Key .FirstName = "John", _
+				Key .LastName = "Doe", _
+				Key .Email = "john@doe.com" _
+			})
+                johnOwner = userRepository.GetUserByEmail("john@doe.com")
+            End If
+
+            ' Create document data object in storage
+            Dim document = documentRepository.GetDocument("Document.pdf")
+            Dim documentId As Long = If(document IsNot Nothing, document.Id, annotator.CreateDocument("Document.pdf", DocumentType.Pdf, johnOwner.Id))
+
+            ' Create reviewer. 
+
+            ' Can only get view annotations
+		Dim reviewerInfo = New ReviewerInfo() With { _
+			Key .PrimaryEmail = "judy@doe.com", _
+			Key .FirstName = "Judy", _
+			Key .LastName = "Doe", _
+			Key .AccessRights = AnnotationReviewerRights.CanView _
+		}
+
+            ' Add collaboorator to the document. If user with Email equals to reviewers PrimaryEmail is absent it will be created.
+            Dim addCollaboratorResult = annotator.AddCollaborator(documentId, reviewerInfo)
+
+            ' Get document collaborators
+            Dim getCollaboratorsResult = annotator.GetCollaborators(documentId)
+            Dim judy = userRepository.GetUserByEmail("judy@doe.com")
+
+            ' Create annotation object
+		Dim pointAnnotation As New AnnotationInfo() With { _
+			Key .AnnotationPosition = New Point(852.0, 81.0), _
+			Key .Box = New Rectangle(212F, 81F, 142F, 0F), _
+			Key .Type = AnnotationType.Point, _
+			Key .PageNumber = 0, _
+			Key .CreatorName = "Anonym A." _
+		}
+
+            ' John try to add annotations. User is owner of the document.
+            Dim johnResult = annotator.CreateAnnotation(pointAnnotation, documentId, johnOwner.Id)
+
+            ' Judy try to add annotations
+            Try
+                Dim judyResult = annotator.CreateAnnotation(pointAnnotation, documentId, judy.Id)
+
+                'Get exceptions, because user can only view annotations
+            Catch e As AnnotatorException
+                Console.Write(e.Message)
+                Console.ReadKey()
+            End Try
+
+            ' Allow Judy create annotations.
+            reviewerInfo.AccessRights = AnnotationReviewerRights.CanAnnotate
+            Dim updateCollaboratorResult = annotator.UpdateCollaborator(documentId, reviewerInfo)
+
+            ' Now user can add annotations
+            Dim judyResultCanAnnotate = annotator.CreateAnnotation(pointAnnotation, documentId, judy.Id)
+            'ExEnd:ManageCollaboratorRights
+        Catch exp As Exception
+            Console.WriteLine(exp.Message)
+        End Try
+    End Sub
 End Class

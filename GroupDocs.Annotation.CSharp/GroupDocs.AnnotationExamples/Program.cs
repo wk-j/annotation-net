@@ -110,6 +110,9 @@ namespace GroupDocs.Annotation.CSharp
             ////Delete document collaborator
             //DataStorage.DeleteCollaborator();
 
+            ////Delete document collaborator
+            //DataStorage.ManageCollaboratorRights();
+
             ////Export annotation to document
             //DataStorage.ExportAnnotationInFile();
 

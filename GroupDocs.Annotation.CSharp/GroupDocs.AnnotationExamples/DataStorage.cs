@@ -698,7 +698,7 @@ namespace GroupDocs.Annotation.CSharp
 
                 // Get document collaborators.
                 var getCollaboratorsResult = annotator.GetCollaborators(documentId);
-                
+
                 // Get document collaborator by email
                 var getCollaboratorsResultByEmail = annotator.GetDocumentCollaborator(documentId, reviewerInfo.PrimaryEmail);
 
@@ -836,6 +836,97 @@ namespace GroupDocs.Annotation.CSharp
                 // Delete collaborator
                 var deleteCollaboratorResult = annotator.DeleteCollaborator(documentId, reviewerInfo.PrimaryEmail);
                 //ExEnd:DeleteCollaborator
+            }
+            catch (Exception exp)
+            {
+                Console.WriteLine(exp.Message);
+            }
+        }
+
+        /// <summary>
+        /// Manages collaborator rights 
+        /// </summary>
+        public static void ManageCollaboratorRights()
+        {
+            try
+            {
+                //ExStart:ManageCollaboratorRights
+                IRepositoryPathFinder pathFinder = new RepositoryPathFinder();
+
+                var userRepository = new UserRepository(pathFinder);
+                var documentRepository = new DocumentRepository(pathFinder);
+
+                // Create instance of annotator
+                IAnnotator annotator = new Annotator(
+                    userRepository,
+                    documentRepository,
+                    new AnnotationRepository(pathFinder),
+                    new AnnotationReplyRepository(pathFinder),
+                    new AnnotationCollaboratorRepository(pathFinder));
+
+                // Create owner. 
+                var johnOwner = userRepository.GetUserByEmail("john@doe.com");
+                if (johnOwner == null)
+                {
+                    userRepository.Add(new User { FirstName = "John", LastName = "Doe", Email = "john@doe.com" });
+                    johnOwner = userRepository.GetUserByEmail("john@doe.com");
+                }
+
+                // Create document data object in storage
+                var document = documentRepository.GetDocument("Document.pdf");
+                long documentId = document != null ? document.Id : annotator.CreateDocument("Document.pdf", DocumentType.Pdf, johnOwner.Id);
+
+                // Create reviewer. 
+                var reviewerInfo = new ReviewerInfo
+                {
+                    PrimaryEmail = "judy@doe.com",
+                    FirstName = "Judy",
+                    LastName = "Doe",
+
+                    // Can only get view annotations
+                    AccessRights = AnnotationReviewerRights.CanView
+                };
+
+                // Add collaboorator to the document. If user with Email equals to reviewers PrimaryEmail is absent it will be created.
+                var addCollaboratorResult = annotator.AddCollaborator(documentId, reviewerInfo);
+
+                // Get document collaborators
+                var getCollaboratorsResult = annotator.GetCollaborators(documentId);
+                var judy = userRepository.GetUserByEmail("judy@doe.com");
+
+                // Create annotation object
+                AnnotationInfo pointAnnotation = new AnnotationInfo
+                {
+                    AnnotationPosition = new Point(852.0, 81.0),
+                    Box = new Rectangle(212f, 81f, 142f, 0.0f),
+                    Type = AnnotationType.Point,
+                    PageNumber = 0,
+                    CreatorName = "Anonym A."
+                };
+
+                // John try to add annotations. User is owner of the document.
+                var johnResult = annotator.CreateAnnotation(pointAnnotation, documentId, johnOwner.Id);
+
+                // Judy try to add annotations
+                try
+                {
+                    var judyResult = annotator.CreateAnnotation(pointAnnotation, documentId, judy.Id);
+                }
+
+                 //Get exceptions, because user can only view annotations
+                catch (AnnotatorException e)
+                {
+                    Console.Write(e.Message);
+                    Console.ReadKey();
+                }
+
+                // Allow Judy create annotations.
+                reviewerInfo.AccessRights = AnnotationReviewerRights.CanAnnotate;
+                var updateCollaboratorResult = annotator.UpdateCollaborator(documentId, reviewerInfo);
+
+                // Now user can add annotations
+                var judyResultCanAnnotate = annotator.CreateAnnotation(pointAnnotation, documentId, judy.Id);
+                //ExEnd:ManageCollaboratorRights
             }
             catch (Exception exp)
             {
