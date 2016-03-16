@@ -476,5 +476,243 @@ Public Class DataStorage
         'ExEnd:AddAnnotationReply
     End Sub
 
+    ''' <summary>
+    ''' Adds document collaborator 
+    ''' </summary>
+    Public Shared Sub AddCollaborator()
+        Try
+            'ExStart:AddCollaborator
+            ' Create repository path finder
+            Dim pathFinder As IRepositoryPathFinder = New RepositoryPathFinder()
+            Dim userRepository = New UserRepository(pathFinder)
+
+            Dim documentRepository = New DocumentRepository(pathFinder)
+
+            ' Create instance of annotator
+            Dim annotator As IAnnotator = New Annotator(userRepository, documentRepository, New AnnotationRepository(pathFinder), New AnnotationReplyRepository(pathFinder), New AnnotationCollaboratorRepository(pathFinder))
+
+            ' Create a user that will be an owner.           
+            ' Get user from the storage 
+            Dim owner = userRepository.GetUserByEmail("john@doe.com")
+
+            ' If user doesn’t exist in the storage then create it. 
+            If owner Is Nothing Then
+			userRepository.Add(New User() With { _
+				Key .FirstName = "John", _
+				Key .LastName = "Doe", _
+				Key .Email = "john@doe.com" _
+			})
+                owner = userRepository.GetUserByEmail("john@doe.com")
+            End If
+
+            ' Get document data object in the storage
+            Dim document = documentRepository.GetDocument("Document.pdf")
+
+            ' If document already created or it hasn’t owner then delete document
+            If document IsNot Nothing AndAlso document.OwnerId <> owner.Id Then
+                documentRepository.Remove(document)
+                document = Nothing
+            End If
+
+            ' Get document id if document already created or create new document
+            Dim documentId As Long = If(document IsNot Nothing, document.Id, annotator.CreateDocument("Document.pdf", DocumentType.Pdf, owner.Id))
+
+            ' Create reviewer. 
+            'user email, unique identifier
+		Dim reviewerInfo = New ReviewerInfo() With { _
+			Key .PrimaryEmail = "judy@doe.com", _
+			Key .FirstName = "Judy", _
+			Key .LastName = "Doe", _
+			Key .AccessRights = AnnotationReviewerRights.All _
+		}
+
+            ' Add collaboorator to the document. If user with Email equals to reviewers PrimaryEmail is absent it will be created.
+            Dim addCollaboratorResult = annotator.AddCollaborator(documentId, reviewerInfo)
+            'ExEnd:AddCollaborator  
+        Catch exp As Exception
+            Console.WriteLine(exp.Message)
+        End Try
+    End Sub
+
+    ''' <summary>
+    ''' Gets document collaborator 
+    ''' </summary>
+    Public Shared Sub GetCollaborator()
+        Try
+            'ExStart:GetCollaborator
+            ' Create repository path finder
+            Dim pathFinder As IRepositoryPathFinder = New RepositoryPathFinder()
+            Dim userRepository = New UserRepository(pathFinder)
+
+            Dim documentRepository = New DocumentRepository(pathFinder)
+
+            ' Create instance of annotator
+            Dim annotator As IAnnotator = New Annotator(userRepository, documentRepository, New AnnotationRepository(pathFinder), New AnnotationReplyRepository(pathFinder), New AnnotationCollaboratorRepository(pathFinder))
+
+            ' Create a user that will be an owner.           
+            ' Get user from the storage 
+            Dim owner = userRepository.GetUserByEmail("john@doe.com")
+
+            ' If user doesn’t exist in the storage then create it. 
+            If owner Is Nothing Then
+			userRepository.Add(New User() With { _
+				Key .FirstName = "John", _
+				Key .LastName = "Doe", _
+				Key .Email = "john@doe.com" _
+			})
+                owner = userRepository.GetUserByEmail("john@doe.com")
+            End If
+
+            ' Get document data object in the storage
+            Dim document = documentRepository.GetDocument("Document.pdf")
+
+            ' If document already created or it hasn’t owner then delete document
+            If document IsNot Nothing AndAlso document.OwnerId <> owner.Id Then
+                documentRepository.Remove(document)
+                document = Nothing
+            End If
+
+            ' Get document id if document already created or create new document
+            Dim documentId As Long = If(document IsNot Nothing, document.Id, annotator.CreateDocument("Document.pdf", DocumentType.Pdf, owner.Id))
+
+            ' Create reviewer. 
+            'user email, unique identifier
+		Dim reviewerInfo = New ReviewerInfo() With { _
+			Key .PrimaryEmail = "judy@doe.com", _
+			Key .FirstName = "Judy", _
+			Key .LastName = "Doe", _
+			Key .AccessRights = AnnotationReviewerRights.All _
+		}
+
+            ' Get document collaborators.
+            Dim getCollaboratorsResult = annotator.GetCollaborators(documentId)
+
+            ' Get document collaborator by email
+            Dim getCollaboratorsResultByEmail = annotator.GetDocumentCollaborator(documentId, reviewerInfo.PrimaryEmail)
+
+            ' Get collaborator metadata 
+            Dim user = userRepository.GetUserByEmail(reviewerInfo.PrimaryEmail)               
+            Dim collaboratorMetadataResult As ReviewerInfo = annotator.GetCollaboratorMetadata(user.Guid)
+            'ExEnd:GetCollaborator 
+        Catch exp As Exception
+            Console.WriteLine(exp.Message)
+        End Try
+    End Sub
+
+    ''' <summary>
+    ''' Updates document collaborator 
+    ''' </summary>
+    Public Shared Sub UpdateCollaborator()
+        Try
+            'ExStart:UpdateCollaborator
+            ' Create repository path finder
+            Dim pathFinder As IRepositoryPathFinder = New RepositoryPathFinder()
+            Dim userRepository = New UserRepository(pathFinder)
+
+            Dim documentRepository = New DocumentRepository(pathFinder)
+
+            ' Create instance of annotator
+            Dim annotator As IAnnotator = New Annotator(userRepository, documentRepository, New AnnotationRepository(pathFinder), New AnnotationReplyRepository(pathFinder), New AnnotationCollaboratorRepository(pathFinder))
+
+            ' Create a user that will be an owner.           
+            ' Get user from the storage 
+            Dim owner = userRepository.GetUserByEmail("john@doe.com")
+
+            ' If user doesn’t exist in the storage then create it. 
+            If owner Is Nothing Then
+			userRepository.Add(New User() With { _
+				Key .FirstName = "John", _
+				Key .LastName = "Doe", _
+				Key .Email = "john@doe.com" _
+			})
+                owner = userRepository.GetUserByEmail("john@doe.com")
+            End If
+
+            ' Get document data object in the storage
+            Dim document = documentRepository.GetDocument("Document.pdf")
+
+            ' If document already created or it hasn’t owner then delete document
+            If document IsNot Nothing AndAlso document.OwnerId <> owner.Id Then
+                documentRepository.Remove(document)
+                document = Nothing
+            End If
+
+            ' Get document id if document already created or create new document
+            Dim documentId As Long = If(document IsNot Nothing, document.Id, annotator.CreateDocument("Document.pdf", DocumentType.Pdf, owner.Id))
+
+            ' Create reviewer. 
+            'user email, unique identifier
+		Dim reviewerInfo = New ReviewerInfo() With { _
+			Key .PrimaryEmail = "judy@doe.com", _
+			Key .FirstName = "Judy", _
+			Key .LastName = "Doe", _
+			Key .AccessRights = AnnotationReviewerRights.All _
+		}
+            ' Update collaborator. Only color and access rights will be updated.
+            reviewerInfo.Color = 3355443        
+            Dim updateCollaboratorResult = annotator.UpdateCollaborator(documentId, reviewerInfo)
+            'ExEnd:UpdateCollaborator    
+        Catch exp As Exception
+            Console.WriteLine(exp.Message)
+        End Try
+    End Sub
+
+    ''' <summary>
+    ''' Deletes document collaborator 
+    ''' </summary>
+    Public Shared Sub DeleteCollaborator()
+        Try
+            'ExStart:DeleteCollaborator
+            ' Create repository path finder
+            Dim pathFinder As IRepositoryPathFinder = New RepositoryPathFinder()
+            Dim userRepository = New UserRepository(pathFinder)
+
+            Dim documentRepository = New DocumentRepository(pathFinder)
+
+            ' Create instance of annotator
+            Dim annotator As IAnnotator = New Annotator(userRepository, documentRepository, New AnnotationRepository(pathFinder), New AnnotationReplyRepository(pathFinder), New AnnotationCollaboratorRepository(pathFinder))
+
+            ' Create a user that will be an owner.           
+            ' Get user from the storage 
+            Dim owner = userRepository.GetUserByEmail("john@doe.com")
+
+            ' If user doesn’t exist in the storage then create it. 
+            If owner Is Nothing Then
+			userRepository.Add(New User() With { _
+				Key .FirstName = "John", _
+				Key .LastName = "Doe", _
+				Key .Email = "john@doe.com" _
+			})
+                owner = userRepository.GetUserByEmail("john@doe.com")
+            End If
+
+            ' Get document data object in the storage
+            Dim document = documentRepository.GetDocument("Document.pdf")
+
+            ' If document already created or it hasn’t owner then delete document
+            If document IsNot Nothing AndAlso document.OwnerId <> owner.Id Then
+                documentRepository.Remove(document)
+                document = Nothing
+            End If
+
+            ' Get document id if document already created or create new document
+            Dim documentId As Long = If(document IsNot Nothing, document.Id, annotator.CreateDocument("Document.pdf", DocumentType.Pdf, owner.Id))
+
+            ' Create reviewer. 
+            'user email, unique identifier
+		Dim reviewerInfo = New ReviewerInfo() With { _
+			Key .PrimaryEmail = "judy@doe.com", _
+			Key .FirstName = "Judy", _
+			Key .LastName = "Doe", _
+			Key .AccessRights = AnnotationReviewerRights.All _
+		}
+
+            ' Delete collaborator
+            Dim deleteCollaboratorResult = annotator.DeleteCollaborator(documentId, reviewerInfo.PrimaryEmail)
+            'ExEnd:DeleteCollaborator
+        Catch exp As Exception
+            Console.WriteLine(exp.Message)
+        End Try
+    End Sub
 
 End Class
