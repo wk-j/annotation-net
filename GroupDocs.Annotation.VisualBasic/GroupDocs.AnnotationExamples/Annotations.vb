@@ -224,7 +224,7 @@ Public Class Annotations
                   .FontColor = 2222222, _
                   .Box = New Rectangle(430.0F, 272.0F, 66.0F, 51.0F), _
                   .PageNumber = 0, _
-                  .Type = AnnotationType.TextField, _
+                  .Type = AnnotationType.Watermark, _
                   .CreatorName = "Anonym A." _
             }
             ' Add annotation to list

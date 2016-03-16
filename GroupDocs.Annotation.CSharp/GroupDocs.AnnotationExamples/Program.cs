@@ -18,7 +18,7 @@ namespace GroupDocs.Annotation.CSharp
             /* Apply product license
              * Uncomment following function if you have product license
              * */
-            //CommonUtilities.ApplyLicense();
+            CommonUtilities.ApplyLicense();
 
             #region Annotation Functions
 

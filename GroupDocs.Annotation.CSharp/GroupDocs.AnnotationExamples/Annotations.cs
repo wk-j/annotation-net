@@ -281,7 +281,7 @@ namespace GroupDocs.Annotation.CSharp
                     FontColor = 2222222,
                     Box = new Rectangle(430f, 272f, 66f, 51f),
                     PageNumber = 0,
-                    Type = AnnotationType.TextField,
+                    Type = AnnotationType.Watermark,
                     CreatorName = "Anonym A."
                 };
                 // Add annotation to list
