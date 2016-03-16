@@ -85,16 +85,16 @@
         'Add annotation reply
         'DataStorage.AddAnnotationReply()
 
-        '''/Add document collaborator
+        '''Add document collaborator
         'DataStorage.AddCollaborator();
 
-        '''/Get document collaborator
+        '''Get document collaborator
         'DataStorage.GetCollaborator();
 
-        '''/Update document collaborator
+        '''Update document collaborator
         'DataStorage.UpdateCollaborator();
 
-        '''/Delete document collaborator
+        '''Delete document collaborator
         'DataStorage.DeleteCollaborator();
 
         'Export annotation to document
