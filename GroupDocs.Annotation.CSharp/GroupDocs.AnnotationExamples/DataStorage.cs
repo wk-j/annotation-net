@@ -1,5 +1,6 @@
 ﻿using GroupDocs.Annotation.Contracts;
 using GroupDocs.Annotation.Contracts.Results;
+using GroupDocs.Annotation.Data.Contracts.DataObjects;
 using GroupDocs.Data.Json;
 using GroupDocs.Data.Json.Repositories;
 using System;
@@ -15,7 +16,7 @@ namespace GroupDocs.Annotation.CSharp
     public class DataStorage
     {
 
-        
+
         //ExStart:SourceDocFilePath
         // initialize file path
         private const string filePath = "sample.pdf";
@@ -40,11 +41,11 @@ namespace GroupDocs.Annotation.CSharp
 
 
                 var documentRepository = new DocumentRepository(pathFinder);
-                
+
                 // Get file stream
                 Stream manifestResourceStream = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
                 List<AnnotationInfo> annotations = new List<AnnotationInfo>();
-                
+
                 // Get document
                 var document = documentRepository.GetDocument("Document.pdf");
 
@@ -568,6 +569,273 @@ namespace GroupDocs.Annotation.CSharp
                 // List of replies after deleting all replies
                 var listRepliesResultAfterDeleteAll = annotator.ListAnnotationReplies(createPointAnnotationResult.Id);
                 //ExEnd:AddAnnotationReply
+            }
+            catch (Exception exp)
+            {
+                Console.WriteLine(exp.Message);
+            }
+        }
+
+        /// <summary>
+        /// Adds document collaborator 
+        /// </summary>
+        public static void AddCollaborator()
+        {
+            try
+            {
+                //ExStart:AddCollaborator
+                // Create repository path finder
+                IRepositoryPathFinder pathFinder = new RepositoryPathFinder();
+                var userRepository = new UserRepository(pathFinder);
+
+                var documentRepository = new DocumentRepository(pathFinder);
+
+                // Create instance of annotator
+                IAnnotator annotator = new Annotator(
+                    userRepository,
+                    documentRepository,
+                    new AnnotationRepository(pathFinder),
+                    new AnnotationReplyRepository(pathFinder),
+                    new AnnotationCollaboratorRepository(pathFinder));
+
+                // Create a user that will be an owner.           
+                // Get user from the storage 
+                var owner = userRepository.GetUserByEmail("john@doe.com");
+
+                // If user doesn’t exist in the storage then create it. 
+                if (owner == null)
+                {
+                    userRepository.Add(new User { FirstName = "John", LastName = "Doe", Email = "john@doe.com" });
+                    owner = userRepository.GetUserByEmail("john@doe.com");
+                }
+
+                // Get document data object in the storage
+                var document = documentRepository.GetDocument("Document.pdf");
+
+                // If document already created or it hasn’t owner then delete document
+                if (document != null && document.OwnerId != owner.Id)
+                {
+                    documentRepository.Remove(document);
+                    document = null;
+                }
+
+                // Get document id if document already created or create new document
+                long documentId = document != null ? document.Id : annotator.CreateDocument("Document.pdf", DocumentType.Pdf, owner.Id);
+
+                // Create reviewer. 
+                var reviewerInfo = new ReviewerInfo
+                {
+                    PrimaryEmail = "judy@doe.com", //user email, unique identifier
+                    FirstName = "Judy",
+                    LastName = "Doe",
+                    AccessRights = AnnotationReviewerRights.All
+                };
+
+                // Add collaboorator to the document. If user with Email equals to reviewers PrimaryEmail is absent it will be created.
+                var addCollaboratorResult = annotator.AddCollaborator(documentId, reviewerInfo);
+                //ExEnd:AddCollaborator                
+            }
+            catch (Exception exp)
+            {
+                Console.WriteLine(exp.Message);
+            }
+        }
+
+        /// <summary>
+        /// Gets document collaborator 
+        /// </summary>
+        public static void GetCollaborator()
+        {
+            try
+            {
+                //ExStart:GetCollaborator
+                // Create repository path finder
+                IRepositoryPathFinder pathFinder = new RepositoryPathFinder();
+                var userRepository = new UserRepository(pathFinder);
+
+                var documentRepository = new DocumentRepository(pathFinder);
+
+                // Create instance of annotator
+                IAnnotator annotator = new Annotator(
+                    userRepository,
+                    documentRepository,
+                    new AnnotationRepository(pathFinder),
+                    new AnnotationReplyRepository(pathFinder),
+                    new AnnotationCollaboratorRepository(pathFinder));
+
+                // Create a user that will be an owner.           
+                // Get user from the storage 
+                var owner = userRepository.GetUserByEmail("john@doe.com");
+
+                // If user doesn’t exist in the storage then create it. 
+                if (owner == null)
+                {
+                    userRepository.Add(new User { FirstName = "John", LastName = "Doe", Email = "john@doe.com" });
+                    owner = userRepository.GetUserByEmail("john@doe.com");
+                }
+
+                // Get document data object in the storage
+                var document = documentRepository.GetDocument("Document.pdf");
+
+                // If document already created or it hasn’t owner then delete document
+                if (document != null && document.OwnerId != owner.Id)
+                {
+                    documentRepository.Remove(document);
+                    document = null;
+                }
+
+                // Get document id if document already created or create new document
+                long documentId = document != null ? document.Id : annotator.CreateDocument("Document.pdf", DocumentType.Pdf, owner.Id);
+
+                // Create reviewer. 
+                var reviewerInfo = new ReviewerInfo
+                {
+                    PrimaryEmail = "judy@doe.com", //user email, unique identifier
+                    FirstName = "Judy",
+                    LastName = "Doe",
+                    AccessRights = AnnotationReviewerRights.All
+                };
+
+                // Get document collaborators.
+                var getCollaboratorsResult = annotator.GetCollaborators(documentId);
+                
+                // Get document collaborator by email
+                var getCollaboratorsResultByEmail = annotator.GetDocumentCollaborator(documentId, reviewerInfo.PrimaryEmail);
+
+                // Get collaborator metadata 
+                var user = userRepository.GetUserByEmail(reviewerInfo.PrimaryEmail);
+                ReviewerInfo collaboratorMetadataResult = annotator.GetCollaboratorMetadata(user.Guid);
+                //ExEnd:GetCollaborator                
+            }
+            catch (Exception exp)
+            {
+                Console.WriteLine(exp.Message);
+            }
+        }
+
+        /// <summary>
+        /// Updates document collaborator 
+        /// </summary>
+        public static void UpdateCollaborator()
+        {
+            try
+            {
+                //ExStart:UpdateCollaborator
+                // Create repository path finder
+                IRepositoryPathFinder pathFinder = new RepositoryPathFinder();
+                var userRepository = new UserRepository(pathFinder);
+
+                var documentRepository = new DocumentRepository(pathFinder);
+
+                // Create instance of annotator
+                IAnnotator annotator = new Annotator(
+                    userRepository,
+                    documentRepository,
+                    new AnnotationRepository(pathFinder),
+                    new AnnotationReplyRepository(pathFinder),
+                    new AnnotationCollaboratorRepository(pathFinder));
+
+                // Create a user that will be an owner.           
+                // Get user from the storage 
+                var owner = userRepository.GetUserByEmail("john@doe.com");
+
+                // If user doesn’t exist in the storage then create it. 
+                if (owner == null)
+                {
+                    userRepository.Add(new User { FirstName = "John", LastName = "Doe", Email = "john@doe.com" });
+                    owner = userRepository.GetUserByEmail("john@doe.com");
+                }
+
+                // Get document data object in the storage
+                var document = documentRepository.GetDocument("Document.pdf");
+
+                // If document already created or it hasn’t owner then delete document
+                if (document != null && document.OwnerId != owner.Id)
+                {
+                    documentRepository.Remove(document);
+                    document = null;
+                }
+
+                // Get document id if document already created or create new document
+                long documentId = document != null ? document.Id : annotator.CreateDocument("Document.pdf", DocumentType.Pdf, owner.Id);
+
+                // Create reviewer. 
+                var reviewerInfo = new ReviewerInfo
+                {
+                    PrimaryEmail = "judy@doe.com", //user email, unique identifier
+                    FirstName = "Judy",
+                    LastName = "Doe",
+                    AccessRights = AnnotationReviewerRights.All
+                };
+                // Update collaborator. Only color and access rights will be updated.
+                reviewerInfo.Color = 3355443;
+                var updateCollaboratorResult = annotator.UpdateCollaborator(documentId, reviewerInfo);
+                //ExEnd:UpdateCollaborator            
+            }
+            catch (Exception exp)
+            {
+                Console.WriteLine(exp.Message);
+            }
+        }
+
+        /// <summary>
+        /// Deletes document collaborator 
+        /// </summary>
+        public static void DeleteCollaborator()
+        {
+            try
+            {
+                //ExStart:DeleteCollaborator
+                // Create repository path finder
+                IRepositoryPathFinder pathFinder = new RepositoryPathFinder();
+                var userRepository = new UserRepository(pathFinder);
+
+                var documentRepository = new DocumentRepository(pathFinder);
+
+                // Create instance of annotator
+                IAnnotator annotator = new Annotator(
+                    userRepository,
+                    documentRepository,
+                    new AnnotationRepository(pathFinder),
+                    new AnnotationReplyRepository(pathFinder),
+                    new AnnotationCollaboratorRepository(pathFinder));
+
+                // Create a user that will be an owner.           
+                // Get user from the storage 
+                var owner = userRepository.GetUserByEmail("john@doe.com");
+
+                // If user doesn’t exist in the storage then create it. 
+                if (owner == null)
+                {
+                    userRepository.Add(new User { FirstName = "John", LastName = "Doe", Email = "john@doe.com" });
+                    owner = userRepository.GetUserByEmail("john@doe.com");
+                }
+
+                // Get document data object in the storage
+                var document = documentRepository.GetDocument("Document.pdf");
+
+                // If document already created or it hasn’t owner then delete document
+                if (document != null && document.OwnerId != owner.Id)
+                {
+                    documentRepository.Remove(document);
+                    document = null;
+                }
+
+                // Get document id if document already created or create new document
+                long documentId = document != null ? document.Id : annotator.CreateDocument("Document.pdf", DocumentType.Pdf, owner.Id);
+
+                // Create reviewer. 
+                var reviewerInfo = new ReviewerInfo
+                {
+                    PrimaryEmail = "judy@doe.com", //user email, unique identifier
+                    FirstName = "Judy",
+                    LastName = "Doe",
+                    AccessRights = AnnotationReviewerRights.All
+                };
+
+                // Delete collaborator
+                var deleteCollaboratorResult = annotator.DeleteCollaborator(documentId, reviewerInfo.PrimaryEmail);
+                //ExEnd:DeleteCollaborator
             }
             catch (Exception exp)
             {
