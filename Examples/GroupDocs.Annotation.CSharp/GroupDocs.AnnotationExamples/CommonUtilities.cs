@@ -12,8 +12,8 @@ namespace GroupDocs.Annotation.CSharp
     class CommonUtilities
     {
         //ExStart:CommonProperties
-        private const string SourceFolderPath = "../../../../Data/Samples/";
-        private const string DestinationFolderPath = "../../../../Data/Output/";
+        private const string SourceFolderPath = "../../../../../Data/Samples/";
+        private const string DestinationFolderPath = "../../../../../Data/Output/";
         private const string LicenseFilePath = "Groupdocs.Annotation.lic";
         //ExEnd:CommonProperties
 

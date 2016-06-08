@@ -5,8 +5,8 @@ Imports System.IO
 Public Class CommonUtilities
 
     'ExStart:CommonProperties
-    Private Const SourceFolderPath As String = "../../../../Data/Samples/"
-    Private Const DestinationFolderPath As String = "../../../../Data/Output/"
+    Private Const SourceFolderPath As String = "../../../../../Data/Samples/"
+    Private Const DestinationFolderPath As String = "../../../../../Data/Output/"
     Private Const LicenseFilePath As String = "Groupdocs.Annotation.lic"
     'ExEnd:CommonProperties
 
