@@ -1,10 +1,10 @@
-﻿using System;
-using GroupDocs.Annotation.Data.Contracts.DataObjects;
-using GroupDocs.Annotation.Data.Contracts.Repositories;
+﻿using System; 
+using GroupDocs.Annotation.Handler.Input.DataObjects;
+using GroupDocs.Annotation.Handler.Input;
 
 namespace GroupDocs.Data.Json.Repositories
 {
-    public class DocumentRepository : JsonRepository<Document>, IDocumentRepository
+    public class DocumentRepository : JsonRepository<Document>, IDocumentDataHandler
     {
         private const string _repoName = "GroupDocs.annotation.documents.json";
 

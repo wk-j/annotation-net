@@ -9,46 +9,46 @@
 
         '#Region "Annotation Functions"
 
-        'Add text annotation
+        ''Add text annotation
         'Annotations.AddTextAnnotation()
 
-        'Add area annotation with replies 
+        ''Add area annotation with replies 
         'Annotations.AddAreaAnnotationWithReplies()
 
-        'Add point annotation
+        ''Add point annotation
         'Annotations.AddPointAnnotation()
 
-        'Add text strike out annotation
+        ''Add text strike out annotation
         'Annotations.AddTextStrikeOutAnnotation()
 
-        'Add polyline annotation
+        ''Add polyline annotation
         'Annotations.AddPolylineAnnotation()
 
-        'Add text field annotation
+        ''Add text field annotation
         'Annotations.AddTextFieldAnnotation()
 
-        'Add watermark annotation
+        ''Add watermark annotation
         'Annotations.AddWatermarkAnnotation()
 
-        'Add text replacement annotation
+        ''Add text replacement annotation
         'Annotations.AddTextReplacementAnnotation()
 
-        'Add arrow annotation
+        ''Add arrow annotation
         'Annotations.AddArrowAnnotation()
 
-        'Add text redaction annotation
+        ''Add text redaction annotation
         'Annotations.AddTextRedactionAnnotation()
 
-        'Add underline annotation
+        ''Add underline annotation
         'Annotations.AddUnderLineAnnotation()
 
-        'Add distance annotation
+        ''Add distance annotation
         'Annotations.AddDistanceAnnotation()
 
-        'Add resource redaction annotation
+        ''Add resource redaction annotation
         'Annotations.AddResourceRedactionAnnotation()
 
-        'Remove all annotations
+        ''Remove all annotations
         'Annotations.RemoveAllAnnotationsFromDocument()
 
         '#End Region
@@ -58,52 +58,62 @@
         'Create document
         'DataStorage.CreateDocument()
 
-        'Assign access rights
+        ''Assign access rights
         'DataStorage.AssignAccessRights()
 
-        'Create and get annotation
+        ''Create and get annotation
         'DataStorage.CreateAndGetAnnotation()
 
-        'Get all annotation of a document
+        ''Get all annotation of a document
         'DataStorage.GetAllDocumentAnnotation()
 
-        'Resize annotation 
+        ''Resize annotation 
         'DataStorage.ResizeAnnotationResult()
 
-        'Move an anotation 
+        ''Move an anotation 
         'DataStorage.MoveAnnotationResult()
 
-        'Set background color
+        ''Set background color
         'DataStorage.SetBackgroundColorResult()
 
-        'Edit annotation
+        ''Edit annotation
         'DataStorage.EditTextFieldAnnotation()
 
-        'Remove annotation
+        ''Remove annotation
         'DataStorage.RemoveAnnotation()
 
-        'Add annotation reply
+        ''Add annotation reply
         'DataStorage.AddAnnotationReply()
 
-        'Add document collaborator
-        'DataStorage.AddCollaborator();
+        ''Add document collaborator
+        'DataStorage.AddCollaborator()
 
-        'Get document collaborator
-        'DataStorage.GetCollaborator();
+        ''Get document collaborator
+        'DataStorage.GetCollaborator()
 
-        'Update document collaborator
-        'DataStorage.UpdateCollaborator();
+        ''Update document collaborator
+        'DataStorage.UpdateCollaborator()
 
-        'Delete document collaborator
-        'DataStorage.DeleteCollaborator();
+        ''Delete document collaborator
+        'DataStorage.DeleteCollaborator()
 
-        'Delete document collaborator
-        'DataStorage.ManageCollaboratorRights();
+        ''Delete document collaborator
+        'DataStorage.ManageCollaboratorRights()
 
-        'Export annotation to document
+        ''Export annotation to document
         'DataStorage.ExportAnnotationInFile()
 
         '#End Region
+
+        ''#Region "Other Operations"
+
+        ''Get image representation of the document
+        'CommonUtilities.GetImageRepresentation("sample.pdf");
+
+        ''Get text coordinates in image representation of the document
+        'CommonUtilities.GetTextCoordinates("sample.pdf");
+        '#End Region
+        Console.ReadKey()
     End Sub
 
 End Module

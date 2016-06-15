@@ -1,6 +1,10 @@
-﻿using GroupDocs.Annotation.Contracts;
-using GroupDocs.Annotation.Contracts.Results;
-using GroupDocs.Annotation.Data.Contracts.DataObjects;
+﻿using GroupDocs.Annotation.Config;
+using GroupDocs.Annotation.Domain;
+using GroupDocs.Annotation.Domain.Results;
+using GroupDocs.Annotation.Exception;
+using GroupDocs.Annotation.Handler;
+using GroupDocs.Annotation.Handler.Input;
+using GroupDocs.Annotation.Handler.Input.DataObjects;
 using GroupDocs.Data.Json;
 using GroupDocs.Data.Json.Repositories;
 using System;
@@ -30,26 +34,16 @@ namespace GroupDocs.Annotation.CSharp
             try
             {
                 //ExStart:ExportAnnotationInFile
-                // Create instance of annotator.
-                IRepositoryPathFinder pathFinder = new RepositoryPathFinder();
-                IAnnotator annotator = new Annotator(
-                    new UserRepository(pathFinder),
-                    new DocumentRepository(pathFinder),
-                    new AnnotationRepository(pathFinder),
-                    new AnnotationReplyRepository(pathFinder),
-                    new AnnotationCollaboratorRepository(pathFinder));
-
-
-                var documentRepository = new DocumentRepository(pathFinder);
-
+                // Create instance of annotator. 
+                AnnotationConfig cfg = CommonUtilities.GetConfiguration();
+                
+                AnnotationImageHandler annotator = new AnnotationImageHandler(cfg);
+                 
                 // Get file stream
                 Stream manifestResourceStream = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
                 List<AnnotationInfo> annotations = new List<AnnotationInfo>();
-
-                // Get document
-                var document = documentRepository.GetDocument("Document.pdf");
-
-                Stream stream = annotator.ExportAnnotationsToDocument(document.Id, manifestResourceStream, DocumentType.Pdf);
+                
+                Stream stream = annotator.ExportAnnotationsToDocument(manifestResourceStream,annotations, DocumentType.Pdf);
 
                 // Save result stream to file.
                 using (FileStream fileStream = new FileStream(CommonUtilities.MapDestinationFilePath("Annotated.pdf"), FileMode.Create))
@@ -62,7 +56,7 @@ namespace GroupDocs.Annotation.CSharp
                 }
                 //ExEnd:ExportAnnotationInFile
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
@@ -76,26 +70,26 @@ namespace GroupDocs.Annotation.CSharp
             try
             {
                 //ExStart:CreateDocument
-                IRepositoryPathFinder pathFinder = new RepositoryPathFinder();
-                var documentRepository = new DocumentRepository(pathFinder);
+                // Create instance of annotator. 
+                AnnotationConfig cfg = CommonUtilities.GetConfiguration();
 
-                // Create instance of annotator
-                IAnnotator annotator = new Annotator(
-                    new UserRepository(pathFinder),
-                    new DocumentRepository(pathFinder),
-                    new AnnotationRepository(pathFinder),
-                    new AnnotationReplyRepository(pathFinder),
-                    new AnnotationCollaboratorRepository(pathFinder));
+                AnnotationImageHandler annotator = new AnnotationImageHandler(cfg);
+
+                IDocumentDataHandler documentRepository = annotator.GetDocumentDataHandler();
+                if (!Directory.Exists(cfg.StoragePath))
+                {
+                    Directory.CreateDirectory(cfg.StoragePath);
+                }
 
                 // Create document data object in storage.
-                var document = documentRepository.GetDocument("Document.pdf");
-                long documentId = document != null ? document.Id : annotator.CreateDocument("Document.pdf");
+                var document = documentRepository.GetDocument("sample.pdf");
+                long documentId = document != null ? document.Id : annotator.CreateDocument("sample.pdf");
 
                 Console.WriteLine("Document ID : " + documentId);
                 //ExEnd:CreateDocument
 
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
@@ -109,18 +103,16 @@ namespace GroupDocs.Annotation.CSharp
             try
             {
                 //ExStart:AssignAccessRight
-                // Creat path finder 
-                IRepositoryPathFinder pathFinder = new RepositoryPathFinder();
-                var documentRepository = new DocumentRepository(pathFinder);
+                // Create instance of annotator. 
+                AnnotationConfig cfg = CommonUtilities.GetConfiguration();
 
-                // Create instance of annotator
-                IAnnotator annotator = new Annotator(
-                    new UserRepository(pathFinder),
-                    new DocumentRepository(pathFinder),
-                    new AnnotationRepository(pathFinder),
-                    new AnnotationReplyRepository(pathFinder),
-                    new AnnotationCollaboratorRepository(pathFinder));
+                AnnotationImageHandler annotator = new AnnotationImageHandler(cfg);
 
+                IDocumentDataHandler documentRepository = annotator.GetDocumentDataHandler();
+                if (!Directory.Exists(cfg.StoragePath))
+                {
+                    Directory.CreateDirectory(cfg.StoragePath);
+                }
 
                 // Create document data object in storage.
                 var document = documentRepository.GetDocument("Document.pdf");
@@ -130,7 +122,7 @@ namespace GroupDocs.Annotation.CSharp
                 annotator.SetDocumentAccessRights(documentId, AnnotationReviewerRights.All);
                 //ExEnd:AssignAccessRight
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
@@ -144,17 +136,16 @@ namespace GroupDocs.Annotation.CSharp
             try
             {
                 //ExStart:CreateAndGetAnnotation
-                // Create path finder 
-                IRepositoryPathFinder pathFinder = new RepositoryPathFinder();
-                var documentRepository = new DocumentRepository(pathFinder);
+                // Create instance of annotator. 
+                AnnotationConfig cfg = CommonUtilities.GetConfiguration();
 
-                // Create instance of annotator
-                IAnnotator annotator = new Annotator(
-                    new UserRepository(pathFinder),
-                    new DocumentRepository(pathFinder),
-                    new AnnotationRepository(pathFinder),
-                    new AnnotationReplyRepository(pathFinder),
-                    new AnnotationCollaboratorRepository(pathFinder));
+                AnnotationImageHandler annotator = new AnnotationImageHandler(cfg);
+
+                IDocumentDataHandler documentRepository = annotator.GetDocumentDataHandler();
+                if (!Directory.Exists(cfg.StoragePath))
+                {
+                    Directory.CreateDirectory(cfg.StoragePath);
+                }
 
                 // Create document data object in storage.
                 var document = documentRepository.GetDocument("Document.pdf");
@@ -196,7 +187,7 @@ namespace GroupDocs.Annotation.CSharp
                 GetAnnotationResult result = annotator.GetAnnotation(createPointAnnotationResult.Guid);
                 //ExEnd:CreateAndGetAnnotation
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
@@ -211,17 +202,16 @@ namespace GroupDocs.Annotation.CSharp
             try
             {
                 //ExStart:GetAllAnnotation
-                // Create path finder 
-                IRepositoryPathFinder pathFinder = new RepositoryPathFinder();
-                var documentRepository = new DocumentRepository(pathFinder);
+                // Create instance of annotator. 
+                AnnotationConfig cfg = CommonUtilities.GetConfiguration();
 
-                // Create instance of annotator
-                IAnnotator annotator = new Annotator(
-                    new UserRepository(pathFinder),
-                    new DocumentRepository(pathFinder),
-                    new AnnotationRepository(pathFinder),
-                    new AnnotationReplyRepository(pathFinder),
-                    new AnnotationCollaboratorRepository(pathFinder));
+                AnnotationImageHandler annotator = new AnnotationImageHandler(cfg);
+
+                IDocumentDataHandler documentRepository = annotator.GetDocumentDataHandler();
+                if (!Directory.Exists(cfg.StoragePath))
+                {
+                    Directory.CreateDirectory(cfg.StoragePath);
+                }
 
                 // Create document data object in storage.
                 var document = documentRepository.GetDocument("Document.pdf");
@@ -233,7 +223,7 @@ namespace GroupDocs.Annotation.CSharp
                 return result;
                 //ExEnd:GetAllAnnotation
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
                 return null;
@@ -248,17 +238,16 @@ namespace GroupDocs.Annotation.CSharp
             try
             {
                 //ExStart:ResizeAnnotationResult
-                // Create path finder 
-                IRepositoryPathFinder pathFinder = new RepositoryPathFinder();
-                var documentRepository = new DocumentRepository(pathFinder);
+                // Create instance of annotator. 
+                AnnotationConfig cfg = CommonUtilities.GetConfiguration();
 
-                // Create instance of annotator
-                IAnnotator annotator = new Annotator(
-                    new UserRepository(pathFinder),
-                    new DocumentRepository(pathFinder),
-                    new AnnotationRepository(pathFinder),
-                    new AnnotationReplyRepository(pathFinder),
-                    new AnnotationCollaboratorRepository(pathFinder));
+                AnnotationImageHandler annotator = new AnnotationImageHandler(cfg);
+
+                IDocumentDataHandler documentRepository = annotator.GetDocumentDataHandler();
+                if (!Directory.Exists(cfg.StoragePath))
+                {
+                    Directory.CreateDirectory(cfg.StoragePath);
+                }
 
                 // Create document data object in storage.
                 var document = documentRepository.GetDocument("Document.pdf");
@@ -288,7 +277,7 @@ namespace GroupDocs.Annotation.CSharp
                 });
                 //ExEnd:ResizeAnnotationResult
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
@@ -302,17 +291,16 @@ namespace GroupDocs.Annotation.CSharp
             try
             {
                 //ExStart:MoveAnnotationResult
-                // Create path finder 
-                IRepositoryPathFinder pathFinder = new RepositoryPathFinder();
-                var documentRepository = new DocumentRepository(pathFinder);
+                // Create instance of annotator. 
+                AnnotationConfig cfg = CommonUtilities.GetConfiguration();
 
-                // Create instance of annotator
-                IAnnotator annotator = new Annotator(
-                    new UserRepository(pathFinder),
-                    new DocumentRepository(pathFinder),
-                    new AnnotationRepository(pathFinder),
-                    new AnnotationReplyRepository(pathFinder),
-                    new AnnotationCollaboratorRepository(pathFinder));
+                AnnotationImageHandler annotator = new AnnotationImageHandler(cfg);
+
+                IDocumentDataHandler documentRepository = annotator.GetDocumentDataHandler();
+                if (!Directory.Exists(cfg.StoragePath))
+                {
+                    Directory.CreateDirectory(cfg.StoragePath);
+                }
 
                 // Create document data object in storage.
                 var document = documentRepository.GetDocument("Document.pdf");
@@ -339,7 +327,7 @@ namespace GroupDocs.Annotation.CSharp
                                                         new Point(200, 200),/*NewPageNumber*/1);
                 //ExEnd:MoveAnnotationResult
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
@@ -353,17 +341,16 @@ namespace GroupDocs.Annotation.CSharp
             try
             {
                 //ExStart:SetBackgroundColorResult
-                // Create path finder 
-                IRepositoryPathFinder pathFinder = new RepositoryPathFinder();
-                var documentRepository = new DocumentRepository(pathFinder);
+                // Create instance of annotator. 
+                AnnotationConfig cfg = CommonUtilities.GetConfiguration();
 
-                // Create instance of annotator
-                IAnnotator annotator = new Annotator(
-                    new UserRepository(pathFinder),
-                    new DocumentRepository(pathFinder),
-                    new AnnotationRepository(pathFinder),
-                    new AnnotationReplyRepository(pathFinder),
-                    new AnnotationCollaboratorRepository(pathFinder));
+                AnnotationImageHandler annotator = new AnnotationImageHandler(cfg);
+
+                IDocumentDataHandler documentRepository = annotator.GetDocumentDataHandler();
+                if (!Directory.Exists(cfg.StoragePath))
+                {
+                    Directory.CreateDirectory(cfg.StoragePath);
+                }
 
                 // Create document data object in storage.
                 var document = documentRepository.GetDocument("Document.pdf");
@@ -390,7 +377,7 @@ namespace GroupDocs.Annotation.CSharp
                 SaveAnnotationTextResult setBackgroundColorResult = annotator.SetAnnotationBackgroundColor(createTextFieldAnnotationResult.Id, 16711680);
                 //ExEnd:SetBackgroundColorResult
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
@@ -404,17 +391,16 @@ namespace GroupDocs.Annotation.CSharp
             try
             {
                 //ExStart:EditTextFieldAnnotation
-                // Create path finder 
-                IRepositoryPathFinder pathFinder = new RepositoryPathFinder();
-                var documentRepository = new DocumentRepository(pathFinder);
+                // Create instance of annotator. 
+                AnnotationConfig cfg = CommonUtilities.GetConfiguration();
 
-                // Create instance of annotator
-                IAnnotator annotator = new Annotator(
-                    new UserRepository(pathFinder),
-                    new DocumentRepository(pathFinder),
-                    new AnnotationRepository(pathFinder),
-                    new AnnotationReplyRepository(pathFinder),
-                    new AnnotationCollaboratorRepository(pathFinder));
+                AnnotationImageHandler annotator = new AnnotationImageHandler(cfg);
+
+                IDocumentDataHandler documentRepository = annotator.GetDocumentDataHandler();
+                if (!Directory.Exists(cfg.StoragePath))
+                {
+                    Directory.CreateDirectory(cfg.StoragePath);
+                }
 
                 // Create document data object in storage.
                 var document = documentRepository.GetDocument("Document.pdf");
@@ -453,7 +439,7 @@ namespace GroupDocs.Annotation.CSharp
                                         (createTextFieldAnnotationResult.Id, 16753920);
                 //ExEnd:EditTextFieldAnnotation
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
@@ -467,17 +453,16 @@ namespace GroupDocs.Annotation.CSharp
             try
             {
                 //ExStart:RemoveAnnotation
-                // Create path finder 
-                IRepositoryPathFinder pathFinder = new RepositoryPathFinder();
-                var documentRepository = new DocumentRepository(pathFinder);
+                // Create instance of annotator. 
+                AnnotationConfig cfg = CommonUtilities.GetConfiguration();
 
-                // Create instance of annotator
-                IAnnotator annotator = new Annotator(
-                    new UserRepository(pathFinder),
-                    new DocumentRepository(pathFinder),
-                    new AnnotationRepository(pathFinder),
-                    new AnnotationReplyRepository(pathFinder),
-                    new AnnotationCollaboratorRepository(pathFinder));
+                AnnotationImageHandler annotator = new AnnotationImageHandler(cfg);
+
+                IDocumentDataHandler documentRepository = annotator.GetDocumentDataHandler();
+                if (!Directory.Exists(cfg.StoragePath))
+                {
+                    Directory.CreateDirectory(cfg.StoragePath);
+                }
 
                 // Create document data object in storage.
                 var document = documentRepository.GetDocument("Document.pdf");
@@ -508,7 +493,7 @@ namespace GroupDocs.Annotation.CSharp
                 annotator.DeleteAnnotations(documentId);
                 //ExEnd:RemoveAnnotation
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
@@ -522,16 +507,16 @@ namespace GroupDocs.Annotation.CSharp
             try
             {
                 //ExStart:AddAnnotationReply
-                IRepositoryPathFinder pathFinder = new RepositoryPathFinder();
-                var documentRepository = new DocumentRepository(pathFinder);
+                // Create instance of annotator. 
+                AnnotationConfig cfg = CommonUtilities.GetConfiguration();
 
-                // Create instance of annotator
-                IAnnotator annotator = new Annotator(
-                    new UserRepository(pathFinder),
-                    documentRepository,
-                    new AnnotationRepository(pathFinder),
-                    new AnnotationReplyRepository(pathFinder),
-                    new AnnotationCollaboratorRepository(pathFinder));
+                AnnotationImageHandler annotator = new AnnotationImageHandler(cfg);
+
+                IDocumentDataHandler documentRepository = annotator.GetDocumentDataHandler();
+                if (!Directory.Exists(cfg.StoragePath))
+                {
+                    Directory.CreateDirectory(cfg.StoragePath);
+                }
 
                 // Create document data object in storage
                 var document = documentRepository.GetDocument("Document.pdf");
@@ -570,7 +555,7 @@ namespace GroupDocs.Annotation.CSharp
                 var listRepliesResultAfterDeleteAll = annotator.ListAnnotationReplies(createPointAnnotationResult.Id);
                 //ExEnd:AddAnnotationReply
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
@@ -583,20 +568,19 @@ namespace GroupDocs.Annotation.CSharp
         {
             try
             {
-                //ExStart:AddCollaborator
-                // Create repository path finder
-                IRepositoryPathFinder pathFinder = new RepositoryPathFinder();
-                var userRepository = new UserRepository(pathFinder);
+                //ExStart:AddCollaborator 
+                // Create instance of annotator. 
+                AnnotationConfig cfg = CommonUtilities.GetConfiguration();
 
-                var documentRepository = new DocumentRepository(pathFinder);
+                AnnotationImageHandler annotator = new AnnotationImageHandler(cfg);
 
-                // Create instance of annotator
-                IAnnotator annotator = new Annotator(
-                    userRepository,
-                    documentRepository,
-                    new AnnotationRepository(pathFinder),
-                    new AnnotationReplyRepository(pathFinder),
-                    new AnnotationCollaboratorRepository(pathFinder));
+                IUserDataHandler userRepository = annotator.GetUserDataHandler();
+
+                IDocumentDataHandler documentRepository = annotator.GetDocumentDataHandler();
+                if (!Directory.Exists(cfg.StoragePath))
+                {
+                    Directory.CreateDirectory(cfg.StoragePath);
+                }
 
                 // Create a user that will be an owner.           
                 // Get user from the storage 
@@ -635,7 +619,7 @@ namespace GroupDocs.Annotation.CSharp
                 var addCollaboratorResult = annotator.AddCollaborator(documentId, reviewerInfo);
                 //ExEnd:AddCollaborator                
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
@@ -648,20 +632,20 @@ namespace GroupDocs.Annotation.CSharp
         {
             try
             {
-                //ExStart:GetCollaborator
-                // Create repository path finder
-                IRepositoryPathFinder pathFinder = new RepositoryPathFinder();
-                var userRepository = new UserRepository(pathFinder);
+                //ExStart:GetCollaborator 
+                // Create instance of annotator. 
+                AnnotationConfig cfg = CommonUtilities.GetConfiguration();
 
-                var documentRepository = new DocumentRepository(pathFinder);
+                //Create annotation handler
+                AnnotationImageHandler annotator = new AnnotationImageHandler(cfg);
 
-                // Create instance of annotator
-                IAnnotator annotator = new Annotator(
-                    userRepository,
-                    documentRepository,
-                    new AnnotationRepository(pathFinder),
-                    new AnnotationReplyRepository(pathFinder),
-                    new AnnotationCollaboratorRepository(pathFinder));
+                IUserDataHandler userRepository = annotator.GetUserDataHandler();
+
+                IDocumentDataHandler documentRepository = annotator.GetDocumentDataHandler();
+                if (!Directory.Exists(cfg.StoragePath))
+                {
+                    Directory.CreateDirectory(cfg.StoragePath);
+                }
 
                 // Create a user that will be an owner.           
                 // Get user from the storage 
@@ -707,7 +691,7 @@ namespace GroupDocs.Annotation.CSharp
                 ReviewerInfo collaboratorMetadataResult = annotator.GetCollaboratorMetadata(user.Guid);
                 //ExEnd:GetCollaborator                
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
@@ -721,19 +705,19 @@ namespace GroupDocs.Annotation.CSharp
             try
             {
                 //ExStart:UpdateCollaborator
-                // Create repository path finder
-                IRepositoryPathFinder pathFinder = new RepositoryPathFinder();
-                var userRepository = new UserRepository(pathFinder);
+                // Create instance of annotator. 
+                AnnotationConfig cfg = CommonUtilities.GetConfiguration();
 
-                var documentRepository = new DocumentRepository(pathFinder);
+                //Create annotation handler
+                AnnotationImageHandler annotator = new AnnotationImageHandler(cfg);
 
-                // Create instance of annotator
-                IAnnotator annotator = new Annotator(
-                    userRepository,
-                    documentRepository,
-                    new AnnotationRepository(pathFinder),
-                    new AnnotationReplyRepository(pathFinder),
-                    new AnnotationCollaboratorRepository(pathFinder));
+                IUserDataHandler userRepository = annotator.GetUserDataHandler();
+
+                IDocumentDataHandler documentRepository = annotator.GetDocumentDataHandler();
+                if (!Directory.Exists(cfg.StoragePath))
+                {
+                    Directory.CreateDirectory(cfg.StoragePath);
+                }
 
                 // Create a user that will be an owner.           
                 // Get user from the storage 
@@ -772,7 +756,7 @@ namespace GroupDocs.Annotation.CSharp
                 var updateCollaboratorResult = annotator.UpdateCollaborator(documentId, reviewerInfo);
                 //ExEnd:UpdateCollaborator            
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
@@ -786,19 +770,19 @@ namespace GroupDocs.Annotation.CSharp
             try
             {
                 //ExStart:DeleteCollaborator
-                // Create repository path finder
-                IRepositoryPathFinder pathFinder = new RepositoryPathFinder();
-                var userRepository = new UserRepository(pathFinder);
+                // Create instance of annotator. 
+                AnnotationConfig cfg = CommonUtilities.GetConfiguration();
 
-                var documentRepository = new DocumentRepository(pathFinder);
+                //Create annotation handler
+                AnnotationImageHandler annotator = new AnnotationImageHandler(cfg);
 
-                // Create instance of annotator
-                IAnnotator annotator = new Annotator(
-                    userRepository,
-                    documentRepository,
-                    new AnnotationRepository(pathFinder),
-                    new AnnotationReplyRepository(pathFinder),
-                    new AnnotationCollaboratorRepository(pathFinder));
+                IUserDataHandler userRepository = annotator.GetUserDataHandler();
+
+                IDocumentDataHandler documentRepository = annotator.GetDocumentDataHandler();
+                if (!Directory.Exists(cfg.StoragePath))
+                {
+                    Directory.CreateDirectory(cfg.StoragePath);
+                }
 
                 // Create a user that will be an owner.           
                 // Get user from the storage 
@@ -837,7 +821,7 @@ namespace GroupDocs.Annotation.CSharp
                 var deleteCollaboratorResult = annotator.DeleteCollaborator(documentId, reviewerInfo.PrimaryEmail);
                 //ExEnd:DeleteCollaborator
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
@@ -851,18 +835,19 @@ namespace GroupDocs.Annotation.CSharp
             try
             {
                 //ExStart:ManageCollaboratorRights
-                IRepositoryPathFinder pathFinder = new RepositoryPathFinder();
+                // Create instance of annotator. 
+                AnnotationConfig cfg = CommonUtilities.GetConfiguration();
 
-                var userRepository = new UserRepository(pathFinder);
-                var documentRepository = new DocumentRepository(pathFinder);
+                //Create annotation handler
+                AnnotationImageHandler annotator = new AnnotationImageHandler(cfg);
 
-                // Create instance of annotator
-                IAnnotator annotator = new Annotator(
-                    userRepository,
-                    documentRepository,
-                    new AnnotationRepository(pathFinder),
-                    new AnnotationReplyRepository(pathFinder),
-                    new AnnotationCollaboratorRepository(pathFinder));
+                IUserDataHandler userRepository = annotator.GetUserDataHandler();
+
+                IDocumentDataHandler documentRepository = annotator.GetDocumentDataHandler();
+                if (!Directory.Exists(cfg.StoragePath))
+                {
+                    Directory.CreateDirectory(cfg.StoragePath);
+                }
 
                 // Create owner. 
                 var johnOwner = userRepository.GetUserByEmail("john@doe.com");
@@ -928,7 +913,7 @@ namespace GroupDocs.Annotation.CSharp
                 var judyResultCanAnnotate = annotator.CreateAnnotation(pointAnnotation, documentId, judy.Id);
                 //ExEnd:ManageCollaboratorRights
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
