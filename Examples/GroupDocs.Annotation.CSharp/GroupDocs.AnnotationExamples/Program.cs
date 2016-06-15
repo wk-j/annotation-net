@@ -4,9 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GroupDocs.Data.Json;
-using GroupDocs.Annotation.Contracts;
 using GroupDocs.Data.Json.Repositories;
-using GroupDocs.Annotation.Contracts.Results;
 using System.IO;
 
 namespace GroupDocs.Annotation.CSharp
@@ -68,7 +66,7 @@ namespace GroupDocs.Annotation.CSharp
 
             #region DataStorage Functions
 
-            ////Create document
+            //Create document
             //DataStorage.CreateDocument();
 
             ////Assign access rights
@@ -118,10 +116,18 @@ namespace GroupDocs.Annotation.CSharp
 
             #endregion
 
+            #region Other Operations
+
+            ////Get image representation of the document
+            //CommonUtilities.GetImageRepresentation("sample.pdf");
+
+            ////Get text coordinates in image representation of the document
+            //CommonUtilities.GetTextCoordinates("sample.pdf");
+            #endregion
             Console.ReadKey();
-            
+
         }
 
-        
+
     }
 }

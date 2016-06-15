@@ -1,4 +1,9 @@
-﻿using GroupDocs.Annotation.Contracts;
+﻿using GroupDocs.Annotation.Config;
+using GroupDocs.Annotation.Domain;
+using GroupDocs.Annotation.Domain.Image;
+using GroupDocs.Annotation.Domain.Options;
+using GroupDocs.Annotation.Handler;
+using GroupDocs.Annotation.Handler.Input;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,9 +17,9 @@ namespace GroupDocs.Annotation.CSharp
     class CommonUtilities
     {
         //ExStart:CommonProperties
-        private const string SourceFolderPath = "../../../../Data/Samples/";
+        private const string StorageFolderPath = "../../../../Data/Samples/";
         private const string DestinationFolderPath = "../../../../Data/Output/";
-        private const string LicenseFilePath = "Groupdocs.Annotation.lic";
+        private const string LicenseFilePath = "D://Groupdocs.Total.lic";
         //ExEnd:CommonProperties
 
         //ExStart:MapSourceFilePath
@@ -27,9 +32,9 @@ namespace GroupDocs.Annotation.CSharp
         {
             try
             {
-                return SourceFolderPath + SourceFileName;
+                return StorageFolderPath + SourceFileName;
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
                 return exp.Message;
@@ -48,7 +53,7 @@ namespace GroupDocs.Annotation.CSharp
             {
                 return DestinationFolderPath + DestinationFileName;
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
                 return exp.Message;
@@ -64,7 +69,17 @@ namespace GroupDocs.Annotation.CSharp
             try
             {
                 //ExStart:SaveOutputDocument
-                IAnnotator annotator = new Annotator();
+                // Create instance of annotator. 
+                AnnotationConfig cfg = CommonUtilities.GetConfiguration();
+
+                AnnotationImageHandler annotator = new AnnotationImageHandler(cfg);
+
+                IDocumentDataHandler documentRepository = annotator.GetDocumentDataHandler();
+                if (!Directory.Exists(cfg.StoragePath))
+                {
+                    Directory.CreateDirectory(cfg.StoragePath);
+                } 
+
                 Stream result = annotator.ExportAnnotationsToDocument(inputFile, annotations, DocumentType.Pdf);
 
                 // Save result stream to file.
@@ -78,7 +93,7 @@ namespace GroupDocs.Annotation.CSharp
                 }
                 //ExEnd:SaveOutputDocument
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
@@ -97,12 +112,136 @@ namespace GroupDocs.Annotation.CSharp
                 // apply license
                 lic.SetLicense(LicenseFilePath);
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
         }
         //ExEnd:ApplyLicense
+
+        //ExStart:GetConfiguration
+        /// <summary>
+        /// Sets annotation configuration
+        /// </summary>
+        /// <returns>Returns AnnotationConfig object</returns>
+        public static AnnotationConfig GetConfiguration()
+        {
+            try
+            {
+                AnnotationConfig cfg = new AnnotationConfig();
+
+                //Set storage path 
+                cfg.StoragePath = StorageFolderPath;
+
+                return cfg;
+            }
+            catch (System.Exception exp)
+            {
+                Console.WriteLine(exp.Message);
+                return null;
+            }
+        }
+        //ExEnd:GetConfiguration
+
+        //ExStart:GetImageRepresentation
+        /// <summary>
+        /// Gets image representation of document
+        /// </summary>
+        /// <param name="filePath">Source file path</param> 
+        public static void GetImageRepresentation(string filePath)
+        {
+            try 
+            {
+                Stream document = new FileStream(MapSourceFilePath(filePath), FileMode.Open);
+                AnnotationConfig cfg = GetConfiguration();
+
+                AnnotationImageHandler annotationHandler = new AnnotationImageHandler(cfg);
+
+                List<PageImage> images = annotationHandler.GetPages(document, new ImageOptions());
+
+                // Save result stream to file.
+                using (FileStream fileStream = new FileStream(MapDestinationFilePath("image.png"), FileMode.Create))
+                {
+                    byte[] buffer = new byte[images[0].Stream.Length];
+                    images[0].Stream.Seek(0, SeekOrigin.Begin);
+                    images[0].Stream.Read(buffer, 0, buffer.Length);
+                    fileStream.Write(buffer, 0, buffer.Length);
+                    fileStream.Close();
+                }
+            }
+            catch (System.Exception exp)
+            {
+                Console.WriteLine(exp.Message); 
+            }
+
+        }
+        //ExEnd:GetImageRepresentation
+
+        //ExStart:GetTextCoordinatesInImage
+        /// <summary>
+        /// Gets text coordinates in image representation of document
+        /// </summary>
+        /// <param name="filePath">Source file path</param> 
+        public static void GetTextCoordinates(string filePath)
+        {
+            try
+            {
+                // Set configuration
+                AnnotationConfig cfg = GetConfiguration();
+
+                // Initialize annotator 
+                AnnotationImageHandler annotator = new AnnotationImageHandler(cfg);
+                try
+                {
+                    annotator.CreateDocument(filePath);
+                }
+                catch { }
+
+                var documentInfoContainer = annotator.GetDocumentInfo(filePath);
+
+                // Go through all pages
+                foreach (PageData pageData in documentInfoContainer.Pages)
+                {
+                    Console.WriteLine("Page number: " + pageData.Number);
+
+                    //Go through all page rows
+                    for (int i = 0; i < pageData.Rows.Count; i++)
+                    {
+                        RowData rowData = pageData.Rows[i];
+
+                        // Write data to console
+                        Console.WriteLine("Row: " + (i + 1));
+                        Console.WriteLine("Text: " + rowData.Text);
+                        Console.WriteLine("Text width: " + rowData.LineWidth);
+                        Console.WriteLine("Text height: " + rowData.LineHeight);
+                        Console.WriteLine("Distance from left: " + rowData.LineLeft);
+                        Console.WriteLine("Distance from top: " + rowData.LineTop);
+
+                        // Get words
+                        string[] words = rowData.Text.Split(' ');
+
+                        // Go through all word coordinates
+                        for (int j = 0; j < words.Length; j++)
+                        {
+                            int coordinateIndex = j == 0 ? 0 : j + 1;
+                            // Write data to console
+                            Console.WriteLine(string.Empty);
+                            Console.WriteLine("Word:'" + words[j] + "'");
+                            Console.WriteLine("Word distance from left: " + rowData.TextCoordinates[coordinateIndex]);
+                            Console.WriteLine("Word width: " + rowData.TextCoordinates[coordinateIndex + 1]);
+                            Console.WriteLine(string.Empty);
+                        }
+                        Console.ReadKey();
+                    }
+                }
+            }
+            catch (System.Exception exp)
+            {
+                Console.WriteLine(exp.Message);
+            }
+
+        }
+        //ExEnd:GetTextCoordinatesInImage
     }
     //ExEnd:CommonUtilities
 }

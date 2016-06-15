@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
-using GroupDocs.Annotation.Data.Contracts.Repositories;
+using GroupDocs.Annotation.Handler.Input;
 
 namespace GroupDocs.Data.Json.Repositories
 {
-    public class AnnotationRepository : JsonRepository<Annotation.Data.Contracts.DataObjects.Annotation>, IAnnotationRepository
+    public class AnnotationRepository : JsonRepository<GroupDocs.Annotation.Handler.Input.DataObjects.Annotation>, IAnnotationDataHandler
     {
         private const string _repoName = "GroupDocs.annotations.json";
 
@@ -18,7 +18,7 @@ namespace GroupDocs.Data.Json.Repositories
         {
         }
 
-        public Annotation.Data.Contracts.DataObjects.Annotation GetAnnotation(string guid)
+        public GroupDocs.Annotation.Handler.Input.DataObjects.Annotation GetAnnotation(string guid)
         {
             lock (_syncRoot)
             {
@@ -32,7 +32,7 @@ namespace GroupDocs.Data.Json.Repositories
                 }
             }
         }
-        public Annotation.Data.Contracts.DataObjects.Annotation[] GetDocumentAnnotations(long documentId, int? pageNumber = null)
+        public GroupDocs.Annotation.Handler.Input.DataObjects.Annotation[] GetDocumentAnnotations(long documentId, int? pageNumber = null)
         {
             lock (_syncRoot)
             {

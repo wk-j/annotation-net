@@ -1,4 +1,6 @@
-﻿using GroupDocs.Annotation.Contracts;
+﻿using GroupDocs.Annotation.Config;
+using GroupDocs.Annotation.Domain;
+using GroupDocs.Annotation.Handler;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -47,7 +49,7 @@ namespace GroupDocs.Annotation.CSharp
                 CommonUtilities.SaveOutputDocument(inputFile, annotations, DocumentType.Pdf);
                 //ExEnd:AddTextAnnotation
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
@@ -102,7 +104,7 @@ namespace GroupDocs.Annotation.CSharp
                 CommonUtilities.SaveOutputDocument(inputFile, annotations, DocumentType.Pdf);
                 //ExEnd:AddAreaAnnotationWithReplies
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
@@ -137,7 +139,7 @@ namespace GroupDocs.Annotation.CSharp
                 CommonUtilities.SaveOutputDocument(inputFile, annotations, DocumentType.Pdf);
                 //ExEnd:AddPointAnnotation
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
@@ -173,7 +175,7 @@ namespace GroupDocs.Annotation.CSharp
                 CommonUtilities.SaveOutputDocument(inputFile, annotations, DocumentType.Pdf);
                 //ExEnd:AddTextStrikeOutAnnotation
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
@@ -212,7 +214,7 @@ namespace GroupDocs.Annotation.CSharp
                 CommonUtilities.SaveOutputDocument(inputFile, annotations, DocumentType.Pdf);
                 //ExEnd:AddPolylineAnnotation
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
@@ -251,7 +253,7 @@ namespace GroupDocs.Annotation.CSharp
                 CommonUtilities.SaveOutputDocument(inputFile, annotations, DocumentType.Pdf);
                 //ExEnd:AddTextFieldAnnotation
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
@@ -291,7 +293,7 @@ namespace GroupDocs.Annotation.CSharp
                 CommonUtilities.SaveOutputDocument(inputFile, annotations, DocumentType.Pdf);
                 //ExEnd:AddWatermarkAnnotation
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
@@ -330,7 +332,7 @@ namespace GroupDocs.Annotation.CSharp
                 CommonUtilities.SaveOutputDocument(inputFile, annotations, DocumentType.Pdf);
                 //ExEnd:AddTextReplacementAnnotation
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
@@ -370,7 +372,7 @@ namespace GroupDocs.Annotation.CSharp
                 CommonUtilities.SaveOutputDocument(inputFile, annotations, DocumentType.Pdf);
                 //ExEnd:AddArrowAnnotation
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
@@ -406,7 +408,7 @@ namespace GroupDocs.Annotation.CSharp
                 CommonUtilities.SaveOutputDocument(inputFile, annotations, DocumentType.Pdf);
                 //ExEnd:AddTextRedactionAnnotation
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
@@ -442,7 +444,7 @@ namespace GroupDocs.Annotation.CSharp
                 CommonUtilities.SaveOutputDocument(inputFile, annotations, DocumentType.Pdf);
                 //ExEnd:AddUnderLineAnnotation
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
@@ -483,7 +485,7 @@ namespace GroupDocs.Annotation.CSharp
                 CommonUtilities.SaveOutputDocument(inputFile, annotations, DocumentType.Pdf);
                 //ExEnd:AddDistanceAnnotation
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
@@ -521,7 +523,7 @@ namespace GroupDocs.Annotation.CSharp
                 CommonUtilities.SaveOutputDocument(inputFile, annotations, DocumentType.Pdf);
                 //ExEnd:AddResourceRedactionAnnotation
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
@@ -536,9 +538,11 @@ namespace GroupDocs.Annotation.CSharp
             try
             {
                 //ExStart:RemoveAllAnnotationsFromDocument
-                // Initialize annotator
-                IAnnotator annotator = new Annotator();
-                
+                // Create instance of annotator. 
+                AnnotationConfig cfg = CommonUtilities.GetConfiguration();
+
+                AnnotationImageHandler annotator = new AnnotationImageHandler(cfg);
+                                                
                 // Get input file stream
                 Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
                 
@@ -556,7 +560,7 @@ namespace GroupDocs.Annotation.CSharp
                 }
                 //ExEnd:RemoveAllAnnotationsFromDocument
             }
-            catch (Exception exp)
+            catch (System.Exception exp)
             {
                 Console.WriteLine(exp.Message);
             }
