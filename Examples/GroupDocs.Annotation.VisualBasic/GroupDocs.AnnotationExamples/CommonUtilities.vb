@@ -52,6 +52,7 @@ Class CommonUtilities
     ''' <summary>
     ''' Saves output document
     ''' </summary>
+
     Public Shared Sub SaveOutputDocument(inputFile As Stream, annotations As List(Of AnnotationInfo), type As DocumentType)
         Try
             'ExStart:SaveOutputDocument
@@ -65,10 +66,13 @@ Class CommonUtilities
                 Directory.CreateDirectory(cfg.StoragePath)
             End If
 
-            Dim result As Stream = annotator.ExportAnnotationsToDocument(inputFile, annotations, DocumentType.Pdf)
+            Dim result As Stream = annotator.ExportAnnotationsToDocument(inputFile, annotations, type)
+
+            Dim getFileStream As FileStream = TryCast(inputFile, FileStream)
+            Dim extensionWithDot As String = Path.GetExtension(getFileStream.Name)
 
             ' Save result stream to file.
-            Using fileStream As New FileStream(MapDestinationFilePath("Annotated.pdf"), FileMode.Create)
+            Using fileStream As New FileStream(MapDestinationFilePath(Convert.ToString("Annotated") & extensionWithDot), FileMode.Create)
                 Dim buffer As Byte() = New Byte(result.Length - 1) {}
                 result.Seek(0, SeekOrigin.Begin)
                 result.Read(buffer, 0, buffer.Length)
@@ -80,6 +84,7 @@ Class CommonUtilities
             Console.WriteLine(exp.Message)
         End Try
     End Sub
+
 
     'ExStart:ApplyLicense
     ''' <summary>
