@@ -11,7 +11,7 @@ Imports System.Threading.Tasks
 Public Class Annotations
     ' initialize file path
     'ExStart:SourceDocFilePath
-    Private Const filePath As String = "sample.pdf"
+    Private Const filePath As String = "excel.xlsx"
     'ExEnd:SourceDocFilePath
 
     ''' <summary>
@@ -45,6 +45,71 @@ Public Class Annotations
             Console.WriteLine(exp.Message)
         End Try
     End Sub
+
+
+    ''' <summary>
+    ''' Add text annotation in cells
+    ''' </summary>
+    ''' Update filePath with path to Cells file before using this function
+    Public Shared Sub AddTextAnnotationInCells()
+        Try
+            'ExStart:AddTextAnnotationInCells
+            ' Get input file stream
+            Dim inputFile As Stream = New FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite)
+
+            ' Initialize list of AnnotationInfo
+            Dim annotations As New List(Of AnnotationInfo)()
+
+            ' Initialize text annotation.
+            Dim textAnnotation As New AnnotationInfo() With { _
+                 .PageNumber = 1, _
+                 .AnnotationPosition = New Point(3, 3), _
+                 .FieldText = "Hello!" _
+            }
+
+            ' Add annotation to list
+            annotations.Add(textAnnotation)
+
+            ' Export annotation and save output file
+            'ExEnd:AddTextAnnotationInCells
+            CommonUtilities.SaveOutputDocument(inputFile, annotations, DocumentType.Cells)
+        Catch exp As System.Exception
+            Console.WriteLine(exp.Message)
+        End Try
+    End Sub
+
+    ''' <summary>
+    ''' Add text annotation in slides
+    ''' </summary>
+    ''' Update filePath with path to Slides file before using this function
+    Public Shared Sub AddTextAnnotationInSlides()
+        Try
+            'ExStart:AddTextAnnotationInSlides
+            ' Get input file stream
+            Dim inputFile As Stream = New FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite)
+
+            ' Initialize list of AnnotationInfo
+            Dim annotations As New List(Of AnnotationInfo)()
+
+            ' Initialize text annotation.
+            Dim textAnnotation As New AnnotationInfo() With { _
+                 .PageNumber = 0, _
+                 .AnnotationPosition = New Point(1, 2), _
+                 .FieldText = "Hello!", _
+                 .CreatorName = "John" _
+            }
+
+            ' Add annotation to list
+            annotations.Add(textAnnotation)
+
+            ' Export annotation and save output file
+            'ExEnd:AddTextAnnotationInSlides
+            CommonUtilities.SaveOutputDocument(inputFile, annotations, DocumentType.Slides)
+        Catch exp As System.Exception
+            Console.WriteLine(exp.Message)
+        End Try
+    End Sub
+
 
     ''' <summary>
     ''' Adds area annotation with replies in PDF document

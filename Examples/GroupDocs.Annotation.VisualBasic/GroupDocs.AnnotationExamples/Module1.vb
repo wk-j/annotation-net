@@ -12,6 +12,12 @@
         ''Add text annotation
         'Annotations.AddTextAnnotation()
 
+        ''Add text annotation in cells
+        'Annotations.AddTextAnnotationInCells()
+
+        ''Add text annotation in slides
+        'Annotations.AddTextAnnotationInSlides()
+
         ''Add area annotation with replies 
         'Annotations.AddAreaAnnotationWithReplies()
 
