@@ -16,7 +16,7 @@ namespace GroupDocs.Annotation.CSharp
             /* Apply product license
              * Uncomment following function if you have product license
              * */
-            CommonUtilities.ApplyLicense();
+            //CommonUtilities.ApplyLicense();
 
             #region Annotation Functions
 
@@ -27,7 +27,7 @@ namespace GroupDocs.Annotation.CSharp
             //Annotations.AddTextAnnotationInCells();
 
             //Add text annotation in slides
-            Annotations.AddTextAnnotationInSlides();
+            //Annotations.AddTextAnnotationInSlides();
 
             ////Add area annotation with replies 
             //Annotations.AddAreaAnnotationWithReplies();
