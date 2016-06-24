@@ -80,10 +80,13 @@ namespace GroupDocs.Annotation.CSharp
                     Directory.CreateDirectory(cfg.StoragePath);
                 } 
 
-                Stream result = annotator.ExportAnnotationsToDocument(inputFile, annotations, DocumentType.Pdf);
+                Stream result = annotator.ExportAnnotationsToDocument(inputFile, annotations, type);
+
+                FileStream getFileStream = inputFile as FileStream;
+                string extensionWithDot = Path.GetExtension(getFileStream.Name);
 
                 // Save result stream to file.
-                using (FileStream fileStream = new FileStream(MapDestinationFilePath("Annotated.pdf"), FileMode.Create))
+                using (FileStream fileStream = new FileStream(MapDestinationFilePath("Annotated"+ extensionWithDot), FileMode.Create))
                 {
                     byte[] buffer = new byte[result.Length];
                     result.Seek(0, SeekOrigin.Begin);
