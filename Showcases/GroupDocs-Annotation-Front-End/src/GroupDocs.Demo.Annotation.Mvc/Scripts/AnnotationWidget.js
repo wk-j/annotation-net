@@ -297,7 +297,7 @@
 
                 if (phraseMatch) {
                     var phrase = phraseMatch[0];
-                    var internalPattern = new RegExp('.*?' + '(?:[a-z][a-z]+)' + '.*?' + '((?:[a-z][a-z]+))', ["i"]);  
+                    var internalPattern = new RegExp('.*?' + '(?:[a-z][a-z]+)' + '.*?' + '((?:[a-z][a-z]+))', ["i"]);
                     var key = internalPattern.exec(phrase);
                     var localizedWord = this.options.localizedStrings != null ? (this.options.localizedStrings[key[1]] ? this.options.localizedStrings[key[1]] : key[1]) : key[1];
                     if (localizedWord) {
@@ -571,7 +571,7 @@
                 '    </li>';
             }
 
-           /* if ((this.options.enabledTools & AnnotationTools.TextReplacement) == AnnotationTools.TextReplacement) {
+            if ((this.options.enabledTools & AnnotationTools.TextReplacement) == AnnotationTools.TextReplacement) {
                 html +=
                 '    <li>' +
                 '      <button class="tool_field replace_box" data-bind="css: {\'active\': $data.annotationModeObservable() == Annotation.prototype.AnnotationType.TextReplacement }, click: setReplacementAnnotationMode">' +
@@ -579,7 +579,7 @@
                 '      </button>' +
                 '    </li>';
             }
-            */
+
             if ((this.options.enabledTools & AnnotationTools.Arrow) == AnnotationTools.Arrow) {
                 html +=
                 '    <li>' +
@@ -845,7 +845,7 @@
                 '                 data-bind="style: { left: $data.annotation.displayBounds().left() + \'px\', top: $data.annotation.displayBounds().bottom() + 34 + \'px\', display: \'block\' }, click: function () { $root.showExpandedCommentsPanel(); $data.annotation.deactivateActiveReply(); $root.activeAnnotation($data.annotation); }">' +
                 '              <div class="replace_tab" data-bind="text: $data.REPLACETEXT">Replace</div>' +
                 '              <div class="doc_text_area_text mousetrap" data-bind="htmlValue: text, ' +
-                '                   style: { minWidth: $data.annotation.displayBounds().width() + \'px\', minHeight: $data.annotation.displayBounds().height() + \'px\', display: \'block\' },' +
+                '                   style: { minWidth: ($data.annotation.displayBounds().width()>170?$data.annotation.displayBounds().width():170) + \'px\', minHeight: ($data.annotation.displayBounds().height()<70?50:($data.annotation.displayBounds().height()>150?120:$data.annotation.displayBounds().height())) + \'px\', display: \'block\' },' +
                 '                   attr: { contenteditable: true },' +
                 '                   event: { koValueUpdated: function() { $root.saveTextField($data); return true; },' +
                 '                       mouseover: function() { if (!$data.annotation.isBeingDeleted()) { var sel = $root.getSelectableInstance(); sel._mouseDestroy(); } }, ' +
@@ -857,7 +857,6 @@
                 '          <!-- /ko -->';
 
         },
-
         _watermarksMarkup: function () {
             return '' +
                 '<!-- ko foreach: pages -->' +
@@ -899,7 +898,7 @@
                 '  <h3 class="ellipsis" data-localize="ImportingInternalDocumentAnnotations">Importing internal document annotations...</h3>' +
                 '</div>' +
 
-               
+
                 '<div class="modal fade manage_collaborators_modal" id="modal_inv">' +
                 '  <a data-dismiss="modal" class="popclose"></a>' +
                 '  <div class="sigModalbody">' +
