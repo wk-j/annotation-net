@@ -68,10 +68,10 @@ namespace GroupDocsAnnotationVisualStudioPlugin.GUI
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Right;
             this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(146, 17);
+            this.label2.Location = new System.Drawing.Point(147, 17);
             this.label2.MaximumSize = new System.Drawing.Size(320, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(320, 228);
+            this.label2.Size = new System.Drawing.Size(319, 152);
             this.label2.TabIndex = 3;
             this.label2.Text = resources.GetString("label2.Text");
             this.label2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -193,7 +193,7 @@ namespace GroupDocsAnnotationVisualStudioPlugin.GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(493, 472);
+            this.ClientSize = new System.Drawing.Size(493, 462);
             this.ControlBox = false;
             this.Controls.Add(this.AbortButton);
             this.Controls.Add(this.ContinueButton);
