@@ -2,7 +2,7 @@
 
 This package contains [Examples](https://github.com/groupdocsAnnotation/GroupDocs_Annotation_NET/tree/master/Examples) and  [Showcases](https://github.com/groupdocsAnnotation/GroupDocs_Annotation_NET/tree/master/Showcases) for [GroupDocs.Annotation for .NET](http://groupdocs.com/dot-net/document-Annotation-library) that will help you in understanding the API's working and writing your own applications.
 
-GroupDocs.Annotation for .NET is a .NET API which provides the technology to create powerful document Annotation component that allows you to display over 50 document formats in your .NET applications. The Annotation can both rasterize documents and convert them to SVG+HTML+CSS, delivering true-text high-fidelity rendering. Supported file formats include: Microsoft Office, Visio, Project, and Outlook documents, PDFs, AutoCAD, image files (TIFF, JPG, BMP, GIF, TIFF, etc.) and more.
+GroupDocs.Annotation is essentially devised to add annotations in documents within a .NET applications. API comes with an extensive number of markup tools. These tools permit users to highlight, strikeout, and comment on text and images. This doesn't end up here user can avail numerous properties to control annotation's appearance in the document.
 
 <p align="center">
 
