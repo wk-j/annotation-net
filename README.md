@@ -14,7 +14,7 @@ GroupDocs.Annotation for .NET is a .NET API which provides the technology to cre
 Directory | Description
 --------- | -----------
 [Examples](https://github.com/groupdocsAnnotation/GroupDocs_Annotation_NET/tree/master/Examples)  | Contains the package of all .NET examples (C# & VB) and sample files that will help you learn how to use product features. 
-[Showcases](https://github.com/groupdocsAnnotation/GroupDocs_Annotation_NET/tree/master/Showcases)  | The *Legacy Front End* and *New Front End* are the open source web based projects. These projects are based on Front Controller Design pattern and demonstrate the salient features of GroupDocs.Annotation. 
+[Showcases](https://github.com/groupdocsAnnotation/GroupDocs_Annotation_NET/tree/master/Showcases)  | The *Legacy Front End* is the open source web based projects. This project is based on Front Controller Design pattern and demonstrate the salient features of GroupDocs.Annotation API. 
 [Plugins](https://github.com/groupdocs-Annotation/GroupDocs.Annotation-for-.NET/tree/master/Plugins/GroupDocs_Annotation_VSPlugin)  | Contains the plugins related to GroupDocs.Annotation 3.x for Visual Studio.
 ## Resources
 
