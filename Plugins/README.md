@@ -1,0 +1,1 @@
+[Explore GroupDocs.Annotation API for .NET Examples using Visual Studio Plugin](https://github.com/groupdocs-Annotation/GroupDocs.Annotation-for-.NET/tree/master/Plugins/GroupDocs_Annotation_VSPlugin)
