@@ -212,7 +212,7 @@ namespace GroupDocsAnnotationVisualStudioPlugin.GUI
             WebClient webClient = new WebClient();
             webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
             webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
-            Uri url = new Uri("https://www.nuget.org/api/v2/package/groupdocs-Annotation-dotnet/3.0.0");
+            Uri url = new Uri("https://www.nuget.org/api/v2/package/groupdocs-Annotation-dotnet");
             webClient.DownloadFileAsync(url, destinationPath);
         }
 
