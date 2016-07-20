@@ -62,7 +62,7 @@ namespace GroupDocsAnnotationVisualStudioPlugin.GUI
             GroupDocsComponent component;
             GroupDocsComponents.list.TryGetValue(Constants.GROUPDOCS_COMPONENT, out component);
             string repoPath = GitHelper.getLocalRepositoryPath(component);
-            PopulateTreeView(repoPath + "/Examples/" + (rdbCSharp.Checked ? "GroupDocs.Annotation.Examples.CSharp" : "GroupDocs.Annotation.Examples.VisualBasic"));
+            PopulateTreeView(repoPath + "/Examples/" + (rdbCSharp.Checked ? "GroupDocs.Annotation.Examples.CSharp" : "VisualBasic"));
 
         }
 
@@ -241,19 +241,19 @@ namespace GroupDocsAnnotationVisualStudioPlugin.GUI
                 for (int i = 0; i < dllsPaths.Length; i++)
                 {
                     //For CSharp Project...
-                    if (!Directory.Exists(Path.Combine(destinationPath, "GroupDocs.Annotation.Examples.CSharp\\GroupDocs.Annotation.Examples", "Bin", "Debug")))
-                        Directory.CreateDirectory(Path.Combine(destinationPath, "GroupDocs.Annotation.Examples.CSharp\\GroupDocs.Annotation.Examples", "Bin", "Debug"));
-                    File.Copy(dllsPaths[i], Path.Combine(destinationPath, "GroupDocs.Annotation.Examples.CSharp\\GroupDocs.Annotation.Examples", "Bin", "Debug", Path.GetFileName(dllsPaths[i])), true);
+                    if (!Directory.Exists(Path.Combine(destinationPath, "CSharp", "Bin", "Debug")))
+                        Directory.CreateDirectory(Path.Combine(destinationPath, "CSharp", "Bin", "Debug"));
+                    File.Copy(dllsPaths[i], Path.Combine(destinationPath, "CSharp", "Bin", "Debug", Path.GetFileName(dllsPaths[i])), true);
 
                     //For VBasic Project...
-                    if (!Directory.Exists(Path.Combine(destinationPath, "GroupDocs.Annotation.Examples.VisualBasic", "Bin", "Debug")))
-                        Directory.CreateDirectory(Path.Combine(destinationPath, "GroupDocs.Annotation.Examples.VisualBasic", "Bin", "Debug"));
-                    File.Copy(dllsPaths[i], Path.Combine(destinationPath, "GroupDocs.Annotation.Examples.VisualBasic", "Bin", "Debug", Path.GetFileName(dllsPaths[i])), true);
+                    if (!Directory.Exists(Path.Combine(destinationPath, "VisualBasic", "Bin", "Debug")))
+                        Directory.CreateDirectory(Path.Combine(destinationPath, "VisualBasic", "Bin", "Debug"));
+                    File.Copy(dllsPaths[i], Path.Combine(destinationPath, "VisualBasic", "Bin", "Debug", Path.GetFileName(dllsPaths[i])), true);
                 }
 
                 progressBar1.Value = 50;
 
-                string[] projectFiles = Directory.GetFiles(Path.Combine(destinationPath, (rdbCSharp.Checked ? "GroupDocs.Annotation.Examples.CSharp\\GroupDocs.Annotation.Examples" : "GroupDocs.Annotation.Examples.VisualBasic")), (rdbCSharp.Checked ? "*.csproj" : "*.vbproj"));
+                string[] projectFiles = Directory.GetFiles(Path.Combine(destinationPath, (rdbCSharp.Checked ? "CSharp" : "VisualBasic")), (rdbCSharp.Checked ? "*.csproj" : "*.vbproj"));
                 for (int i = 0; i < projectFiles.Length; i++)
                 {
                     UpdatePrjReferenceHintPath(projectFiles[i], component);
@@ -551,7 +551,7 @@ namespace GroupDocsAnnotationVisualStudioPlugin.GUI
             GroupDocsComponent component;
             GroupDocsComponents.list.TryGetValue(Constants.GROUPDOCS_COMPONENT, out component);
             string repoPath = GitHelper.getLocalRepositoryPath(component);
-            PopulateTreeView(repoPath + "/Examples/" + (rdbCSharp.Checked ? "GroupDocs.Annotation.Examples.CSharp" : "GroupDocs.Annotation.Examples.VisualBasic"));
+            PopulateTreeView(repoPath + "/Examples/" + (rdbCSharp.Checked ? "GroupDocs.Annotation.Examples.CSharp" : "VisualBasic"));
 
 
         }
@@ -561,7 +561,7 @@ namespace GroupDocsAnnotationVisualStudioPlugin.GUI
             GroupDocsComponent component;
             GroupDocsComponents.list.TryGetValue(Constants.GROUPDOCS_COMPONENT, out component);
             string repoPath = GitHelper.getLocalRepositoryPath(component);
-            PopulateTreeView(repoPath + "/Examples/" + (rdbCSharp.Checked ? "GroupDocs.Annotation.Examples.CSharp" : "GroupDocs.Annotation.Examples.VisualBasic"));
+            PopulateTreeView(repoPath + "/Examples/" + (rdbCSharp.Checked ? "GroupDocs.Annotation.Examples.CSharp" : "VisualBasic"));
 
 
         }
