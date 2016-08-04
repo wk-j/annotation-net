@@ -16,12 +16,12 @@ namespace GroupDocs.Annotation.CSharp
             /* Apply product license
              * Uncomment following function if you have product license
              * */
-            //CommonUtilities.ApplyLicense();
+            CommonUtilities.ApplyLicense();
 
-            #region Annotation Functions
+            #region Annotation Functions for PDF
 
             ////Add text annotation
-            //Annotations.AddTextAnnotation();
+            Annotations.AddTextAnnotation();
             
             //Add text annotation in cells
             //Annotations.AddTextAnnotationInCells();
@@ -33,7 +33,7 @@ namespace GroupDocs.Annotation.CSharp
             //Annotations.AddAreaAnnotationWithReplies();
 
             ////Add point annotation
-            //Annotations.AddPointAnnotation();
+           // Annotations.AddPointAnnotation();
 
             ////Add text strike out annotation
             //Annotations.AddTextStrikeOutAnnotation();
@@ -42,7 +42,7 @@ namespace GroupDocs.Annotation.CSharp
             //Annotations.AddPolylineAnnotation();
 
             ////Add text field annotation
-            //Annotations.AddTextFieldAnnotation();
+            ////Annotations.AddTextFieldAnnotation();
 
             ////Add watermark annotation
             //Annotations.AddWatermarkAnnotation();
@@ -54,7 +54,7 @@ namespace GroupDocs.Annotation.CSharp
             //Annotations.AddArrowAnnotation();
 
             ////Add text redaction annotation
-            //Annotations.AddTextRedactionAnnotation();
+           // Annotations.AddTextRedactionAnnotation();
 
             ////Add underline annotation
             //Annotations.AddUnderLineAnnotation();
@@ -63,12 +63,57 @@ namespace GroupDocs.Annotation.CSharp
             //Annotations.AddDistanceAnnotation();
 
             ////Add resource redaction annotation
-            //Annotations.AddResourceRedactionAnnotation();
+           // Annotations.AddResourceRedactionAnnotation();
 
             ////Remove all annotations
-            //Annotations.RemoveAllAnnotationsFromDocument();
+           // Annotations.RemoveAllAnnotationsFromDocument();
 
             #endregion
+
+            #region Annotation Functions for Words Document format
+
+
+            ////Add area annotation with replies  for Words Document format
+           // Annotations.AddAreaAnnotationWithRepliesforWords();
+
+            ////Add point annotation for Words Document format
+            // Annotations.AddPointAnnotation();
+
+            ////Add text strike out annotation for Words Document format
+            //Annotations.AddTextStrikeOutAnnotationforWords();
+
+            ////Add polyline annotation for Words Document format
+            //Annotations.AddPolylineAnnotationforWords();
+
+            ////Add text field annotation for Words Document format
+            ////Annotations.AddTextFieldAnnotationforWords();
+
+            ////Add watermark annotation for Words Document format
+            //Annotations.AddWatermarkAnnotationforWords();
+
+            ////Add text replacement annotation for Words Document format
+            //Annotations.AddTextReplacementAnnotationforWords();
+
+            ////Add arrow annotation for Words Document format
+            //Annotations.AddArrowAnnotationforWords();
+
+            ////Add text redaction annotation for Words Document format
+            // Annotations.AddTextRedactionAnnotationforWords();
+
+            ////Add underline annotation for Words Document format
+            //Annotations.AddUnderLineAnnotationforWords();
+
+            ////Add distance annotation for Words Document format
+            //Annotations.AddDistanceAnnotationforWords();
+
+            ////Add resource redaction annotation for Words Document format
+            // Annotations.AddResourceRedactionAnnotationforWords();
+
+            ////Remove all annotations for Words Document format
+            // Annotations.RemoveAllAnnotationsFromDocumentforWords();
+
+            #endregion
+
 
             #region DataStorage Functions
 
