@@ -7,7 +7,6 @@
 
         'CommonUtilities.ApplyLicense()
 
-        '#Region "Annotation Functions"
 
         ''Add text annotation
         'Annotations.AddTextAnnotation()
@@ -57,7 +56,7 @@
         ''Remove all annotations
         'Annotations.RemoveAllAnnotationsFromDocument()
 
-        '#End Region
+
 
         '#Region "DataStorage Functions"
 
@@ -111,6 +110,55 @@
 
         '#End Region
 
+        '''' Annotations for Words Document
+
+
+        ''Add text annotation
+        Annotations.AddTextAnnotationforwords()
+
+        
+        ''Add area annotation with replies 
+        Annotations.AddAreaAnnotationWithRepliesforwords()
+
+        ''Add point annotation
+        Annotations.AddPointAnnotationforwords()
+
+        ''Add text strike out annotation
+        Annotations.AddTextStrikeOutAnnotationforwords()
+
+        ''Add polyline annotation
+        Annotations.AddPolylineAnnotationforwords()
+
+        ''Add text field annotation
+        Annotations.AddTextFieldAnnotationforwords()
+
+        ''Add watermark annotation
+        Annotations.AddWatermarkAnnotation()
+
+        ''Add text replacement annotation
+        Annotations.AddTextReplacementAnnotationforwords()
+
+        ''Add arrow annotation
+        Annotations.AddArrowAnnotationforwords()
+
+        ''Add text redaction annotation
+        Annotations.AddTextRedactionAnnotationforwords()
+
+        ''Add underline annotation
+        Annotations.AddUnderLineAnnotationforwords()
+
+        ''Add distance annotation
+        Annotations.AddDistanceAnnotationforwords()
+
+        ''Add resource redaction annotation
+        Annotations.AddResourceRedactionAnnotationforwords()
+
+        ''Remove all annotations
+        Annotations.RemoveAllAnnotationsFromDocumentforwords()
+
+
+
+
         ''#Region "Other Operations"
 
         ''Get image representation of the document
@@ -119,6 +167,10 @@
         ''Get text coordinates in image representation of the document
         'CommonUtilities.GetTextCoordinates("sample.pdf");
         '#End Region
+
+
+
+
         Console.ReadKey()
     End Sub
 
