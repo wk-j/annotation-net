@@ -114,6 +114,14 @@ namespace GroupDocs.Annotation.CSharp
 
             #endregion
 
+            #region Cells & Slides
+            //Add text annotation in cells
+            //Annotations.AddTextAnnotationInCells();
+
+            //Add text annotation in slides
+            //Annotations.AddTextAnnotationInSlides();
+            #endregion
+
 
             #region DataStorage Functions
 
