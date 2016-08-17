@@ -1115,6 +1115,80 @@ namespace GroupDocs.Annotation.CSharp
             }
         }
 
+
+        /// <summary>
+        /// Add text annotation in cells
+        /// </summary>
+        /// Update filePath with path to Cells file before using this function
+        public static void AddTextAnnotationInCells()
+        {
+            try
+            {
+                //ExStart:AddTextAnnotationInCells
+                // Get input file stream
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+
+                // Initialize list of AnnotationInfo
+                List<AnnotationInfo> annotations = new List<AnnotationInfo>();
+
+                // Initialize text annotation.
+                AnnotationInfo textAnnotation = new AnnotationInfo
+                {
+                    PageNumber = 1,
+                    AnnotationPosition = new Point(3, 3),
+                    FieldText = "Hello!"
+                };
+
+                // Add annotation to list
+                annotations.Add(textAnnotation);
+
+                // Export annotation and save output file
+                CommonUtilities.SaveOutputDocument(inputFile, annotations, DocumentType.Cells);
+                //ExEnd:AddTextAnnotationInCells
+            }
+            catch (System.Exception exp)
+            {
+                Console.WriteLine(exp.Message);
+            }
+        }
+
+        /// <summary>
+        /// Add text annotation in slides
+        /// </summary>
+        /// Update filePath with path to Slides file before using this function
+        public static void AddTextAnnotationInSlides()
+        {
+            try
+            {
+                //ExStart:AddTextAnnotationInSlides
+                // Get input file stream
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+
+                // Initialize list of AnnotationInfo
+                List<AnnotationInfo> annotations = new List<AnnotationInfo>();
+
+                // Initialize text annotation.
+                AnnotationInfo textAnnotation = new AnnotationInfo
+                {
+                    PageNumber = 0,
+                    AnnotationPosition = new Point(1, 2),
+                    FieldText = "Hello!",
+                    CreatorName = "John"
+                };
+
+                // Add annotation to list
+                annotations.Add(textAnnotation);
+
+                // Export annotation and save output file
+                CommonUtilities.SaveOutputDocument(inputFile, annotations, DocumentType.Slides);
+                //ExEnd:AddTextAnnotationInSlides
+            }
+            catch (System.Exception exp)
+            {
+                Console.WriteLine(exp.Message);
+            }
+        }
+
     }
     //ExEnd:AllAnnotations
 }
