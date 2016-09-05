@@ -19,6 +19,7 @@ using RestoreRepliesResult = GroupDocs.Demo.Annotation.Mvc.AnnotationResults.Res
 
 namespace GroupDocs.Demo.Annotation.Mvc.Controllers
 {
+    
     public class AnnotationController : Controller
     {
         #region Fields
@@ -33,7 +34,7 @@ namespace GroupDocs.Demo.Annotation.Mvc.Controllers
             
             //Here you should apply proper GroupDocs.Annotation license (in case you want to
             //use this sample without trial limits)
-            new License().SetLicense("D:/GroupDocs.Total.lic");
+           new License().SetLicense("C:/Users/SharePoint/Documents/GroupDocs.Total.lic");
         }
 
         #region Annotation members
@@ -338,6 +339,12 @@ namespace GroupDocs.Demo.Annotation.Mvc.Controllers
         {
             string css = _resourceManager.GetCss(name);
             return Content(css, "text/css");
+        }
+        public ActionResult GetSprites()
+        {
+            byte[] imageBody = _resourceManager.GetBinaryResource("sprites.png");
+            string mimeType = "image/png";
+            return File(imageBody, mimeType);
         }
 
         public ActionResult GetEmbeddedImage(string name)
