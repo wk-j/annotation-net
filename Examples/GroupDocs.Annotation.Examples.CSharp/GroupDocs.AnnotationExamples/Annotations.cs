@@ -15,7 +15,7 @@ namespace GroupDocs.Annotation.CSharp
     {
         // initialize file path
         //ExStart:SourceDocFilePath
-        private const string filePath = "sample.pdf";
+        private const string filePath = "Doc17.docx";
         //ExEnd:SourceDocFilePath
 
         /// <summary>
@@ -733,42 +733,7 @@ namespace GroupDocs.Annotation.CSharp
         /// <summary>
         /// Adds polyline annotation in words document
         /// </summary>
-        public static void AddPolylineAnnotationforWords()
-        {
-            try
-            {
-                //ExStart:AddPolylineAnnotationforWords
-                // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
-
-                // Initialize list of AnnotationInfo
-                List<AnnotationInfo> annotations = new List<AnnotationInfo>();
-
-                // Polyline annotation
-                AnnotationInfo polylineAnnotationforWords = new AnnotationInfo
-                {
-                    AnnotationPosition = new Point(852.0, 35.0),
-                    Box = new Rectangle(250f, 35f, 102f, 12f),
-                    PageNumber = 0,
-                    PenColor = 1201033,
-                    PenWidth = 2,
-                    SvgPath = "M250.8280751173709,48.209295774647885l0.6986854460093896,0l0.6986854460093896,-1.3973708920187793l0.6986854460093896,0l0.6986854460093896,-1.3973708920187793l1.3973708920187793,-0.6986854460093896l0.6986854460093896,-0.6986854460093896l0.6986854460093896,0l2.096056338028169,-1.3973708920187793l3.493427230046948,-1.3973708920187793l0.6986854460093896,-0.6986854460093896l1.3973708920187793,-1.3973708920187793l0.6986854460093896,0l1.3973708920187793,-0.6986854460093896l0.6986854460093896,0l0.6986854460093896,-0.6986854460093896l0.6986854460093896,0l0.6986854460093896,0l0,-0.6986854460093896l0.6986854460093896,0l0.6986854460093896,0l1.3973708920187793,0l0,-0.6986854460093896l0.6986854460093896,0l1.3973708920187793,0l0.6986854460093896,0l1.3973708920187793,0l0.6986854460093896,0l2.096056338028169,-0.6986854460093896l1.3973708920187793,0l0.6986854460093896,0l0.6986854460093896,0l1.3973708920187793,0l1.3973708920187793,0l1.3973708920187793,0l2.096056338028169,0l5.589483568075117,0l1.3973708920187793,0l2.096056338028169,0l0.6986854460093896,0l1.3973708920187793,0l0.6986854460093896,0l1.3973708920187793,0l1.3973708920187793,0l0.6986854460093896,0.6986854460093896l1.3973708920187793,0l2.096056338028169,1.3973708920187793l0.6986854460093896,0l0.6986854460093896,0l0,0.6986854460093896l1.3973708920187793,0l0.6986854460093896,0.6986854460093896l1.3973708920187793,0.6986854460093896l0,0.6986854460093896l0.6986854460093896,0l1.3973708920187793,0.6986854460093896l1.3973708920187793,0.6986854460093896l3.493427230046948,0.6986854460093896l1.3973708920187793,0.6986854460093896l2.096056338028169,0.6986854460093896l1.3973708920187793,0.6986854460093896l1.3973708920187793,0l1.3973708920187793,0.6986854460093896l0.6986854460093896,0l0.6986854460093896,0.6986854460093896l1.3973708920187793,0l0.6986854460093896,0l0.6986854460093896,0l2.7947417840375586,0l1.3973708920187793,0l0.6986854460093896,0l1.3973708920187793,0l0.6986854460093896,0l0.6986854460093896,0l1.3973708920187793,0l0.6986854460093896,0l2.7947417840375586,0l0.6986854460093896,0l2.7947417840375586,0l1.3973708920187793,0l0.6986854460093896,0l0.6986854460093896,0l0.6986854460093896,0l0.6986854460093896,0l0.6986854460093896,0l0.6986854460093896,0l0.6986854460093896,-0.6986854460093896l0.6986854460093896,0",
-                    Type = AnnotationType.Polyline,
-                    CreatorName = "Anonym A."
-                };
-                // Add annotation to list
-                annotations.Add(polylineAnnotationforWords);
-
-                // Export annotation and save output file
-                CommonUtilities.SaveOutputDocument(inputFile, annotations, DocumentType.Words);
-                //ExEnd:AddPolylineAnnotationforWords
-            }
-            catch (System.Exception exp)
-            {
-                Console.WriteLine(exp.Message);
-            }
-        }
-
+       
         /// <summary>
         /// Adds text field annotation in words document
         /// </summary>
@@ -811,43 +776,7 @@ namespace GroupDocs.Annotation.CSharp
         /// <summary>
         /// Adds watermark annotation in words document
         /// </summary>
-        public static void AddWatermarkAnnotationforWords()
-        {
-            try
-            {
-                //ExStart:AddWatermarkAnnotationforWords
-                // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
-
-                // Initialize list of AnnotationInfo
-                List<AnnotationInfo> annotations = new List<AnnotationInfo>();
-
-                // Watermark annotation
-                AnnotationInfo watermarkAnnotationforWords = new AnnotationInfo
-                {
-                    AnnotationPosition = new Point(100.0, 300.0),
-                    FieldText = "TEXT STAMP",
-                    FontFamily = "Microsoft Sans Serif",
-                    FontSize = 10,
-                    FontColor = 2222222,
-                    Box = new Rectangle(430f, 272f, 66f, 51f),
-                    PageNumber = 0,
-                    Type = AnnotationType.Watermark,
-                    CreatorName = "Anonym A."
-                };
-                // Add annotation to list
-                annotations.Add(watermarkAnnotationforWords);
-
-                // Export annotation and save output file
-                CommonUtilities.SaveOutputDocument(inputFile, annotations, DocumentType.Words);
-                //ExEnd:AddWatermarkAnnotationforWords
-            }
-            catch (System.Exception exp)
-            {
-                Console.WriteLine(exp.Message);
-            }
-        }
-
+       
         /// <summary>
         /// Adds text replacement annotation in words document
         /// </summary>
@@ -1002,43 +931,7 @@ namespace GroupDocs.Annotation.CSharp
         /// <summary>
         /// Adds distance annotation in words document
         /// </summary>
-        public static void AddDistanceAnnotationforWords()
-        {
-            try
-            {
-                //ExStart:AddDistanceAnnotation
-                // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
-
-                // Initialize list of AnnotationInfo
-                List<AnnotationInfo> annotations = new List<AnnotationInfo>();
-
-                // Distance annotation
-                AnnotationInfo distanceAnnotationforWords = new AnnotationInfo
-                {
-                    AnnotationPosition = new Point(852.0, 287.0),
-                    Box = new Rectangle(248f, 287f, 115f, 25f),
-                    PageNumber = 0,
-                    PenColor = 1201033,
-                    PenStyle = 0,
-                    PenWidth = 1,
-                    SvgPath = "M248.73201877934272,295.5439436619718 l115.28309859154929,-4.192112676056338",
-                    Text = "\r\nAnonym A.: 115px",
-                    Type = AnnotationType.Distance,
-                    CreatorName = "Anonym A."
-                };
-                // Add annotation to list
-                annotations.Add(distanceAnnotationforWords);
-
-                // Export annotation and save output file
-                CommonUtilities.SaveOutputDocument(inputFile, annotations, DocumentType.Words);
-                //ExEnd:AddDistanceAnnotation
-            }
-            catch (System.Exception exp)
-            {
-                Console.WriteLine(exp.Message);
-            }
-        }
+       
 
         /// <summary>
         /// Adds resource redaction annotation in words document
@@ -1081,39 +974,7 @@ namespace GroupDocs.Annotation.CSharp
         /// <summary>
         /// Removes all annotations in words document
         /// </summary>
-        public static void RemoveAllAnnotationsFromDocumentforWords()
-        {
-
-            try
-            {
-                //ExStart:RemoveAllAnnotationsFromDocumentforWords
-                // Create instance of annotator. 
-                AnnotationConfig cfg = CommonUtilities.GetConfiguration();
-
-                AnnotationImageHandler annotator = new AnnotationImageHandler(cfg);
-
-                // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
-
-                // Get output file stream
-                Stream result = annotator.RemoveAnnotationStream(inputFile, DocumentType.Words);
-
-                // Save result stream to file.
-                using (FileStream fileStream = new FileStream(CommonUtilities.MapDestinationFilePath("Annotated.words"), FileMode.Create))
-                {
-                    byte[] buffer = new byte[result.Length];
-                    result.Seek(0, SeekOrigin.Begin);
-                    result.Read(buffer, 0, buffer.Length);
-                    fileStream.Write(buffer, 0, buffer.Length);
-                    fileStream.Close();
-                }
-                //ExEnd:RemoveAllAnnotationsFromDocumentforWords
-            }
-            catch (System.Exception exp)
-            {
-                Console.WriteLine(exp.Message);
-            }
-        }
+       
 
 
         /// <summary>
