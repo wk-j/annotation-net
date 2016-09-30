@@ -21,8 +21,8 @@ namespace GroupDocs.Annotation.CSharp
             #region Annotation Functions for PDF
 
             ////Add text annotation
-          //  Annotations.AddTextAnnotation();
-            
+            //  Annotations.AddTextAnnotation();
+
             //Add text annotation in cells
             //Annotations.AddTextAnnotationInCells();
 
@@ -33,7 +33,7 @@ namespace GroupDocs.Annotation.CSharp
             //Annotations.AddAreaAnnotationWithReplies();
 
             ////Add point annotation
-           // Annotations.AddPointAnnotation();
+            // Annotations.AddPointAnnotation();
 
             ////Add text strike out annotation
             //Annotations.AddTextStrikeOutAnnotation();
@@ -54,7 +54,7 @@ namespace GroupDocs.Annotation.CSharp
             //Annotations.AddArrowAnnotation();
 
             ////Add text redaction annotation
-           // Annotations.AddTextRedactionAnnotation();
+            // Annotations.AddTextRedactionAnnotation();
 
             ////Add underline annotation
             //Annotations.AddUnderLineAnnotation();
@@ -63,10 +63,10 @@ namespace GroupDocs.Annotation.CSharp
             //Annotations.AddDistanceAnnotation();
 
             ////Add resource redaction annotation
-           // Annotations.AddResourceRedactionAnnotation();
+            // Annotations.AddResourceRedactionAnnotation();
 
             ////Remove all annotations
-           // Annotations.RemoveAllAnnotationsFromDocument();
+            // Annotations.RemoveAllAnnotationsFromDocument();
 
             #endregion
 
@@ -74,7 +74,7 @@ namespace GroupDocs.Annotation.CSharp
 
 
             ////Add area annotation with replies  for Words Document format
-          // Annotations.AddAreaAnnotationWithRepliesforWords();
+            // Annotations.AddAreaAnnotationWithRepliesforWords();
 
             ////Add point annotation for Words Document format
             // Annotations.AddPointAnnotation();
@@ -82,7 +82,7 @@ namespace GroupDocs.Annotation.CSharp
             ////Add text strike out annotation for Words Document format
             //Annotations.AddTextStrikeOutAnnotationforWords();
 
-           
+
             ////Add text field annotation for Words Document format
             //Annotations.AddTextFieldAnnotationforWords();
 
@@ -98,11 +98,13 @@ namespace GroupDocs.Annotation.CSharp
             ////Add underline annotation for Words Document format
             //Annotations.AddUnderLineAnnotationforWords();
 
-           
+
             ////Add resource redaction annotation for Words Document format
             // Annotations.AddResourceRedactionAnnotationforWords();
 
-           
+            ////Import and Export Annotations from Words document.
+            Annotations.ImportAndExportAnnotationsFromWords();
+
             #endregion
 
             #region Cells & Slides

@@ -44,6 +44,9 @@
         ''Add text redaction annotation
         'Annotations.AddTextRedactionAnnotation()
 
+        ''Import and Export Annotations from Words document.
+        Annotations.ImportAndExportAnnotationsFromWords()
+
         ''Add underline annotation
         'Annotations.AddUnderLineAnnotation()
 
@@ -113,48 +116,48 @@
         '''' Annotations for Words Document
 
 
-        ''Add text annotation
-        Annotations.AddTextAnnotationforwords()
+        ' ''Add text annotation
+        'Annotations.AddTextAnnotationforwords()
 
-        
-        ''Add area annotation with replies 
-        Annotations.AddAreaAnnotationWithRepliesforwords()
 
-        ''Add point annotation
-        Annotations.AddPointAnnotationforwords()
+        ' ''Add area annotation with replies 
+        'Annotations.AddAreaAnnotationWithRepliesforwords()
 
-        ''Add text strike out annotation
-        Annotations.AddTextStrikeOutAnnotationforwords()
+        ' ''Add point annotation
+        'Annotations.AddPointAnnotationforwords()
 
-        ''Add polyline annotation
-        Annotations.AddPolylineAnnotationforwords()
+        ' ''Add text strike out annotation
+        'Annotations.AddTextStrikeOutAnnotationforwords()
 
-        ''Add text field annotation
-        Annotations.AddTextFieldAnnotationforwords()
+        ' ''Add polyline annotation
+        'Annotations.AddPolylineAnnotationforwords()
 
-        ''Add watermark annotation
-        Annotations.AddWatermarkAnnotation()
+        ' ''Add text field annotation
+        'Annotations.AddTextFieldAnnotationforwords()
 
-        ''Add text replacement annotation
-        Annotations.AddTextReplacementAnnotationforwords()
+        ' ''Add watermark annotation
+        'Annotations.AddWatermarkAnnotation()
 
-        ''Add arrow annotation
-        Annotations.AddArrowAnnotationforwords()
+        ' ''Add text replacement annotation
+        'Annotations.AddTextReplacementAnnotationforwords()
 
-        ''Add text redaction annotation
-        Annotations.AddTextRedactionAnnotationforwords()
+        ' ''Add arrow annotation
+        'Annotations.AddArrowAnnotationforwords()
 
-        ''Add underline annotation
-        Annotations.AddUnderLineAnnotationforwords()
+        ' ''Add text redaction annotation
+        'Annotations.AddTextRedactionAnnotationforwords()
 
-        ''Add distance annotation
-        Annotations.AddDistanceAnnotationforwords()
+        ' ''Add underline annotation
+        'Annotations.AddUnderLineAnnotationforwords()
 
-        ''Add resource redaction annotation
-        Annotations.AddResourceRedactionAnnotationforwords()
+        ' ''Add distance annotation
+        'Annotations.AddDistanceAnnotationforwords()
 
-        ''Remove all annotations
-        Annotations.RemoveAllAnnotationsFromDocumentforwords()
+        ' ''Add resource redaction annotation
+        'Annotations.AddResourceRedactionAnnotationforwords()
+
+        ' ''Remove all annotations
+        'Annotations.RemoveAllAnnotationsFromDocumentforwords()
 
 
 
