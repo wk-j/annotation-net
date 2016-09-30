@@ -15,7 +15,7 @@ namespace GroupDocs.Annotation.CSharp
     {
         // initialize file path
         //ExStart:SourceDocFilePath
-        private const string filePath = "Doc17.docx";
+        private const string filePath = "Annotated.docx";
         //ExEnd:SourceDocFilePath
 
         /// <summary>
@@ -733,7 +733,7 @@ namespace GroupDocs.Annotation.CSharp
         /// <summary>
         /// Adds polyline annotation in words document
         /// </summary>
-       
+
         /// <summary>
         /// Adds text field annotation in words document
         /// </summary>
@@ -776,7 +776,7 @@ namespace GroupDocs.Annotation.CSharp
         /// <summary>
         /// Adds watermark annotation in words document
         /// </summary>
-       
+
         /// <summary>
         /// Adds text replacement annotation in words document
         /// </summary>
@@ -931,7 +931,7 @@ namespace GroupDocs.Annotation.CSharp
         /// <summary>
         /// Adds distance annotation in words document
         /// </summary>
-       
+
 
         /// <summary>
         /// Adds resource redaction annotation in words document
@@ -974,7 +974,7 @@ namespace GroupDocs.Annotation.CSharp
         /// <summary>
         /// Removes all annotations in words document
         /// </summary>
-       
+
 
 
         /// <summary>
@@ -1043,6 +1043,49 @@ namespace GroupDocs.Annotation.CSharp
                 // Export annotation and save output file
                 CommonUtilities.SaveOutputDocument(inputFile, annotations, DocumentType.Slides);
                 //ExEnd:AddTextAnnotationInSlides
+            }
+            catch (System.Exception exp)
+            {
+                Console.WriteLine(exp.Message);
+            }
+        }
+
+        /// <summary>
+        /// Import and Export Annotations from Words document.
+        /// </summary>
+        /// Update filePath with path to word document files before using this function
+        public static void ImportAndExportAnnotationsFromWords()
+        {
+            try
+            {
+                //ExStart:ImportAndExportAnnotationsFromWords
+                // Create instance of annotator. 
+                AnnotationConfig cfg = CommonUtilities.GetConfiguration();
+
+                AnnotationImageHandler annotator = new AnnotationImageHandler(cfg);
+
+                // Get input file stream
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+
+                //importing annotations from Words document
+                AnnotationInfo[] annotations = annotator.ImportAnnotations(inputFile, DocumentType.Words);
+
+                //export imported annotation to another document (just for check)
+                Stream clearDocument = new FileStream(CommonUtilities.MapDestinationFilePath("Clear.docx"), FileMode.Open, FileAccess.ReadWrite);
+                Stream output = annotator.ExportAnnotationsToDocument(clearDocument, annotations.ToList(), DocumentType.Words);
+
+
+                // Export annotation and save output file
+                //save results after export
+                using (FileStream fileStream = new FileStream(CommonUtilities.MapDestinationFilePath("AnnotationImportAndExportAnnotated.docx"), FileMode.Create))
+                {
+                    byte[] buffer = new byte[output.Length];
+                    output.Seek(0L, SeekOrigin.Begin);
+                    output.Read(buffer, 0, buffer.Length);
+                    fileStream.Write(buffer, 0, buffer.Length);
+                    fileStream.Close();
+                }
+                //ExEnd:ImportAndExportAnnotationsFromWords
             }
             catch (System.Exception exp)
             {
