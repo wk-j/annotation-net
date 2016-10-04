@@ -19,7 +19,7 @@ namespace GroupDocs.Annotation.CSharp
         //ExStart:CommonProperties
         private const string StorageFolderPath = "../../../../Data/Samples/";
         private const string DestinationFolderPath = "../../../../Data/Output/";
-        private const string LicenseFilePath = "D://Groupdocs.Total.lic";
+        private const string LicenseFilePath = "D://License/Groupdocs.Total.lic";
         //ExEnd:CommonProperties
 
         //ExStart:MapSourceFilePath

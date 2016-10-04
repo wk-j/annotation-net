@@ -11,7 +11,7 @@ Imports System.Threading.Tasks
 Public Class Annotations
     ' initialize file path
     'ExStart:SourceDocFilePath
-    Private Const filePath As String = "sample.docx"
+    Private Const filePath As String = "Annotated.docx"
     'ExEnd:SourceDocFilePath
 
     ''' <summary>
@@ -1031,7 +1031,43 @@ Public Class Annotations
     End Sub
 
 
+    ''' <summary>
+    ''' Import and Export Annotations from Words document.
+    ''' </summary>
+    ''' Update filePath with path to word document files before using this function
+    Public Shared Sub ImportAndExportAnnotationsFromWords()
+        Try
+            'ExStart:ImportAndExportAnnotationsFromWords
+            ' Create instance of annotator. 
+            Dim cfg As AnnotationConfig = CommonUtilities.GetConfiguration()
 
+            Dim annotator As New AnnotationImageHandler(cfg)
+
+            ' Get input file stream
+            Dim inputFile As Stream = New FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite)
+
+            'importing annotations from Words document
+            Dim annotations As AnnotationInfo() = annotator.ImportAnnotations(inputFile, DocumentType.Words)
+
+            'export imported annotation to another document (just for check)
+            Dim clearDocument As Stream = New FileStream(CommonUtilities.MapDestinationFilePath("Clear.docx"), FileMode.Open, FileAccess.ReadWrite)
+            Dim output As Stream = annotator.ExportAnnotationsToDocument(clearDocument, annotations.ToList(), DocumentType.Words)
+
+
+            ' Export annotation and save output file
+            'save results after export
+            Using fileStream As New FileStream(CommonUtilities.MapDestinationFilePath("AnnotationImportAndExportAnnotated.docx"), FileMode.Create)
+                Dim buffer As Byte() = New Byte(output.Length - 1) {}
+                output.Seek(0L, SeekOrigin.Begin)
+                output.Read(buffer, 0, buffer.Length)
+                fileStream.Write(buffer, 0, buffer.Length)
+                fileStream.Close()
+            End Using
+            'ExEnd:ImportAndExportAnnotationsFromWords
+        Catch exp As System.Exception
+            Console.WriteLine(exp.Message)
+        End Try
+    End Sub
 
 
 
