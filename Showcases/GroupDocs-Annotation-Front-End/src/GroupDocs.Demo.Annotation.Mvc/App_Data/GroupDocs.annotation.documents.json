@@ -8,5 +8,16 @@
     "CreatedOn": "2016-06-01T12:30:08.4598Z",
     "Collaborators": [],
     "SharedLinkAccessRights": 63
+  },
+  {
+    "Id": 2,
+    "Guid": "14264f79-8d96-480a-94d4-0aa79fdfc39d",
+    "Name": "PDFsample.pdf",
+    "DocumentType": 0,
+    "OwnerId": 0,
+    "CreatedOn": "2016-06-27T20:31:49.5786345Z",
+    "Collaborators": [],
+    "SharedLinkAccessRights": 63
   }
+]
 ]
