@@ -1,5 +1,3 @@
-[Explore GroupDocs.Annotation API for .NET Examples using Visual Studio Plugin](https://github.com/groupdocs-Annotation/GroupDocs.Annotation-for-.NET/tree/master/Plugins/GroupDocs_Annotation_VSPlugin)
-
 ##V isual Studio Plugin to Explore GroupDocs.Annotation Examples
 
 GroupDocs.Annotation for .NET plugin is providing an ease to compile GroupDocs.Annotation for .NET 3.x. examples and to explore the examples. It has reduced the efforts to download examples and the DLL file from different resources (GitHub, NuGet). You can quickly run CSharp or Visual Basic project. So all the manual steps to explore the examples have been exempted.
@@ -26,4 +24,4 @@ Visual Studio must be installed before installing the plugin. It supports follow
 + Visual Studio 2012
 + Visual Studio 2013
 
-[fore more details please click here ](http://www.groupdocs.com/docs/display/annotationnet/Visual+Studio+Plugin+to+Explore+GroupDocs.Annotation+Examples)
+fore more details please click [here](http://www.groupdocs.com/docs/display/annotationnet/Visual+Studio+Plugin+to+Explore+GroupDocs.Annotation+Examples)
