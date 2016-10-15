@@ -1,4 +1,4 @@
-##V isual Studio Plugin to Explore GroupDocs.Annotation Examples
+## Visual Studio Plugin to Explore GroupDocs.Annotation Examples
 
 GroupDocs.Annotation for .NET plugin is providing an ease to compile GroupDocs.Annotation for .NET 3.x. examples and to explore the examples. It has reduced the efforts to download examples and the DLL file from different resources (GitHub, NuGet). You can quickly run CSharp or Visual Basic project. So all the manual steps to explore the examples have been exempted.
 
