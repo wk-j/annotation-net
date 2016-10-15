@@ -24,4 +24,4 @@ Visual Studio must be installed before installing the plugin. It supports follow
 + Visual Studio 2012
 + Visual Studio 2013
 
-fore more details please click [here](http://www.groupdocs.com/docs/display/annotationnet/Visual+Studio+Plugin+to+Explore+GroupDocs.Annotation+Examples)
+for more details please click [here](http://www.groupdocs.com/docs/display/annotationnet/Visual+Studio+Plugin+to+Explore+GroupDocs.Annotation+Examples)
