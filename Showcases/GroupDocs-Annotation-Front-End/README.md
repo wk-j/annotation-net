@@ -11,7 +11,7 @@
 ##Features
 
 + Upload Source file
-+ Apply Annoations
++ Apply Annotations
 + Save files and allow to view Ouput in viewer using GroupDocs.Viewer
 
 
