@@ -10,9 +10,9 @@
 
 Features
 
-    Upload Source file
-    Apply Annoations
-    Save files and allow to view Ouput in viewer using GroupDocs.Viewer
++ Upload Source file
++ Apply Annoations
++ Save files and allow to view Ouput in viewer using GroupDocs.Viewer
 
 
 ##How to Run the Examples?
