@@ -21,52 +21,52 @@ namespace GroupDocs.Annotation.CSharp
             #region Annotation Functions for PDF
 
             ////Add text annotation
-            //  Annotations.AddTextAnnotation();
+            //  PDFAnnotation.AddTextAnnotation();
 
             //Add text annotation in cells
-            //Annotations.AddTextAnnotationInCells();
+            //PDFAnnotation.AddTextAnnotationInCells();
 
             //Add text annotation in slides
-            //Annotations.AddTextAnnotationInSlides();
+            //PDFAnnotation.AddTextAnnotationInSlides();
 
             ////Add area annotation with replies 
-            //Annotations.AddAreaAnnotationWithReplies();
+            //PDFAnnotation.AddAreaAnnotationWithReplies();
 
             ////Add point annotation
-            // Annotations.AddPointAnnotation();
+            // PDFAnnotation.AddPointAnnotation();
 
             ////Add text strike out annotation
-            //Annotations.AddTextStrikeOutAnnotation();
+            //PDFAnnotation.AddTextStrikeOutAnnotation();
 
             ////Add polyline annotation
-            //Annotations.AddPolylineAnnotation();
+            //PDFAnnotation.AddPolylineAnnotation();
 
             ////Add text field annotation
-            ////Annotations.AddTextFieldAnnotation();
+            ////PDFAnnotation.AddTextFieldAnnotation();
 
             ////Add watermark annotation
-            //Annotations.AddWatermarkAnnotation();
+            //PDFAnnotation.AddWatermarkAnnotation();
 
             ////Add text replacement annotation
-            //Annotations.AddTextReplacementAnnotation();
+            //PDFAnnotation.AddTextReplacementAnnotation();
 
             ////Add arrow annotation
-            //Annotations.AddArrowAnnotation();
+            //PDFAnnotation.AddArrowAnnotation();
 
             ////Add text redaction annotation
-            // Annotations.AddTextRedactionAnnotation();
+            // PDFAnnotation.AddTextRedactionAnnotation();
 
             ////Add underline annotation
-            //Annotations.AddUnderLineAnnotation();
+            //PDFAnnotation.AddUnderLineAnnotation();
 
             ////Add distance annotation
-            //Annotations.AddDistanceAnnotation();
+            //PDFAnnotation.AddDistanceAnnotation();
 
             ////Add resource redaction annotation
-            // Annotations.AddResourceRedactionAnnotation();
+            // PDFAnnotation.AddResourceRedactionAnnotation();
 
             ////Remove all annotations
-            // Annotations.RemoveAllAnnotationsFromDocument();
+            // PDFAnnotation.RemoveAllAnnotationsFromDocument();
 
             #endregion
 
@@ -74,45 +74,49 @@ namespace GroupDocs.Annotation.CSharp
 
 
             ////Add area annotation with replies  for Words Document format
-            // Annotations.AddAreaAnnotationWithRepliesforWords();
+            // WordAnnotation.AddAreaAnnotationWithRepliesforWords();
 
             ////Add point annotation for Words Document format
-            // Annotations.AddPointAnnotation();
+            // WordAnnotation.AddPointAnnotation();
 
             ////Add text strike out annotation for Words Document format
-            //Annotations.AddTextStrikeOutAnnotationforWords();
+            //WordAnnotation.AddTextStrikeOutAnnotationforWords();
 
 
             ////Add text field annotation for Words Document format
-            //Annotations.AddTextFieldAnnotationforWords();
+            //WordAnnotation.AddTextFieldAnnotationforWords();
 
             ////Add text replacement annotation for Words Document format
-            //Annotations.AddTextReplacementAnnotationforWords();
+            //WordAnnotation.AddTextReplacementAnnotationforWords();
 
             ////Add arrow annotation for Words Document format
-            //Annotations.AddArrowAnnotationforWords();
+            //WordAnnotation.AddArrowAnnotationforWords();
 
             ////Add text redaction annotation for Words Document format
-            // Annotations.AddTextRedactionAnnotationforWords();
+            // WordAnnotation.AddTextRedactionAnnotationforWords();
 
             ////Add underline annotation for Words Document format
-            //Annotations.AddUnderLineAnnotationforWords();
+            //WordAnnotation.AddUnderLineAnnotationforWords();
 
 
             ////Add resource redaction annotation for Words Document format
-            // Annotations.AddResourceRedactionAnnotationforWords();
+            // WordAnnotation.AddResourceRedactionAnnotationforWords();
 
             ////Import and Export Annotations from Words document.
-            Annotations.ImportAndExportAnnotationsFromWords();
+            WordAnnotation.ImportAndExportAnnotationsFromWords();
 
             #endregion
 
-            #region Cells & Slides
-            //Add text annotation in cells
-            //Annotations.AddTextAnnotationInCells();
+            #region Slides
 
             //Add text annotation in slides
-            //Annotations.AddTextAnnotationInSlides();
+            //SlidesAnnotations.AddTextAnnotationInSlides();
+            #endregion
+
+            #region Cells
+
+            //Add text annotation in Cells
+            //CellsAnnotation.AddTextAnnotationInCells();
             #endregion
 
 
