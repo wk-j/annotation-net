@@ -7,7 +7,7 @@ GroupDocs.Annotation for .NET plugin is providing an ease to compile GroupDocs.A
 Following are the key features of the plugin
 + Appears in *File* menu in Visual Studio.
 + Downloads source code automatically.
-+ Downloads \*GroupDocs.Annotation * library automatically.
++ Downloads \*GroupDocs.Annotation * API automatically.
 + Adds GroupDocs.Annotation reference automatically.
 + Provides both *C#* and *VB* examples.
 + Supports *Visual Studio 2010*, *2012* and *2013.*
