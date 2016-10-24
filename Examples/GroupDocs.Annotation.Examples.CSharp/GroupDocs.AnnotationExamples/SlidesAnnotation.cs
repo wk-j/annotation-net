@@ -11,25 +11,19 @@ using System.Threading.Tasks;
 namespace GroupDocs.Annotation.CSharp
 {
     class SlidesAnnotation
-    { 
-        // initialize file path
-        //ExStart:SourceDocFilePath
-        private const string filePath = "Annotated.pptx";
-        //ExEnd:SourceDocFilePath
-
-
-
+    {
+        
         /// <summary>
         /// Add text annotation in slides
         /// </summary>
-        /// Update filePath with path to Slides file before using this function
+        /// Update CommonUtilities.filePath with path to Slides file before using this function
         public static void AddTextAnnotationInSlides()
         {
             try
             {
                 //ExStart:AddTextAnnotationInSlides
                 // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
 
                 // Initialize list of AnnotationInfo
                 List<AnnotationInfo> annotations = new List<AnnotationInfo>();

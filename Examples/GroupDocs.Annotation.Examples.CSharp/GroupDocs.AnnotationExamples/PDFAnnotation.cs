@@ -14,11 +14,6 @@ namespace GroupDocs.Annotation.CSharp
     {
 
 
-        // initialize file path
-        //ExStart:SourceDocFilePath
-        private const string filePath = "Annotated.docx";
-        //ExEnd:SourceDocFilePath
-
         /// <summary>
         /// Adds text annotation in PDF document
         /// </summary>
@@ -28,7 +23,7 @@ namespace GroupDocs.Annotation.CSharp
             {
                 //ExStart:AddTextAnnotation
                 // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
 
                 // Initialize list of AnnotationInfo
                 List<AnnotationInfo> annotations = new List<AnnotationInfo>();
@@ -66,7 +61,7 @@ namespace GroupDocs.Annotation.CSharp
             {
                 //ExStart:AddAreaAnnotationWithReplies
                 // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
 
                 // Initialize list of AnnotationInfo
                 List<AnnotationInfo> annotations = new List<AnnotationInfo>();
@@ -121,7 +116,7 @@ namespace GroupDocs.Annotation.CSharp
             {
                 //ExStart:AddPointAnnotation
                 // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
                 // Initialize list of AnnotationInfo
                 List<AnnotationInfo> annotations = new List<AnnotationInfo>();
 
@@ -156,7 +151,7 @@ namespace GroupDocs.Annotation.CSharp
             {
                 //ExStart:AddTextStrikeOutAnnotation
                 // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
 
                 // Initialize list of AnnotationInfo
                 List<AnnotationInfo> annotations = new List<AnnotationInfo>();
@@ -192,7 +187,7 @@ namespace GroupDocs.Annotation.CSharp
             {
                 //ExStart:AddPolylineAnnotation
                 // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
 
                 // Initialize list of AnnotationInfo
                 List<AnnotationInfo> annotations = new List<AnnotationInfo>();
@@ -231,7 +226,7 @@ namespace GroupDocs.Annotation.CSharp
             {
                 //ExStart:AddTextFieldAnnotation
                 // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
 
                 // Initialize list of AnnotationInfo
                 List<AnnotationInfo> annotations = new List<AnnotationInfo>();
@@ -270,7 +265,7 @@ namespace GroupDocs.Annotation.CSharp
             {
                 //ExStart:AddWatermarkAnnotation
                 // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
 
                 // Initialize list of AnnotationInfo
                 List<AnnotationInfo> annotations = new List<AnnotationInfo>();
@@ -311,7 +306,7 @@ namespace GroupDocs.Annotation.CSharp
 
                 //ExStart:AddTextReplacementAnnotation
                 // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
 
                 // Initialize list of AnnotationInfo
                 List<AnnotationInfo> annotations = new List<AnnotationInfo>();
@@ -349,7 +344,7 @@ namespace GroupDocs.Annotation.CSharp
             {
                 //ExStart:AddArrowAnnotation
                 // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
 
                 // Initialize list of AnnotationInfo
                 List<AnnotationInfo> annotations = new List<AnnotationInfo>();
@@ -389,7 +384,7 @@ namespace GroupDocs.Annotation.CSharp
             {
                 //ExStart:AddTextRedactionAnnotation
                 // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
 
                 // Initialize list of AnnotationInfo
                 List<AnnotationInfo> annotations = new List<AnnotationInfo>();
@@ -425,7 +420,7 @@ namespace GroupDocs.Annotation.CSharp
             {
                 //ExStart:AddUnderLineAnnotation
                 // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
 
                 // Initialize list of AnnotationInfo
                 List<AnnotationInfo> annotations = new List<AnnotationInfo>();
@@ -461,7 +456,7 @@ namespace GroupDocs.Annotation.CSharp
             {
                 //ExStart:AddDistanceAnnotation
                 // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
 
                 // Initialize list of AnnotationInfo
                 List<AnnotationInfo> annotations = new List<AnnotationInfo>();
@@ -502,7 +497,7 @@ namespace GroupDocs.Annotation.CSharp
             {
                 //ExStart:AddResourceRedactionAnnotation
                 // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
 
                 // Initialize list of AnnotationInfo
                 List<AnnotationInfo> annotations = new List<AnnotationInfo>();
@@ -546,7 +541,7 @@ namespace GroupDocs.Annotation.CSharp
                 AnnotationImageHandler annotator = new AnnotationImageHandler(cfg);
 
                 // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
 
                 // Get output file stream
                 Stream result = annotator.RemoveAnnotationStream(inputFile, DocumentType.Pdf);
