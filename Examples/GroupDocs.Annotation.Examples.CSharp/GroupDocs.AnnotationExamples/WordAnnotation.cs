@@ -14,17 +14,13 @@ namespace GroupDocs.Annotation.CSharp
     class WordAnnotation
     {
 
-        // initialize file path
-        //ExStart:SourceDocFilePath
-        private const string filePath = "Annotated.docx";
-        //ExEnd:SourceDocFilePath
         public static void AddTextAnnotationforWords()
         {
             try
             {
                 //ExStart:AddTextAnnotationforWords
                 // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
 
                 // Initialize list of AnnotationInfo
                 List<AnnotationInfo> annotations = new List<AnnotationInfo>();
@@ -62,7 +58,7 @@ namespace GroupDocs.Annotation.CSharp
             {
                 //ExStart:AddAreaAnnotationWithRepliesforWords
                 // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
 
                 // Initialize list of AnnotationInfo
                 List<AnnotationInfo> annotations = new List<AnnotationInfo>();
@@ -117,7 +113,7 @@ namespace GroupDocs.Annotation.CSharp
             {
                 //ExStart:AddPointAnnotationforWords
                 // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
                 // Initialize list of AnnotationInfo
                 List<AnnotationInfo> annotations = new List<AnnotationInfo>();
 
@@ -152,7 +148,7 @@ namespace GroupDocs.Annotation.CSharp
             {
                 //ExStart:AddTextStrikeOutAnnotationforWords
                 // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
 
                 // Initialize list of AnnotationInfo
                 List<AnnotationInfo> annotations = new List<AnnotationInfo>();
@@ -192,7 +188,7 @@ namespace GroupDocs.Annotation.CSharp
             {
                 //ExStart:AddTextFieldAnnotationforWords
                 // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
 
                 // Initialize list of AnnotationInfo
                 List<AnnotationInfo> annotations = new List<AnnotationInfo>();
@@ -236,7 +232,7 @@ namespace GroupDocs.Annotation.CSharp
 
                 //ExStart:AddTextReplacementAnnotationforWords
                 // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
 
                 // Initialize list of AnnotationInfo
                 List<AnnotationInfo> annotations = new List<AnnotationInfo>();
@@ -274,7 +270,7 @@ namespace GroupDocs.Annotation.CSharp
             {
                 //ExStart:AddArrowAnnotationforWords
                 // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
 
                 // Initialize list of AnnotationInfo
                 List<AnnotationInfo> annotations = new List<AnnotationInfo>();
@@ -314,7 +310,7 @@ namespace GroupDocs.Annotation.CSharp
             {
                 //ExStart:AddTextRedactionAnnotationforWords
                 // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
 
                 // Initialize list of AnnotationInfo
                 List<AnnotationInfo> annotations = new List<AnnotationInfo>();
@@ -350,7 +346,7 @@ namespace GroupDocs.Annotation.CSharp
             {
                 //ExStart:AddUnderLineAnnotation
                 // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
 
                 // Initialize list of AnnotationInfo
                 List<AnnotationInfo> annotations = new List<AnnotationInfo>();
@@ -391,7 +387,7 @@ namespace GroupDocs.Annotation.CSharp
             {
                 //ExStart:AddResourceRedactionAnnotation
                 // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
 
                 // Initialize list of AnnotationInfo
                 List<AnnotationInfo> annotations = new List<AnnotationInfo>();
@@ -429,14 +425,14 @@ namespace GroupDocs.Annotation.CSharp
         /// <summary>
         /// Add text annotation in cells
         /// </summary>
-        /// Update filePath with path to Cells file before using this function
+        /// Update CommonUtilities.filePath with path to Cells file before using this function
         public static void AddTextAnnotationInCells()
         {
             try
             {
                 //ExStart:AddTextAnnotationInCells
                 // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
 
                 // Initialize list of AnnotationInfo
                 List<AnnotationInfo> annotations = new List<AnnotationInfo>();
@@ -464,7 +460,7 @@ namespace GroupDocs.Annotation.CSharp
         /// <summary>
         /// Import and Export Annotations from Words document.
         /// </summary>
-        /// Update filePath with path to word document files before using this function
+        /// Update CommonUtilities.filePath with path to word document files before using this function
         public static void ImportAndExportAnnotationsFromWords()
         {
             try
@@ -476,7 +472,7 @@ namespace GroupDocs.Annotation.CSharp
                 AnnotationImageHandler annotator = new AnnotationImageHandler(cfg);
 
                 // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
 
                 //importing annotations from Words document
                 AnnotationInfo[] annotations = annotator.ImportAnnotations(inputFile, DocumentType.Words);

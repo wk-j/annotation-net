@@ -13,12 +13,21 @@ namespace GroupDocs.Annotation.CSharp
     {
         static void Main(string[] args)
         {
+            
+        CommonUtilities.StorageFolderPath = "../../../../Data/Samples/";
+        CommonUtilities.DestinationFolderPath = "../../../../Data/Output/";
+        CommonUtilities.LicenseFilePath = "D://License/Groupdocs.Total.lic";
+        CommonUtilities.filePath = "Annotated.pdf";
+
             /* Apply product license
              * Uncomment following function if you have product license
              * */
+
             CommonUtilities.ApplyLicense();
 
             #region Annotation Functions for PDF
+
+            CommonUtilities.filePath = "Annotated.pdf";
 
             ////Add text annotation
             //  PDFAnnotation.AddTextAnnotation();
@@ -73,6 +82,8 @@ namespace GroupDocs.Annotation.CSharp
             #region Annotation Functions for Words Document format
 
 
+            CommonUtilities.filePath = "Annotated.docx";
+
             ////Add area annotation with replies  for Words Document format
             // WordAnnotation.AddAreaAnnotationWithRepliesforWords();
 
@@ -109,12 +120,13 @@ namespace GroupDocs.Annotation.CSharp
 
             #region Slides
 
+            CommonUtilities.filePath = "Annotated.pptx";
             //Add text annotation in slides
             //SlidesAnnotations.AddTextAnnotationInSlides();
             #endregion
 
             #region Cells
-
+            CommonUtilities.filePath = "Annotated.xlsx";
             //Add text annotation in Cells
             //CellsAnnotation.AddTextAnnotationInCells();
             #endregion

@@ -17,10 +17,13 @@ namespace GroupDocs.Annotation.CSharp
     class CommonUtilities
     {
         //ExStart:CommonProperties
-        private const string StorageFolderPath = "../../../../Data/Samples/";
-        private const string DestinationFolderPath = "../../../../Data/Output/";
-        private const string LicenseFilePath = "D://License/Groupdocs.Total.lic";
+        public static string StorageFolderPath = "../../../../Data/Samples/";
+        public static string DestinationFolderPath = "../../../../Data/Output/";
+        public static string LicenseFilePath = "D://License/Groupdocs.Total.lic";
+        public static string filePath = "Annotated.pdf";
         //ExEnd:CommonProperties
+
+
 
         //ExStart:MapSourceFilePath
         /// <summary>
@@ -78,7 +81,7 @@ namespace GroupDocs.Annotation.CSharp
                 if (!Directory.Exists(cfg.StoragePath))
                 {
                     Directory.CreateDirectory(cfg.StoragePath);
-                } 
+                }
 
                 Stream result = annotator.ExportAnnotationsToDocument(inputFile, annotations, type);
 
@@ -86,7 +89,7 @@ namespace GroupDocs.Annotation.CSharp
                 string extensionWithDot = Path.GetExtension(getFileStream.Name);
 
                 // Save result stream to file.
-                using (FileStream fileStream = new FileStream(MapDestinationFilePath("Annotated"+ extensionWithDot), FileMode.Create))
+                using (FileStream fileStream = new FileStream(MapDestinationFilePath("Annotated" + extensionWithDot), FileMode.Create))
                 {
                     byte[] buffer = new byte[result.Length];
                     result.Seek(0, SeekOrigin.Begin);
@@ -150,10 +153,10 @@ namespace GroupDocs.Annotation.CSharp
         /// <summary>
         /// Gets image representation of document
         /// </summary>
-        /// <param name="filePath">Source file path</param> 
+        /// <param name="CommonUtilities.filePath">Source file path</param> 
         public static void GetImageRepresentation(string filePath)
         {
-            try 
+            try
             {
                 Stream document = new FileStream(MapSourceFilePath(filePath), FileMode.Open);
                 AnnotationConfig cfg = GetConfiguration();
@@ -174,7 +177,7 @@ namespace GroupDocs.Annotation.CSharp
             }
             catch (System.Exception exp)
             {
-                Console.WriteLine(exp.Message); 
+                Console.WriteLine(exp.Message);
             }
 
         }
@@ -184,7 +187,7 @@ namespace GroupDocs.Annotation.CSharp
         /// <summary>
         /// Gets text coordinates in image representation of document
         /// </summary>
-        /// <param name="filePath">Source file path</param> 
+        /// <param name="CommonUtilities.filePath">Source file path</param> 
         public static void GetTextCoordinates(string filePath)
         {
             try
