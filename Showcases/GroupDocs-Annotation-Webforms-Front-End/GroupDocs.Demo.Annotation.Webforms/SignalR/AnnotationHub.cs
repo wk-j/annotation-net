@@ -10,6 +10,7 @@ namespace GroupDocs.Demo.Annotation.Webforms.SignalR
         #region Fields
         private static volatile Dictionary<string, DocumentReviewer> _connectionsAndUserGuids;
         private IAuthenticationService _authenticationSvc;
+        public static string userGUID;
         #endregion Fields
 
         static AnnotationHub()
@@ -20,6 +21,17 @@ namespace GroupDocs.Demo.Annotation.Webforms.SignalR
         public AnnotationHub(IAuthenticationService authenticationSvc)
         {
             _authenticationSvc = authenticationSvc;
+            try
+            {
+                var uid = userGUID;// "52ced024-26e0-4b59-a510-ca8f5368e315";
+                var userGuid = (String.IsNullOrWhiteSpace(uid) ? _authenticationSvc.UserKey : uid);
+                //string guid = new Guid().ToString();
+                SetUserGuidForConnection(uid, userGuid);
+            }
+            catch (ArgumentException)
+            {
+                SetUserGuidForConnection(userGUID, _authenticationSvc.AnonymousUserKey);
+            }
         }
 
         public override System.Threading.Tasks.Task OnConnected()
@@ -28,11 +40,11 @@ namespace GroupDocs.Demo.Annotation.Webforms.SignalR
             {
                 var uid = Context.QueryString["uid"];
                 var userGuid = (String.IsNullOrWhiteSpace(uid) ? _authenticationSvc.UserKey : uid);
-                SetUserGuidForConnection(Context.ConnectionId, userGuid);
+                SetUserGuidForConnection(userGUID, userGuid);
             }
             catch (ArgumentException)
             {
-                SetUserGuidForConnection(Context.ConnectionId, _authenticationSvc.AnonymousUserKey);
+                SetUserGuidForConnection(userGUID, _authenticationSvc.AnonymousUserKey);
             }
             return null;
         }
@@ -41,7 +53,7 @@ namespace GroupDocs.Demo.Annotation.Webforms.SignalR
         {
             lock (_connectionsAndUserGuids)
             {
-                _connectionsAndUserGuids.Remove(Context.ConnectionId);
+                _connectionsAndUserGuids.Remove(userGUID);
             }
 
             return null;
@@ -60,7 +72,7 @@ namespace GroupDocs.Demo.Annotation.Webforms.SignalR
 
         public void SetDocumentGuidForConnection(string documentGuid)
         {
-            string connectionGuid = Context.ConnectionId;
+            string connectionGuid = userGUID;
             lock (_connectionsAndUserGuids)
             {
                 DocumentReviewer documentReviewer = _connectionsAndUserGuids[connectionGuid];
@@ -111,7 +123,7 @@ namespace GroupDocs.Demo.Annotation.Webforms.SignalR
             Clients.Others.setDocumentScaleOnClient(fileGuid, scale);
         }
 
-        public void BroadcastDocumentScroll(string userGuid, string privateKey, string fileGuid, 
+        public void BroadcastDocumentScroll(string userGuid, string privateKey, string fileGuid,
                                             double horizontalScrollPortion, int verticalScrollPosition, double scale)
         {
             Clients.Others.setDocumentScrollOnClient(fileGuid, horizontalScrollPortion, verticalScrollPosition, scale);
