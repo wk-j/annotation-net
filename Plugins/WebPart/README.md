@@ -1,6 +1,6 @@
 # GroupDocs.Annotation SharePoint Web-Part
 
- Team GroupDocs is glad to announce the addition of GroupDocs.Annotation Web- Part Front End for SharePoint developers. Using this release SharePoint developers can not only explore and investigate GroupDocs.Annotation for .NET Front End but can also customize this Web-Part according to their needs
+Using GroupDocs.Annotation SharePoint WebPart, SharePoint developers can not only explore and investigate GroupDocs.Annotation for .NET Front End but can also customize this Web-Part according to their needs
 
 # Features
 
