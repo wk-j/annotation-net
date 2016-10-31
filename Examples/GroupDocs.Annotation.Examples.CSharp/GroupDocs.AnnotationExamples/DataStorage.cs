@@ -21,11 +21,6 @@ namespace GroupDocs.Annotation.CSharp
     {
 
 
-        //ExStart:SourceDocFilePath
-        // initialize file path
-        private const string filePath = "sample.pdf";
-        //ExEnd:SourceDocFilePath
-
         /// <summary>
         /// Picks the annotations from document.pdf and exports them to sample.pdf
         /// </summary>
@@ -36,14 +31,14 @@ namespace GroupDocs.Annotation.CSharp
                 //ExStart:ExportAnnotationInFile
                 // Create instance of annotator. 
                 AnnotationConfig cfg = CommonUtilities.GetConfiguration();
-                
+
                 AnnotationImageHandler annotator = new AnnotationImageHandler(cfg);
-                 
+
                 // Get file stream
-                Stream manifestResourceStream = new FileStream(CommonUtilities.MapSourceFilePath(filePath), FileMode.Open, FileAccess.ReadWrite);
+                Stream manifestResourceStream = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
                 List<AnnotationInfo> annotations = new List<AnnotationInfo>();
-                
-                Stream stream = annotator.ExportAnnotationsToDocument(manifestResourceStream,annotations, DocumentType.Pdf);
+
+                Stream stream = annotator.ExportAnnotationsToDocument(manifestResourceStream, annotations, DocumentType.Pdf);
 
                 // Save result stream to file.
                 using (FileStream fileStream = new FileStream(CommonUtilities.MapDestinationFilePath("Annotated.pdf"), FileMode.Create))

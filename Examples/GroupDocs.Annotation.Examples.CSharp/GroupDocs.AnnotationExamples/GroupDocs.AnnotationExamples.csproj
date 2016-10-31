@@ -51,11 +51,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Annotations.cs" />
     <Compile Include="CommonUtilities.cs" />
     <Compile Include="DataStorage.cs" />
+    <Compile Include="PDFAnnotation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CellsAnnotation.cs" />
+    <Compile Include="SlidesAnnotation.cs" />
+    <Compile Include="WordAnnotation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -6,10 +6,10 @@ namespace GroupDocs.Demo.Annotation.Webforms.BusinessLogic
 {
     internal class DocumentOpenSubscriber
     {
-        public void HandleEvent(string path)
+        public void HandleEvent(string path,IAnnotationService svc)
         {
             var un = HttpContext.Current.Session["UserName"] != null ? HttpContext.Current.Session["UserName"].ToString() : "";
-            var svc = UnityConfig.GetConfiguredContainer().Resolve<IAnnotationService>();
+            //var svc = UnityConfig.GetConfiguredContainer().Resolve<IAnnotationService>();
             if (!string.IsNullOrEmpty(un))
             {
                 // add user to the document collaborator list
