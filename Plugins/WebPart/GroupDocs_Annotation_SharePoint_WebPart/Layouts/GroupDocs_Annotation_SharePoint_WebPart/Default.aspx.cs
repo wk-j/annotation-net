@@ -31,6 +31,7 @@ using Point = GroupDocs_Annotation_SharePoint_WebPart.AnnotationResults.DataGeom
 using Rectangle = GroupDocs_Annotation_SharePoint_WebPart.AnnotationResults.DataGeometry.Rectangle;
 using RestoreRepliesResult = GroupDocs_Annotation_SharePoint_WebPart.AnnotationResults.RestoreRepliesResult;
 using Microsoft.SharePoint.WebControls;
+using GroupDocs_Annotation_SharePoint_WebPart.SignalR;
 
 
 namespace GroupDocs_Annotation_SharePoint_WebPart.Layouts.GroupDocs_Annotation_SharePoint_WebPart
@@ -57,6 +58,7 @@ namespace GroupDocs_Annotation_SharePoint_WebPart.Layouts.GroupDocs_Annotation_S
                 // initializing EmbeddedResourceManager object.
                 _resourceManager = new EmbeddedResourceManager();
 
+                AnnotationHub.userGUID = "52ced024-26e0-4b59-a510-ca8f5368e315";
                 // initializing AnnotationService object.
                 _annotationSvc = UnityConfig.GetConfiguredContainer().Resolve<IAnnotationService>();
 
@@ -167,7 +169,7 @@ namespace GroupDocs_Annotation_SharePoint_WebPart.Layouts.GroupDocs_Annotation_S
             result.imageUrls = urls.ToArray();
 
             // invoke event
-            new DocumentOpenSubscriber().HandleEvent(request);
+            new DocumentOpenSubscriber().HandleEvent(request, _annotationSvc);
 
             return result;
         }
@@ -339,11 +341,11 @@ namespace GroupDocs_Annotation_SharePoint_WebPart.Layouts.GroupDocs_Annotation_S
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public static AnnotationResults.CreateAnnotationResult CreateAnnotation(string connectionId, string userId, string privateKey,
             string fileId, byte type, string message, Rectangle rectangle, int pageNumber, Point annotationPosition, string svgPath,
-            DrawingOptions drawingOptions, FontOptions font, string callback = null)
+            DrawingOptions drawingOptions, FontOptions font)
         {
             try
             {
-                _annotationSvc = UnityConfig.GetConfiguredContainer().Resolve<IAnnotationService>();
+                //_annotationSvc = UnityConfig.GetConfiguredContainer().Resolve<IAnnotationService>();
 
                 var result = _annotationSvc.CreateAnnotation(connectionId, fileId, type, message, rectangle, pageNumber, annotationPosition, svgPath, drawingOptions, font);
                 return result;
@@ -356,7 +358,7 @@ namespace GroupDocs_Annotation_SharePoint_WebPart.Layouts.GroupDocs_Annotation_S
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static AnnotationResults.DeleteAnnotationResult DeleteAnnotation(string connectionId, string userId, string privateKey, string fileId, string annotationGuid, string callback = null)
+        public static AnnotationResults.DeleteAnnotationResult DeleteAnnotation(string connectionId, string userId, string privateKey, string fileId, string annotationGuid)
         {
             try
             {
@@ -371,7 +373,7 @@ namespace GroupDocs_Annotation_SharePoint_WebPart.Layouts.GroupDocs_Annotation_S
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static AnnotationResults.AddReplyResult AddAnnotationReply(string connectionId, string userId, string privateKey, string fileId, string annotationGuid, string message, string parentReplyGuid, string callback = null)
+        public static AnnotationResults.AddReplyResult AddAnnotationReply(string connectionId, string userId, string privateKey, string fileId, string annotationGuid, string message, string parentReplyGuid)
         {
             try
             {
@@ -386,7 +388,7 @@ namespace GroupDocs_Annotation_SharePoint_WebPart.Layouts.GroupDocs_Annotation_S
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static AnnotationResults.DeleteReplyResult DeleteAnnotationReply(string connectionId, string userId, string privateKey, string fileId, string annotationGuid, string replyGuid, string callback = null)
+        public static AnnotationResults.DeleteReplyResult DeleteAnnotationReply(string connectionId, string userId, string privateKey, string fileId, string annotationGuid, string replyGuid)
         {
             try
             {
@@ -401,7 +403,7 @@ namespace GroupDocs_Annotation_SharePoint_WebPart.Layouts.GroupDocs_Annotation_S
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static AnnotationResults.EditReplyResult EditAnnotationReply(string connectionId, string userId, string privateKey, string fileId, string annotationGuid, string replyGuid, string message, string callback = null)
+        public static AnnotationResults.EditReplyResult EditAnnotationReply(string connectionId, string userId, string privateKey, string fileId, string annotationGuid, string replyGuid, string message)
         {
             try
             {
@@ -416,7 +418,7 @@ namespace GroupDocs_Annotation_SharePoint_WebPart.Layouts.GroupDocs_Annotation_S
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static AnnotationResults.RestoreRepliesResult RestoreAnnotationReplies(string connectionId, string fileId, string annotationGuid, AnnotationReplyInfo[] replies, string callback = null)
+        public static AnnotationResults.RestoreRepliesResult RestoreAnnotationReplies(string connectionId, string fileId, string annotationGuid, AnnotationReplyInfo[] replies)
         {
             try
             {
@@ -433,7 +435,7 @@ namespace GroupDocs_Annotation_SharePoint_WebPart.Layouts.GroupDocs_Annotation_S
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static AnnotationResults.ListAnnotationsResult ListAnnotations(string connectionId, string userId, string privateKey, string fileId, string callback = null)
+        public static AnnotationResults.ListAnnotationsResult ListAnnotations(string connectionId, string userId, string privateKey, string fileId)
         {
             try
             {
@@ -448,7 +450,7 @@ namespace GroupDocs_Annotation_SharePoint_WebPart.Layouts.GroupDocs_Annotation_S
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static AnnotationResults.ResizeAnnotationResult ResizeAnnotation(string connectionId, string fileId, string annotationGuid, double width, double height, string callback = null)
+        public static AnnotationResults.ResizeAnnotationResult ResizeAnnotation(string connectionId, string fileId, string annotationGuid, double width, double height)
         {
             try
             {
@@ -464,7 +466,7 @@ namespace GroupDocs_Annotation_SharePoint_WebPart.Layouts.GroupDocs_Annotation_S
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public static AnnotationResults.MoveAnnotationResult MoveAnnotationMarker(string connectionId, string userId, string privateKey, string fileId,
-                                                 string annotationGuid, double left, double top, int? pageNumber, string callback = null)
+                                                 string annotationGuid, double left, double top, int? pageNumber)
         {
             try
             {
@@ -480,7 +482,7 @@ namespace GroupDocs_Annotation_SharePoint_WebPart.Layouts.GroupDocs_Annotation_S
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public static AnnotationResults.SaveAnnotationTextResult SaveTextField(string connectionId, string userId, string privateKey, string fileId,
-                                                       string annotationGuid, string text, string fontFamily, double fontSize, string callback = null)
+                                                       string annotationGuid, string text, string fontFamily, double fontSize)
         {
             try
             {
@@ -495,7 +497,7 @@ namespace GroupDocs_Annotation_SharePoint_WebPart.Layouts.GroupDocs_Annotation_S
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static AnnotationResults.SaveAnnotationTextResult SetTextFieldColor(string connectionId, string fileId, string annotationGuid, int fontColor, string callback = null)
+        public static AnnotationResults.SaveAnnotationTextResult SetTextFieldColor(string connectionId, string fileId, string annotationGuid, int fontColor)
         {
             try
             {
@@ -510,7 +512,7 @@ namespace GroupDocs_Annotation_SharePoint_WebPart.Layouts.GroupDocs_Annotation_S
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static AnnotationResults.SaveAnnotationTextResult SetAnnotationBackgroundColor(string connectionId, string fileId, string annotationGuid, int color, string callback = null)
+        public static AnnotationResults.SaveAnnotationTextResult SetAnnotationBackgroundColor(string connectionId, string fileId, string annotationGuid, int color)
         {
             try
             {
@@ -525,7 +527,7 @@ namespace GroupDocs_Annotation_SharePoint_WebPart.Layouts.GroupDocs_Annotation_S
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static AnnotationResults.GetCollaboratorsResult GetDocumentCollaborators(string userId, string privateKey, string fileId, string callback = null)
+        public static AnnotationResults.GetCollaboratorsResult GetDocumentCollaborators(string userId, string privateKey, string fileId)
         {
             var result = _annotationSvc.GetCollaborators(fileId);
             return result;
@@ -534,7 +536,7 @@ namespace GroupDocs_Annotation_SharePoint_WebPart.Layouts.GroupDocs_Annotation_S
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public static AnnotationResults.SetCollaboratorsResult AddDocumentReviewer(string userId, string privateKey,
-            string fileId, string reviewerEmail, string reviewerFirstName, string reviewerLastName, string reviewerInvitationMessage, string callback = null)
+            string fileId, string reviewerEmail, string reviewerFirstName, string reviewerLastName, string reviewerInvitationMessage)
         {
             var result = _annotationSvc.AddCollaborator(fileId, reviewerEmail, reviewerFirstName, reviewerLastName, reviewerInvitationMessage);
             return result;
@@ -542,7 +544,7 @@ namespace GroupDocs_Annotation_SharePoint_WebPart.Layouts.GroupDocs_Annotation_S
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static HtmlString ExportAnnotations(string connectionId, string fileId, string format, string mode, string callback = null)
+        public static HtmlString ExportAnnotations(string connectionId, string fileId, string format, string mode)
         {
             try
             {
@@ -558,7 +560,7 @@ namespace GroupDocs_Annotation_SharePoint_WebPart.Layouts.GroupDocs_Annotation_S
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static FileResponse ImportAnnotations(string connectionId, string fileGuid, string callback = null)
+        public static FileResponse ImportAnnotations(string connectionId, string fileGuid)
         {
             try
             {
@@ -573,7 +575,7 @@ namespace GroupDocs_Annotation_SharePoint_WebPart.Layouts.GroupDocs_Annotation_S
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static string GetPdfVersionOfDocument(string connectionId, string fileId, string callback = null)
+        public static string GetPdfVersionOfDocument(string connectionId, string fileId)
         {
             try
             {
@@ -597,7 +599,7 @@ namespace GroupDocs_Annotation_SharePoint_WebPart.Layouts.GroupDocs_Annotation_S
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static FileResponse UploadFile(string user_id, string fld, string fileName, bool? multiple = false, string callback = null)
+        public static FileResponse UploadFile(string user_id, string fld, string fileName, bool? multiple = false)
         {
             var user = UnityConfig.GetConfiguredContainer().Resolve<AnnotationImageHandler>().GetUserDataHandler().GetUserByGuid(user_id) ??
                        new User();

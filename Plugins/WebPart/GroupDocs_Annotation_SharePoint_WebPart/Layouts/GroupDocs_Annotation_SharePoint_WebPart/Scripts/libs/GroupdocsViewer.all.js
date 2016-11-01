@@ -1410,9 +1410,9 @@ $.extend(jSaaspose.PortalService.prototype, {
             passwordForOpening: passwordForOpening,
             saveFontsInAllFormats: saveFontsInAllFormats
         };
-        data = {
-            path: path
-        };
+        //data = {
+        //    path: path
+        //};
         //alert("GD ALL ViewDocument 1416 - " + this.applicationPath + this.urlPrefix + '/ViewDocument' + this._urlSuffix);
         this._runServiceAsync(this.applicationPath + this.urlPrefix + '/ViewDocument' + this._urlSuffix, data, successCallback, errorCallback, useCache != null ? useCache : false);
     },
@@ -1428,9 +1428,9 @@ $.extend(jSaaspose.PortalService.prototype, {
             locale: locale,
             saveFontsInAllFormats: saveFontsInAllFormats
         };
-        data = {
-            path: path
-        };
+        //data = {
+        //    path: path
+        //};
         this._runServiceAsync(this.applicationPath + this.urlPrefix + '/GetDocumentPageHtml' + this._urlSuffix, data, successCallback, errorCallback, false);
     },
     viewDocument: function (path, width, quality, usePdf, preloadPagesCount, password, fileDisplayName,
@@ -1447,9 +1447,9 @@ $.extend(jSaaspose.PortalService.prototype, {
             locale: locale,
             passwordForOpening: passwordForOpening
         };
-        data = {
-            path: path
-        };
+        //data = {
+        //    path: path
+        //};
         //alert("GD ALL ViewDocument 1553 - " + this.applicationPath + this.urlPrefix + '/ViewDocument' + this._urlSuffix);
 
         this._runServiceAsync(this.applicationPath + this.urlPrefix + '/ViewDocument' + this._urlSuffix, data, successCallback, errorCallback, useCache != null ? useCache : false);
@@ -1485,17 +1485,17 @@ $.extend(jSaaspose.PortalService.prototype, {
             instanceIdToken: instanceIdToken,
             locale: locale
         };
-        data = {
-            path: path
-        };
+        //data = {
+        //    path: path
+        //};
         //alert("GDViewerAll - GetImageUrls.:  " + this.applicationPath + this.urlPrefix + '/GetImageUrls' + this._urlSuffix);
         return this._runServiceAsync(this.applicationPath + this.urlPrefix + '/GetImageUrls' + this._urlSuffix, data, successCallback, errorCallback, false);
     },
     loadFileBrowserTreeData: function (userId, privateKey, path, pageIndex, pageSize, orderBy, orderAsc, filter, fileTypes, extended, successCallback, errorCallback, useCache, instanceIdToken) {
         var data = { userId: userId, privateKey: privateKey, path: path, pageIndex: pageIndex, pageSize: pageSize, orderBy: orderBy, orderAsc: orderAsc, filter: filter, fileTypes: fileTypes, extended: extended, instanceIdToken: instanceIdToken };
-        data = {
-            path: path
-        };
+        //data = {
+        //    path: path
+        //};
         //alert("GDViewerAll - LoadFileBrowserTreeData.:  " + this.applicationPath + this.urlPrefix + '/LoadFileBrowserTreeData' + this._urlSuffix);
         return this._runServiceAsync(this.applicationPath + this.urlPrefix + '/LoadFileBrowserTreeData' + this._urlSuffix, data, successCallback, errorCallback, useCache != null ? useCache : true);
     },
