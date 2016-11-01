@@ -1510,7 +1510,7 @@
             } else {
                 $(".zoom_wrappper").css('display', 'none');
             }
-            //alert("777777777777777777  AnnotationWidget.js Before connection.annotationHub.client  ");
+            //alert("AnnotationWidget.js - [connection.annotationHub]:  " + $.connection.annotationHub);
             //this.showExpandedCommentsPanel();
             this.annotationHub = $.connection.annotationHub.client;
             ////alert("1111111111  AnnotationWidget.js Before connection.annotationHub.client  ");
