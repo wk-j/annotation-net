@@ -8,6 +8,22 @@ This package contains C# and VB.NET Example Projects for [GroupDocs.Annotation f
   </a>
 </p>
 
-## How to Run the Examples?
+## Prerequisite
 
-The package contains two projects, one for C# examples and other for Visual Basic examples. You can download the ZIP, extract the files and open the solution file in Visual Studio. For more details, visit  [How to Run Examples](http://www.groupdocs.com/docs/display/annotationnet/How+to+Run+Examples).
++ Visual Studio 2012 or later.
+
++ GroupDocs.Annotation 3.2.1.
+
+
+##How to Run the Examples?
+
+The package contains two projects, one for C# examples and other for Visual Basic examples. Follow the given steps to proceed with project build:
+
+* Extract the downloaded project and open the solution file in Visual Studio
+* Right click on solution and press "Enable NuGet package Restore"
+* Build the project.
+
+In other case, it is possible that Visual Studio is unable to automatically add APIs references due to Visual Studio version differences. In this case, please add references of missing APIs manually.
+
+
+For more details, visit  [How to Run Examples](http://www.groupdocs.com/docs/display/annotationnet/How+to+Run+Examples).
