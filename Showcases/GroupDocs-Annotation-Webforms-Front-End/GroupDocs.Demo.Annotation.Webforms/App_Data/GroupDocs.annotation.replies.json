@@ -18,13 +18,15 @@
     "ParentReplyId": 0
   },
   {
-    "Id": 3,
-    "AnnotationId": 18,
+    "Id": 4,
+    "AnnotationId": 19,
     "UserId": 1,
-    "Guid": "2d3673e0-54d6-4dc6-82d2-8c468ceb0cf2",
-    "Message": "proper text selection for multi lines",
-    "RepliedOn": "2016-06-27T20:45:10.2504303Z",
+    "Guid": "bbbc75e2-4787-4557-97c6-0f9448b2b804",
+    "Message": "text replacement tool selection",
+    "RepliedOn": "2016-06-27T20:56:12.643317Z",
     "ParentReplyId": 0
+  }
+]
   },
   {
     "Id": 4,
@@ -35,14 +37,4 @@
     "RepliedOn": "2016-06-27T20:56:12.643317Z",
     "ParentReplyId": 0
   }
-]  {
-    "Id": 5,
-    "AnnotationId": 54,
-    "UserId": 1,
-    "Guid": "4b83dd54-2990-4287-955c-bfcefacc1900",
-    "Message": "292px",
-    "RepliedOn": "2016-10-26T00:13:25.092596Z",
-    "ParentReplyId": 0
-  }
-]]
 ]

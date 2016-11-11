@@ -139,7 +139,7 @@ namespace GroupDocs.Demo.Annotation.Webforms.SignalR
 
         public DocumentReviewer? GetConnectionUser(string connectionId)
         {
-            return _annotationsHub.GetConnectionUser(AnnotationHub.userGUID);
+            return _annotationsHub.GetConnectionUser(connectionId);
         }
 
         public void MoveAnnotationMarker(IList<string> collaboratorGuids, string connectionIdToExclude, string annotationGuid, Point position, int? pageNumber)
