@@ -3,48 +3,52 @@
     },
 
     listAnnotationsAsync: function (connectionId, userId, privateKey, fileId, successCallback, errorCallback) {
-        var data = { connectionId: "", userId: userId, privateKey: privateKey, fileId: fileId };
+        //alert("listAnnotationsAsync");
+        var data = { connectionId: connectionId, userId: userId, privateKey: privateKey, fileId: fileId };
         return this._runServiceAsync(this.applicationPath + '/ListAnnotations' + this._urlSuffix, data, successCallback, errorCallback, false);
     },
 
     createAnnotationAsync: function (connectionId, userId, privateKey, fileId, type, message, pageNumber, rectangle, annotationPosition, svgPath, drawingOptions, font, successCallback, errorCallback) {
         var data = {
-            connectionId: "", userId: userId, privateKey: privateKey, fileId: fileId, type: type, message: (typeof message === 'undefined') ? 'default' : message,
+            connectionId: connectionId, userId: userId, privateKey: privateKey, fileId: fileId, type: type, message: (typeof message === 'undefined') ? '' : message,
             pageNumber: pageNumber, rectangle: rectangle, annotationPosition: annotationPosition, svgPath: svgPath,
-            drawingOptions: (typeof drawingOptions === 'undefined') ? null : drawingOptions, font: font
+            drawingOptions: (typeof drawingOptions === 'undefined') ? null : drawingOptions, font: (typeof font === 'undefined') ? null : font
         };
-        ////alert("caling from service.js/CreateAnnotation connectionId: " + connectionId);
+        //alert("caling from service.js/CreateAnnotation connectionId: " + JSON.stringify(data));
+
         return this._runServiceAsync(this.applicationPath + '/CreateAnnotation' + this._urlSuffix, data, successCallback, errorCallback, false);
     },
 
     deleteAnnotationAsync: function (connectionId, userId, privateKey, fileId, annotationGuid, successCallback, errorCallback) {
-        var data = { connectionId: "", userId: userId, privateKey: privateKey, fileId: fileId, annotationGuid: annotationGuid };
+        //alert("deleteAnnotationAsync");
+        var data = { connectionId: connectionId, userId: userId, privateKey: privateKey, fileId: fileId, annotationGuid: annotationGuid, message: (typeof message === 'undefined') ? 'default' : message };
         return this._runServiceAsync(this.applicationPath + "/DeleteAnnotation" + this._urlSuffix, data, successCallback, errorCallback, false);
     },
 
     addAnnotationReplyAsync: function (connectionId, userId, privateKey, fileId, annotationGuid, message, parentReplyGuid, successCallback, errorCallback) {
+        //alert("addAnnotationReplyAsync:  parentReplyGuid:  " + parentReplyGuid);
         var data = {
-            connectionId: "", userId: userId, privateKey: privateKey, fileId: fileId,
-            annotationGuid: annotationGuid, message: "", parentReplyGuid: parentReplyGuid
+            connectionId: connectionId, userId: userId, privateKey: privateKey, fileId: fileId,
+            annotationGuid: annotationGuid, message: (typeof message === 'undefined') ? 'default' : message, parentReplyGuid: (typeof parentReplyGuid === 'undefined') ? '' : parentReplyGuid
         };
         return this._runServiceAsync(this.applicationPath + '/AddAnnotationReply' + this._urlSuffix, data, successCallback, errorCallback, false);
     },
 
     deleteAnnotationReplyAsync: function (connectionId, userId, privateKey, fileId, annotationGuid, replyGuid, successCallback, errorCallback) {
-        var data = { connectionId: "", userId: userId, privateKey: privateKey, fileId: fileId, annotationGuid: annotationGuid, replyGuid: replyGuid };
+        var data = { connectionId: connectionId, userId: userId, privateKey: privateKey, fileId: fileId, annotationGuid: annotationGuid, replyGuid: replyGuid };
         return this._runServiceAsync(this.applicationPath + "/DeleteAnnotationReply" + this._urlSuffix, data, successCallback, errorCallback, false);
     },
 
     editAnnotationReplyAsync: function (connectionId, userId, privateKey, fileId, annotationGuid, replyGuid, message, successCallback, errorCallback) {
         var data = {
-            connectionId: "", userId: userId, privateKey: privateKey, fileId: fileId, annotationGuid: annotationGuid,
-            replyGuid: replyGuid, message: ""
+            connectionId: connectionId, userId: userId, privateKey: privateKey, fileId: fileId, annotationGuid: annotationGuid,
+            replyGuid: replyGuid, message: (typeof message === 'undefined') ? 'default' : message
         };
         return this._runServiceAsync(this.applicationPath + '/EditAnnotationReply' + this._urlSuffix, data, successCallback, errorCallback, false);
     },
 
     restoreAnnotationRepliesAsync: function (connectionId, fileId, annotationGuid, replies, successCallback, errorCallback) {
-        var data = { connectionId: "", fileId: fileId, annotationGuid: annotationGuid, replies: replies };
+        var data = { connectionId: connectionId, fileId: fileId, annotationGuid: annotationGuid, replies: replies };
         return this._runServiceAsync(this.applicationPath + '/RestoreAnnotationReplies' + this._urlSuffix, data, successCallback, errorCallback, false);
     },
 
@@ -56,12 +60,12 @@
     },
 
     moveAnnotationMarkerAsync: function (connectionId, userId, privateKey, fileId, annotationGuid, left, top, pageNumber, successCallback, errorCallback) {
-        var data = { connectionId: "", userId: userId, privateKey: privateKey, fileId: fileId, annotationGuid: annotationGuid, left: left, top: top, pageNumber: pageNumber };
+        var data = { connectionId: connectionId, userId: userId, privateKey: privateKey, fileId: fileId, annotationGuid: annotationGuid, left: left, top: top, pageNumber: pageNumber };
         return this._runServiceAsync(this.applicationPath + "/MoveAnnotationMarker" + this._urlSuffix, data, successCallback, errorCallback, false);
     },
     saveTextFieldAsync: function (connectionId, userId, privateKey, fileId, annotationGuid, text, fontFamily, fontSize, successCallback, errorCallback) {
         var data = {
-            connectionId: "", userId: userId, privateKey: privateKey, fileId: fileId, annotationGuid: annotationGuid,
+            connectionId: connectionId, userId: userId, privateKey: privateKey, fileId: fileId, annotationGuid: annotationGuid,
             text: text, fontFamily: fontFamily, fontSize: fontSize
         };
         return this._runServiceAsync(this.applicationPath + "/SaveTextField" + this._urlSuffix, data, successCallback, errorCallback, false);
@@ -69,37 +73,37 @@
 
     setTextFieldColorAsync: function (connectionId, userId, privateKey, fileId, annotationGuid, fontColor, successCallback, errorCallback) {
         var data = {
-            connectionId: "", userId: userId, privateKey: privateKey, fileId: fileId, annotationGuid: annotationGuid,
+            connectionId: connectionId, userId: userId, privateKey: privateKey, fileId: fileId, annotationGuid: annotationGuid,
             fontColor: fontColor
         };
         return this._runServiceAsync(this.applicationPath + "/SetTextFieldColor" + this._urlSuffix, data, successCallback, errorCallback, false);
     },
 
     setAnnotationBackgroundColorAsync: function (connectionId, fileId, annotationGuid, color, successCallback, errorCallback) {
-        var data = { connectionId: "", fileId: fileId, annotationGuid: annotationGuid, color: color };
+        var data = { connectionId: connectionId, fileId: fileId, annotationGuid: annotationGuid, color: color };
         return this._runServiceAsync(this.applicationPath + "/SetAnnotationBackgroundColor" + this._urlSuffix, data, successCallback, errorCallback, false);
     },
 
     resizeAnnotationAsync: function (connectionId, userId, privateKey, fileId, annotationGuid, width, height, successCallback, errorCallback) {
         var data = {
-            connectionId: "", userId: userId, privateKey: privateKey, fileId: fileId,
+            connectionId: connectionId, userId: userId, privateKey: privateKey, fileId: fileId,
             annotationGuid: annotationGuid, width: width, height: height
         };
         return this._runServiceAsync(this.applicationPath + "/ResizeAnnotation" + this._urlSuffix, data, successCallback, errorCallback, false);
     },
 
     exportAnnotationsAsync: function (connectionId, fileId, format, mode, successCallback, errorCallback) {
-        var data = { connectionId: "", fileId: fileId, format: format, mode: mode };
+        var data = { connectionId: connectionId, fileId: fileId, format: format, mode: mode };
         return this._runServiceAsync(this.applicationPath + "/ExportAnnotations" + this._urlSuffix, data, successCallback, errorCallback, false);
     },
 
     importAnnotationsAsync: function (userId, privateKey, connectionId, fileId, saveCurrentAnnotations, successCallback, errorCallback) {
-        var data = { connectionId: "", fileGuid: fileId, userId: userId, privateKey: privateKey, saveCurrentAnnotations: saveCurrentAnnotations };
+        var data = { connectionId: connectionId, fileGuid: fileId, userId: userId, privateKey: privateKey, saveCurrentAnnotations: saveCurrentAnnotations };
         return this._runServiceAsync(this.applicationPath + 'ImportAnnotations' + this._urlSuffix, data, successCallback, errorCallback, false);
     },
 
     getPdfVersionOfDocumentAsync: function (connectionId, fileId, successCallback, errorCallback) {
-        var data = { connectionId: "", fileId: fileId };
+        var data = { connectionId: connectionId, fileId: fileId };
         return this._runServiceAsync(this.applicationPath + "/GetPdfVersionOfDocument" + this._urlSuffix, data, successCallback, errorCallback, false);
     },
 

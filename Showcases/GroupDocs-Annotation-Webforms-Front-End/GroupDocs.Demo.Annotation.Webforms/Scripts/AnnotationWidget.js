@@ -1547,14 +1547,15 @@
             var urlParts = jGroupdocs.http.splitUrl($.ui.groupdocsViewer.prototype.applicationPath);
             var baseUrl = urlParts.schema + '://' + urlParts.authority;// + (urlParts.path && urlParts.path != '/' ? '/' + urlParts.path : '');
             //alert("baseUrl:   " + baseUrl);
-            //$.connection.hub.qs = { 'uid': this.userId };
-            //$.connection.hub.url = baseUrl + '/signalr1_1_2/hubs';
-            //$.connection.hub.start({ jsonp: isChrome }).done(this._onConnectionEstablished.bind(this));
 
+            $.connection.hub.qs = { 'uid': this.userId };
+            $.connection.hub.url = baseUrl + '/signalr1_1_2/hubs';
+            $.connection.hub.start({ jsonp: isChrome }).done(this._onConnectionEstablished.bind(this));
             this._localizeElements();
             this._setThumbsImage();
 
             localizedStrings = this.localizedStrings;
+            //alert("this.userId:  " + this.userId);
             //alert("AnnotationWidget.js AFTER ENDDDDDDDD connection.annotationHub.client  ");
             //alert("AnnotationWidget.js  baseUrl + '/signalr1_1_2/hubs'   " + baseUrl + '/signalr1_1_2/hubs');
         },
