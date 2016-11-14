@@ -33,7 +33,7 @@ namespace GroupDocs.Demo.Annotation.Mvc.Controllers
             
             //Here you should apply proper GroupDocs.Annotation license (in case you want to
             //use this sample without trial limits)
-            //new License().SetLicense("E:/Storage/GroupDocs.Total.lic");
+            new License().SetLicense("E:/Storage/GroupDocs.Total.lic");
         }
 
         #region Annotation members
