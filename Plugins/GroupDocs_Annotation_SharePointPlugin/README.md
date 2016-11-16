@@ -1,4 +1,4 @@
-# GrouDocs.Annotation SharePoint App
+# GroupDocs.Annotation SharePoint App
 
 This plugin permits SharePoint developers to explore and investigate GroupDocs.Annotation for .NET front end. It demonstrates how GroupDocs.Annotation for .NET front end can be integrated with SharePoint.
 
