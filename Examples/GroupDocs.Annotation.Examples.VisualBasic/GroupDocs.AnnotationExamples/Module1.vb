@@ -8,14 +8,10 @@
         'CommonUtilities.ApplyLicense()
 
 
+        '....................for PDF Document..............................
+
         ''Add text annotation
         'Annotations.AddTextAnnotation()
-
-        ''Add text annotation in cells
-        'Annotations.AddTextAnnotationInCells()
-
-        ''Add text annotation in slides
-        'Annotations.AddTextAnnotationInSlides()
 
         ''Add area annotation with replies 
         'Annotations.AddAreaAnnotationWithReplies()
@@ -61,7 +57,107 @@
 
 
 
-        '#Region "DataStorage Functions"
+        '....................for Words Document..............................
+
+
+        ' ''Add text annotation
+        'Annotations.AddTextAnnotationforwords()
+
+
+        ' ''Add area annotation with replies 
+        'Annotations.AddAreaAnnotationWithRepliesforwords()
+
+        ' ''Add point annotation
+        'Annotations.AddPointAnnotationforwords()
+
+        ' ''Add text strike out annotation
+        'Annotations.AddTextStrikeOutAnnotationforwords()
+
+        ' ''Add polyline annotation
+        'Annotations.AddPolylineAnnotationforwords()
+
+        ' ''Add text field annotation
+        'Annotations.AddTextFieldAnnotationforwords()
+
+        ' ''Add watermark annotation
+        'Annotations.AddWatermarkAnnotation()
+
+        ' ''Add text replacement annotation
+        'Annotations.AddTextReplacementAnnotationforwords()
+
+        ' ''Add arrow annotation
+        'Annotations.AddArrowAnnotationforwords()
+
+        ' ''Add text redaction annotation
+        'Annotations.AddTextRedactionAnnotationforwords()
+
+        ' ''Add underline annotation
+        'Annotations.AddUnderLineAnnotationforwords()
+
+        ' ''Add distance annotation
+        'Annotations.AddDistanceAnnotationforwords()
+
+        ' ''Add resource redaction annotation
+        'Annotations.AddResourceRedactionAnnotationforwords()
+
+        ' ''Remove all annotations
+        'Annotations.RemoveAllAnnotationsFromDocumentforwords()
+
+
+        '.......................... for Slides....................
+
+        ''Add text annotation in Slides
+        'Annotations.AddTextAnnotationSlides()
+
+        
+        ''Add area annotation with replies in Slides
+        'Annotations.AddAreaAnnotationWithRepliesSlides()
+
+        ''Add point annotation in Slides
+        'Annotations.AddPointAnnotationSlides()
+
+        ''Add text strike out annotation in Slides
+        'Annotations.AddTextStrikeOutAnnotationSlides()
+
+        'Add polyline annotation in Slides
+        'Annotations.AddPolylineAnnotationSlides()
+
+        ''Add text field annotation in Slides
+        'Annotations.AddTextFieldAnnotationSlides()
+
+        ''Add watermark annotation in Slides
+        'Annotations.AddWatermarkAnnotationSlides()
+
+        ''Add text replacement annotation in Slides
+        'Annotations.AddTextReplacementAnnotationSlides()
+
+        ''Add arrow annotation in Slides
+        'Annotations.AddArrowAnnotationSlides()
+
+        ''Add text redaction annotation in Slides
+        'Annotations.AddTextRedactionAnnotationSlides()
+
+        ''Add underline annotation in Slides
+        'Annotations.AddUnderLineAnnotationSlides()
+
+        ''Add distance annotation in Slides
+        'Annotations.AddDistanceAnnotationSlides()
+
+        ''Add resource redaction annotation in Slides
+        ' Annotations.AddResourceRedactionAnnotationSlides()
+
+        ''Remove all annotations in Slides
+        'Annotations.RemoveAllAnnotationsFromDocumentSlides()
+
+
+        '....................for Cells Document..............................
+
+        ''Add text annotation in cells
+        'Annotations.AddTextAnnotationInCells()
+
+
+
+        '.........................DataStorage Functions.................................
 
         'Create document
         'DataStorage.CreateDocument()
@@ -111,58 +207,8 @@
         ''Export annotation to document
         'DataStorage.ExportAnnotationInFile()
 
-        '#End Region
 
-        '''' Annotations for Words Document
-
-
-        ' ''Add text annotation
-        'Annotations.AddTextAnnotationforwords()
-
-
-        ' ''Add area annotation with replies 
-        'Annotations.AddAreaAnnotationWithRepliesforwords()
-
-        ' ''Add point annotation
-        'Annotations.AddPointAnnotationforwords()
-
-        ' ''Add text strike out annotation
-        'Annotations.AddTextStrikeOutAnnotationforwords()
-
-        ' ''Add polyline annotation
-        'Annotations.AddPolylineAnnotationforwords()
-
-        ' ''Add text field annotation
-        'Annotations.AddTextFieldAnnotationforwords()
-
-        ' ''Add watermark annotation
-        'Annotations.AddWatermarkAnnotation()
-
-        ' ''Add text replacement annotation
-        'Annotations.AddTextReplacementAnnotationforwords()
-
-        ' ''Add arrow annotation
-        'Annotations.AddArrowAnnotationforwords()
-
-        ' ''Add text redaction annotation
-        'Annotations.AddTextRedactionAnnotationforwords()
-
-        ' ''Add underline annotation
-        'Annotations.AddUnderLineAnnotationforwords()
-
-        ' ''Add distance annotation
-        'Annotations.AddDistanceAnnotationforwords()
-
-        ' ''Add resource redaction annotation
-        'Annotations.AddResourceRedactionAnnotationforwords()
-
-        ' ''Remove all annotations
-        'Annotations.RemoveAllAnnotationsFromDocumentforwords()
-
-
-
-
-        ''#Region "Other Operations"
+        '......................... Other Operations.............................
 
         ''Get image representation of the document
         'CommonUtilities.GetImageRepresentation("sample.pdf");
@@ -170,9 +216,6 @@
         ''Get text coordinates in image representation of the document
         'CommonUtilities.GetTextCoordinates("sample.pdf");
         '#End Region
-
-
-
 
         Console.ReadKey()
     End Sub

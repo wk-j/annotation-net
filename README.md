@@ -1,4 +1,4 @@
-# GroupDocs_Annotation_NET
+# GroupDocs.Annotation for .NET
 
 This package contains [Examples](https://github.com/groupdocsAnnotation/GroupDocs_Annotation_NET/tree/master/Examples) and  [Showcases](https://github.com/groupdocsAnnotation/GroupDocs_Annotation_NET/tree/master/Showcases) for [GroupDocs.Annotation for .NET](http://groupdocs.com/dot-net/document-Annotation-library) that will help you in understanding the API's working and writing your own applications.
 
@@ -24,5 +24,5 @@ Directory | Description
 + **Download:** [Download GroupDocs.Annotation for .NET](http://groupdocs.com/Community/files/8/.net-libraries/groupdocs_Annotation_for_.net/full.aspx)
 + **Documentation:** [GroupDocs.Annotation for .NET Documentation](http://groupdocs.com/docs/display/Annotationnet/Introducing+GroupDocs.Annotation+for+.NET)
 + **Forum:** [GroupDocs.Annotation for .NET Forum](http://groupdocs.com/Community/forums/groupdocs.Annotation-product-family/5/showforum.aspx)
-+ **Blog:** [GroupDocs.Annotation for .NET Blog](#)
++ **Blog:** [GroupDocs.Annotation for .NET Blog](http://www.groupdocs.com/blog/category/groupdocs-annotation-product-family)
 

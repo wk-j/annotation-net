@@ -16,7 +16,7 @@ namespace GroupDocs.Annotation.CSharp
             
         CommonUtilities.StorageFolderPath = "../../../../Data/Samples/";
         CommonUtilities.DestinationFolderPath = "../../../../Data/Output/";
-        CommonUtilities.LicenseFilePath = "D://License/Groupdocs.Total.lic";
+        CommonUtilities.LicenseFilePath = "E://lic/Groupdocs.Total.lic";
         CommonUtilities.filePath = "Annotated.pdf";
 
             /* Apply product license
@@ -27,170 +27,214 @@ namespace GroupDocs.Annotation.CSharp
 
             #region Annotation Functions for PDF
 
-            CommonUtilities.filePath = "Annotated.pdf";
+            //CommonUtilities.filePath = "Annotated.pdf";
 
-            ////Add text annotation
-            //  PDFAnnotation.AddTextAnnotation();
+            //////Add text annotation
+            ////  PDFAnnotation.AddTextAnnotation();
 
-            //Add text annotation in cells
-            //PDFAnnotation.AddTextAnnotationInCells();
+            ////Add text annotation in Pdf
+            ////PDFAnnotation.AddTextAnnotationInCells();
 
-            //Add text annotation in slides
-            //PDFAnnotation.AddTextAnnotationInSlides();
+            ////Add text annotation in slides
+            ////PDFAnnotation.AddTextAnnotationInSlides();
 
-            ////Add area annotation with replies 
-            //PDFAnnotation.AddAreaAnnotationWithReplies();
+            //////Add area annotation with replies 
+            ////PDFAnnotation.AddAreaAnnotationWithReplies();
 
-            ////Add point annotation
-            // PDFAnnotation.AddPointAnnotation();
+            //////Add point annotation
+            //// PDFAnnotation.AddPointAnnotation();
 
-            ////Add text strike out annotation
-            //PDFAnnotation.AddTextStrikeOutAnnotation();
+            //////Add text strike out annotation
+            ////PDFAnnotation.AddTextStrikeOutAnnotation();
 
-            ////Add polyline annotation
-            //PDFAnnotation.AddPolylineAnnotation();
+            //////Add polyline annotation
+            ////PDFAnnotation.AddPolylineAnnotation();
 
-            ////Add text field annotation
-            ////PDFAnnotation.AddTextFieldAnnotation();
+            //////Add text field annotation
+            //////PDFAnnotation.AddTextFieldAnnotation();
 
-            ////Add watermark annotation
-            //PDFAnnotation.AddWatermarkAnnotation();
+            //////Add watermark annotation
+            ////PDFAnnotation.AddWatermarkAnnotation();
 
-            ////Add text replacement annotation
-            //PDFAnnotation.AddTextReplacementAnnotation();
+            //////Add text replacement annotation
+            ////PDFAnnotation.AddTextReplacementAnnotation();
 
-            ////Add arrow annotation
-            //PDFAnnotation.AddArrowAnnotation();
+            //////Add arrow annotation
+            ////PDFAnnotation.AddArrowAnnotation();
 
-            ////Add text redaction annotation
-            // PDFAnnotation.AddTextRedactionAnnotation();
+            //////Add text redaction annotation
+            //// PDFAnnotation.AddTextRedactionAnnotation();
 
-            ////Add underline annotation
-            //PDFAnnotation.AddUnderLineAnnotation();
+            //////Add underline annotation
+            ////PDFAnnotation.AddUnderLineAnnotation();
 
-            ////Add distance annotation
-            //PDFAnnotation.AddDistanceAnnotation();
+            //////Add distance annotation
+            ////PDFAnnotation.AddDistanceAnnotation();
 
-            ////Add resource redaction annotation
-            // PDFAnnotation.AddResourceRedactionAnnotation();
+            //////Add resource redaction annotation
+            //// PDFAnnotation.AddResourceRedactionAnnotation();
 
-            ////Remove all annotations
-            // PDFAnnotation.RemoveAllAnnotationsFromDocument();
+            //////Remove all annotations
+            //// PDFAnnotation.RemoveAllAnnotationsFromDocument();
 
             #endregion
 
             #region Annotation Functions for Words Document format
 
 
-            CommonUtilities.filePath = "Annotated.docx";
+            //CommonUtilities.filePath = "Annotated.docx";
 
-            ////Add area annotation with replies  for Words Document format
-            // WordAnnotation.AddAreaAnnotationWithRepliesforWords();
+            //////Add area annotation with replies  for Words Document format
+            //// WordAnnotation.AddAreaAnnotationWithRepliesforWords();
 
-            ////Add point annotation for Words Document format
-            // WordAnnotation.AddPointAnnotation();
+            //////Add point annotation for Words Document format
+            //// WordAnnotation.AddPointAnnotation();
 
-            ////Add text strike out annotation for Words Document format
-            //WordAnnotation.AddTextStrikeOutAnnotationforWords();
-
-
-            ////Add text field annotation for Words Document format
-            //WordAnnotation.AddTextFieldAnnotationforWords();
-
-            ////Add text replacement annotation for Words Document format
-            //WordAnnotation.AddTextReplacementAnnotationforWords();
-
-            ////Add arrow annotation for Words Document format
-            //WordAnnotation.AddArrowAnnotationforWords();
-
-            ////Add text redaction annotation for Words Document format
-            // WordAnnotation.AddTextRedactionAnnotationforWords();
-
-            ////Add underline annotation for Words Document format
-            //WordAnnotation.AddUnderLineAnnotationforWords();
+            //////Add text strike out annotation for Words Document format
+            ////WordAnnotation.AddTextStrikeOutAnnotationforWords();
 
 
-            ////Add resource redaction annotation for Words Document format
-            // WordAnnotation.AddResourceRedactionAnnotationforWords();
+            //////Add text field annotation for Words Document format
+            ////WordAnnotation.AddTextFieldAnnotationforWords();
 
-            ////Import and Export Annotations from Words document.
-            WordAnnotation.ImportAndExportAnnotationsFromWords();
+            //////Add text replacement annotation for Words Document format
+            ////WordAnnotation.AddTextReplacementAnnotationforWords();
+
+            //////Add arrow annotation for Words Document format
+            ////WordAnnotation.AddArrowAnnotationforWords();
+
+            //////Add text redaction annotation for Words Document format
+            //// WordAnnotation.AddTextRedactionAnnotationforWords();
+
+            //////Add underline annotation for Words Document format
+            ////WordAnnotation.AddUnderLineAnnotationforWords();
+
+
+            //////Add resource redaction annotation for Words Document format
+            //// WordAnnotation.AddResourceRedactionAnnotationforWords();
+
+            //////Import and Export Annotations from Words document.
+            //WordAnnotation.ImportAndExportAnnotationsFromWords();
 
             #endregion
 
-            #region Slides
+            #region Annotation Functions for Slides
 
-            CommonUtilities.filePath = "Annotated.pptx";
-            //Add text annotation in slides
-            //SlidesAnnotations.AddTextAnnotationInSlides();
+            CommonUtilities.filePath = "sample.pptx";
+
+            ////Add text annotation
+             //SlidesAnnotation.AddTextAnnotation();
+
+            ////Add text annotation in slides
+            //SlidesAnnotation.AddTextFieldAnnotation();
+
+            ////Add area annotation with replies 
+            //SlidesAnnotation.AddAreaAnnotationWithReplies();
+
+            ////Add point annotation
+            // SlidesAnnotation.AddPointAnnotation();
+
+            ////Add text strike out annotation
+            //SlidesAnnotation.AddTextStrikeOutAnnotation();
+
+            ////Add polyline annotation
+            //SlidesAnnotation.AddPolylineAnnotation();
+
+            ////Add text field annotation
+            //SlidesAnnotation.AddTextFieldAnnotation();
+
+            ////Add watermark annotation
+            //SlidesAnnotation.AddWatermarkAnnotation();
+
+            ////Add text replacement annotation
+            //SlidesAnnotation.AddTextReplacementAnnotation();
+
+            ////Add arrow annotation
+            //SlidesAnnotation.AddArrowAnnotation();
+
+            ////Add text redaction annotation
+            // SlidesAnnotation.AddTextRedactionAnnotation();
+
+            ////Add underline annotation
+            //SlidesAnnotation.AddUnderLineAnnotation();
+
+            ////Add distance annotation
+            //SlidesAnnotation.AddDistanceAnnotation();
+
+            ////Add resource redaction annotation
+            // SlidesAnnotation.AddResourceRedactionAnnotation();
+
+            ////Remove all annotations
+            // SlidesAnnotation.RemoveAllAnnotationsFromDocument();
+
             #endregion
 
             #region Cells
-            CommonUtilities.filePath = "Annotated.xlsx";
-            //Add text annotation in Cells
-            //CellsAnnotation.AddTextAnnotationInCells();
+            //CommonUtilities.filePath = "Annotated.xlsx";
+            ////Add text annotation in Cells
+            ////CellsAnnotation.AddTextAnnotationInCells();
             #endregion
 
 
             #region DataStorage Functions
 
-            //Create document
-            //DataStorage.CreateDocument();
+            ////Create document
+            ////DataStorage.CreateDocument();
 
-            ////Assign access rights
-            //DataStorage.AssignAccessRights();
+            //////Assign access rights
+            ////DataStorage.AssignAccessRights();
 
-            ////Create and get annotation
-            //DataStorage.CreateAndGetAnnotation();
+            //////Create and get annotation
+            ////DataStorage.CreateAndGetAnnotation();
 
-            ////Get all annotation of a document
-            //DataStorage.GetAllDocumentAnnotation();
+            //////Get all annotation of a document
+            ////DataStorage.GetAllDocumentAnnotation();
 
-            ////Resize annotation 
-            //DataStorage.ResizeAnnotationResult();
+            //////Resize annotation 
+            ////DataStorage.ResizeAnnotationResult();
 
-            ////Move an anotation 
-            //DataStorage.MoveAnnotationResult();
+            //////Move an anotation 
+            ////DataStorage.MoveAnnotationResult();
 
-            ////Set background color
-            //DataStorage.SetBackgroundColorResult();
+            //////Set background color
+            ////DataStorage.SetBackgroundColorResult();
 
-            ////Edit annotation
-            //DataStorage.EditTextFieldAnnotation();
+            //////Edit annotation
+            ////DataStorage.EditTextFieldAnnotation();
 
-            ////Remove annotation
-            //DataStorage.RemoveAnnotation();
+            //////Remove annotation
+            ////DataStorage.RemoveAnnotation();
 
-            ////Add annotation reply
-            //DataStorage.AddAnnotationReply();
+            //////Add annotation reply
+            ////DataStorage.AddAnnotationReply();
 
-            ////Add document collaborator
-            //DataStorage.AddCollaborator();
+            //////Add document collaborator
+            ////DataStorage.AddCollaborator();
 
-            ////Get document collaborator
-            //DataStorage.GetCollaborator();
+            //////Get document collaborator
+            ////DataStorage.GetCollaborator();
 
-            ////Update document collaborator
-            //DataStorage.UpdateCollaborator();
+            //////Update document collaborator
+            ////DataStorage.UpdateCollaborator();
 
-            ////Delete document collaborator
-            //DataStorage.DeleteCollaborator();
+            //////Delete document collaborator
+            ////DataStorage.DeleteCollaborator();
 
-            ////Delete document collaborator
-            //DataStorage.ManageCollaboratorRights();
+            //////Delete document collaborator
+            ////DataStorage.ManageCollaboratorRights();
 
-            ////Export annotation to document
-            //DataStorage.ExportAnnotationInFile();
+            //////Export annotation to document
+            ////DataStorage.ExportAnnotationInFile();
 
-            #endregion
+            //#endregion
 
-            #region Other Operations
+            //#region Other Operations
 
-            ////Get image representation of the document
-            //CommonUtilities.GetImageRepresentation("sample.pdf");
+            //////Get image representation of the document
+            ////CommonUtilities.GetImageRepresentation("sample.pdf");
 
-            ////Get text coordinates in image representation of the document
-            //CommonUtilities.GetTextCoordinates("sample.pdf");
+            //////Get text coordinates in image representation of the document
+            ////CommonUtilities.GetTextCoordinates("sample.pdf");
             #endregion
             Console.ReadKey();
 

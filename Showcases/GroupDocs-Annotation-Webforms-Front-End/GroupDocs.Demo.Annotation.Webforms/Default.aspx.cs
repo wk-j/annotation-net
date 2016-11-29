@@ -59,7 +59,7 @@ namespace GroupDocs.Demo.Annotation.Webforms
                 // initializing EmbeddedResourceManager object.
                 _resourceManager = new EmbeddedResourceManager();
 
-                AnnotationHub.userGUID = "52ced024-26e0-4b59-a510-ca8f5368e315";
+                //AnnotationHub.userGUID = "52ced024-26e0-4b59-a510-ca8f5368e315";
                 // initializing AnnotationService object.
                 _annotationSvc = UnityConfig.GetConfiguredContainer().Resolve<IAnnotationService>();
 

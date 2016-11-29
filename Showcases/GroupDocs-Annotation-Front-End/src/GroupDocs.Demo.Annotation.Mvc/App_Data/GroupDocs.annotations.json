@@ -448,5 +448,30 @@
     "PenStyle": 0,
     "BackgroundColor": -984833,
     "DocumentId": 1
+  },
+  {
+    "Id": 20,
+    "UserId": 1,
+    "Guid": "f30882de-8903-49a9-828f-2d7fc07fd132",
+    "MarkerLeft": 438.47860717773438,
+    "MarkerTop": 154.31309509277344,
+    "Width": 71.839996337890625,
+    "Height": 3.5155384540557861,
+    "Type": 0,
+    "Access": 0,
+    "CreatedOn": "2016-11-10T22:35:24.1701262Z",
+    "SvgPath": "[{\"x\":435.4786,\"y\":686.6869},{\"x\":513.3186000000001,\"y\":686.6869},{\"x\":435.4786,\"y\":677.6869},{\"x\":513.3186000000001,\"y\":677.6869}]",
+    "AnnotationLeft": 715.11737089201881,
+    "AnnotationTop": 167.82863849765258,
+    "FieldText": null,
+    "FontFamily": "Calibri",
+    "FontSize": 4.0,
+    "FontColor": 0,
+    "PageNumber": 0,
+    "PenColor": null,
+    "PenWidth": 1,
+    "PenStyle": 0,
+    "BackgroundColor": null,
+    "DocumentId": 1
   }
 ]

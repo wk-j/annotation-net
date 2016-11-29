@@ -17,25 +17,25 @@ namespace GroupDocs.Data.Json.Repositories
         }
         public void SaveDescription(DocumentInfoContainer description)
         {
-            if(description == null)
+            if (description == null)
                 return;
             string descriptionFolder = Path.Combine(repoPath, description.Name, description.DocumentType);
 
             lock (_syncRoot)
             {
-                if(!Directory.Exists(descriptionFolder))
+                if (!Directory.Exists(descriptionFolder))
                     Directory.CreateDirectory(descriptionFolder);
                 try
                 {
-                    using(var stream = File.OpenWrite(Path.Combine(descriptionFolder, "fd.json")))
-                    using(var writer = new StreamWriter(stream))
-                    using(JsonWriter jwriter = new JsonTextWriter(writer) { Formatting = Formatting.Indented })
+                    using (var stream = File.OpenWrite(Path.Combine(descriptionFolder, "fd.json")))
+                    using (var writer = new StreamWriter(stream))
+                    using (JsonWriter jwriter = new JsonTextWriter(writer) { Formatting = Formatting.Indented })
                     {
                         JsonSerializer serializer = new JsonSerializer();
                         serializer.Serialize(jwriter, description);
                     }
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     throw new Exception("Failed to serialize an object to file: '{0}'.", e);
                 }
@@ -49,20 +49,20 @@ namespace GroupDocs.Data.Json.Repositories
             {
                 try
                 {
-                    if(!File.Exists(descriptionFile))
+                    if (!File.Exists(descriptionFile))
                     {
                         return null;
                     }
 
-                    using(var stream = File.OpenRead(descriptionFile))
-                    using(var reader = new StreamReader(stream))
-                    using(JsonReader jreader = new JsonTextReader(reader))
+                    using (var stream = File.OpenRead(descriptionFile))
+                    using (var reader = new StreamReader(stream))
+                    using (JsonReader jreader = new JsonTextReader(reader))
                     {
                         JsonSerializer serializer = new JsonSerializer();
-                        return  serializer.Deserialize<DocumentInfoContainer>(jreader);
+                        return serializer.Deserialize<DocumentInfoContainer>(jreader);
                     }
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     throw new Exception("Failed to deserialize an object from file: '{0}'.", e);
                 }
@@ -75,6 +75,16 @@ namespace GroupDocs.Data.Json.Repositories
         }
 
         public void SaveFileData(FileDescription fileDescription, FileData fileData)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SaveTempPDF(System.IO.Stream stream, string namePDF)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Stream GetTempPDF(string namePDF)
         {
             throw new NotImplementedException();
         }
