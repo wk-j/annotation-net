@@ -31,10 +31,15 @@ using Point = GroupDocs_Annotation_SharePoint_WebPart.AnnotationResults.DataGeom
 using Rectangle = GroupDocs_Annotation_SharePoint_WebPart.AnnotationResults.DataGeometry.Rectangle;
 using RestoreRepliesResult = GroupDocs_Annotation_SharePoint_WebPart.AnnotationResults.RestoreRepliesResult;
 using Microsoft.SharePoint.WebControls;
-using GroupDocs_Annotation_SharePoint_WebPart.SignalR;
+using Microsoft.AspNet.SignalR;
+using System.Web.Routing;
+using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
 
-namespace GroupDocs_Annotation_SharePoint_WebPart.Layouts.GroupDocs_Annotation_SharePoint_WebPart
+
+
+
+namespace GroupDocs_Annotation_SharePoint_WebPart
 {
     public partial class Default : LayoutsPageBase
     {
@@ -44,6 +49,7 @@ namespace GroupDocs_Annotation_SharePoint_WebPart.Layouts.GroupDocs_Annotation_S
         private static IAnnotationService _annotationSvc;
         private static AnnotationImageHandler annotator;
         private static ApplicationPathFinder pathFinder = new ApplicationPathFinder();
+        
 
         #endregion Fields
         protected void Page_Load(object sender, EventArgs e)
@@ -58,14 +64,17 @@ namespace GroupDocs_Annotation_SharePoint_WebPart.Layouts.GroupDocs_Annotation_S
                 // initializing EmbeddedResourceManager object.
                 _resourceManager = new EmbeddedResourceManager();
 
-                AnnotationHub.userGUID = "52ced024-26e0-4b59-a510-ca8f5368e315";
+                //AnnotationHub.userGUID = "52ced024-26e0-4b59-a510-ca8f5368e315";
                 // initializing AnnotationService object.
                 _annotationSvc = UnityConfig.GetConfiguredContainer().Resolve<IAnnotationService>();
 
                 //Here you should apply proper GroupDocs.Annotation license (in case you want to
                 //use this sample without trial limits)
                 GroupDocs.Annotation.License lic = new GroupDocs.Annotation.License();
-                lic.SetLicense("C:/Users/SharePoint/Documents/Aspose/GroupDocs.Total.lic");
+                lic.SetLicense("C:/Users/Ali Ahmad/Documents/GroupDocs.Total.lic");
+
+               
+
             }
         }
 
@@ -108,8 +117,18 @@ namespace GroupDocs_Annotation_SharePoint_WebPart.Layouts.GroupDocs_Annotation_S
         public static ViewDocumentResponse ViewDocument(string path)
         {
             string request = path;
-            GroupDocs.Annotation.License lic = new GroupDocs.Annotation.License();
-            lic.SetLicense("C:/Users/SharePoint/Documents/Aspose/GroupDocs.Total.lic");
+            try
+            {
+                GroupDocs.Annotation.License lic = new GroupDocs.Annotation.License();
+                lic.SetLicense("C:/Users/Ali Ahmad/Documents/GroupDocs.Total.lic");
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+           
 
             string fileName = Path.GetFileName(request);
             var pathFinder = new ApplicationPathFinder();

@@ -5,7 +5,7 @@
 <%@ Register Tagprefix="asp" Namespace="System.Web.UI" Assembly="System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" %>
 <%@ Import Namespace="Microsoft.SharePoint" %>
 <%@ Assembly Name="Microsoft.Web.CommandUI, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="GroupDocs_Annotation_SharePoint_WebPart.Layouts.GroupDocs_Annotation_SharePoint_WebPart.Default" DynamicMasterPageFile="~masterurl/default.master" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="GroupDocs_Annotation_SharePoint_WebPart.Default" DynamicMasterPageFile="~masterurl/default.master" %>
 
 <asp:Content ID="PageHead" ContentPlaceHolderID="PlaceHolderAdditionalPageHead" runat="server" >
      <title>GroupDocs.Annotation: WebForms - Front-End Application</title>
@@ -95,7 +95,7 @@
             var annotationWidget = $('#annotation-widget').groupdocsAnnotation({
                 localizedStrings: null, width: 0,
                 height: 0,
-                fileId: '1.pdf',
+                fileId: 'rizwandoc1.pdf',
                 docViewerId: 'annotation-widget-doc-viewer',
                 quality: 90,
                 enableRightClickMenu: true,

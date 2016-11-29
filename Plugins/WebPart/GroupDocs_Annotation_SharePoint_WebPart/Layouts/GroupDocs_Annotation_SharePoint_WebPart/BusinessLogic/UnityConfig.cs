@@ -5,7 +5,6 @@ using GroupDocs.Annotation.Handler;
 using GroupDocs.Annotation.Handler.Input;
 using GroupDocs_Annotation_SharePoint_WebPart.Security;
 using GroupDocs_Annotation_SharePoint_WebPart.Service;
-using GroupDocs_Annotation_SharePoint_WebPart.SignalR;
 using Microsoft.Practices.Unity;
 
 

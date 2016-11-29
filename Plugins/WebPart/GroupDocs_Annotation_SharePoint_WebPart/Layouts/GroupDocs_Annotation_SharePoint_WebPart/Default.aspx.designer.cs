@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GroupDocs_Annotation_SharePoint_WebPart.Layouts.GroupDocs_Annotation_SharePoint_WebPart {
+namespace GroupDocs_Annotation_SharePoint_WebPart {
     
     
     public partial class Default {

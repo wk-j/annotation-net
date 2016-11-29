@@ -8,7 +8,7 @@ using Point = GroupDocs_Annotation_SharePoint_WebPart.AnnotationResults.DataGeom
 using Rectangle = GroupDocs_Annotation_SharePoint_WebPart.AnnotationResults.DataGeometry.Rectangle;
 using ReviewerInfo = GroupDocs_Annotation_SharePoint_WebPart.AnnotationResults.Data.ReviewerInfo;
 
-namespace GroupDocs_Annotation_SharePoint_WebPart.SignalR
+namespace GroupDocs_Annotation_SharePoint_WebPart
 {
     public interface IAnnotationBroadcaster
     {

@@ -10,7 +10,6 @@ using GroupDocs.Annotation.Handler;
 using GroupDocs.Annotation.Handler.Input.DataObjects;
 using GroupDocs.Annotation.Handler.Input;
 using GroupDocs_Annotation_SharePoint_WebPart.BusinessLogic.Options;
-using GroupDocs_Annotation_SharePoint_WebPart.SignalR;
 using AddReplyResult = GroupDocs_Annotation_SharePoint_WebPart.AnnotationResults.AddReplyResult;
 using AnnotationInfo = GroupDocs_Annotation_SharePoint_WebPart.AnnotationResults.Data.AnnotationInfo;
 using AnnotationReplyInfo = GroupDocs_Annotation_SharePoint_WebPart.AnnotationResults.Data.AnnotationReplyInfo;

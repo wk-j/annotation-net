@@ -504,7 +504,7 @@
                 '  <span class="tools_dots"></span>' +
                 '  <ul class="tools_list">' +
                 '    <li>' +
-                '      <button class="tool_field hand_box" data-bind="css: {\'active\': $data.annotationModeObservable() == null }, click: setHandToolMode">' +
+                '      <button class="tool_field hand_box" Style= "min-width: 32px" data-bind="css: {\'active\': $data.annotationModeObservable() == null }, click: setHandToolMode">' +
                 '        <div class="popupdiv-hover tool_field_tooltip small_button" data-localize="SelectTool">Select tool</div>' +
                 '      </button>' +
                 '    </li>';
@@ -512,7 +512,7 @@
             if ((this.options.enabledTools & AnnotationTools.Text) == AnnotationTools.Text) {
                 html +=
                     '    <li data-bind="visible: ($root.isTextAnnotationButtonEnabled || !$root.embeddedAnnotation)">' +
-                    '      <button class="tool_field text_box_annotate" data-bind="css: {\'active\': $data.annotationModeObservable() == Annotation.prototype.AnnotationType.Text }, click: setTextAnnotationMode">' +
+                    '      <button class="tool_field text_box_annotate" Style= "min-width: 32px" data-bind="css: {\'active\': $data.annotationModeObservable() == Annotation.prototype.AnnotationType.Text }, click: setTextAnnotationMode">' +
                     '        <div class="popupdiv-hover tool_field_tooltip small_button" data-localize="TextAnnotation" >Text annotation</div>' +
                     '      </button>' +
                     '    </li>';
@@ -521,7 +521,7 @@
             if ((this.options.enabledTools & AnnotationTools.Area) == AnnotationTools.Area) {
                 html +=
                     '    <li data-bind="visible: ($root.isRectangleAnnotationButtonEnabled || !$root.embeddedAnnotation)">' +
-                    '      <button class="tool_field area_box" data-bind="css: {\'active\': $data.annotationModeObservable() == Annotation.prototype.AnnotationType.Area }, click: setAreaAnnotationMode">' +
+                    '      <button class="tool_field area_box" Style= "min-width: 32px" data-bind="css: {\'active\': $data.annotationModeObservable() == Annotation.prototype.AnnotationType.Area }, click: setAreaAnnotationMode">' +
                     '        <div class="popupdiv-hover tool_field_tooltip small_button" data-localize="AreaAnnotation">Area annotation</div>' +
                     '      </button>' +
                     '    </li>';
@@ -530,7 +530,7 @@
             if ((this.options.enabledTools & AnnotationTools.Point) == AnnotationTools.Point) {
                 html +=
                     '    <li data-bind="visible: ($root.isPointAnnotationButtonEnabled || !$root.embeddedAnnotation)">' +
-                    '      <button class="tool_field point_box" data-bind="css: {\'active\': $data.annotationModeObservable() == Annotation.prototype.AnnotationType.Point }, click: setPointAnnotationMode">' +
+                    '      <button class="tool_field point_box" Style= "min-width: 32px" data-bind="css: {\'active\': $data.annotationModeObservable() == Annotation.prototype.AnnotationType.Point }, click: setPointAnnotationMode">' +
                     '        <div class="popupdiv-hover tool_field_tooltip small_button" data-localize="PointAnnotation">Point annotation</div>' +
                     '      </button>' +
                     '    </li>';
@@ -539,7 +539,7 @@
             if ((this.options.enabledTools & AnnotationTools.TextStrikeout) == AnnotationTools.TextStrikeout) {
                 html +=
                     '    <li data-bind="visible: ($root.isStrikeoutAnnotationButtonEnabled || !$root.embeddedAnnotation)">' +
-                    '      <button class="tool_field strike_box" data-bind="css: {\'active\': $data.annotationModeObservable() == Annotation.prototype.AnnotationType.TextStrikeout }, click: setStrikeoutTextMode">' +
+                    '      <button class="tool_field strike_box" Style= "min-width: 32px" data-bind="css: {\'active\': $data.annotationModeObservable() == Annotation.prototype.AnnotationType.TextStrikeout }, click: setStrikeoutTextMode">' +
                     '        <div class="popupdiv-hover tool_field_tooltip small_button" data-localize="StrikeoutText">Strikeout text</div>' +
                     '      </button>' +
                     '    </li>';
@@ -548,7 +548,7 @@
             if ((this.options.enabledTools & AnnotationTools.Polyline) == AnnotationTools.Polyline) {
                 html +=
                     '    <li data-bind="visible: ($root.isPolylineAnnotationButtonEnabled || !$root.embeddedAnnotation)">' +
-                    '      <button class="tool_field polyline_box" data-bind="css: {\'active\': $data.annotationModeObservable() == Annotation.prototype.AnnotationType.Polyline }, click: setPolylineAnnotationMode">' +
+                    '      <button class="tool_field polyline_box" Style= "min-width: 32px" data-bind="css: {\'active\': $data.annotationModeObservable() == Annotation.prototype.AnnotationType.Polyline }, click: setPolylineAnnotationMode">' +
                     '        <div class="popupdiv-hover tool_field_tooltip small_button" data-localize="PolylineAnnotation">Polyline annotation</div>' +
                     '      </button>' +
                     '    </li>';
@@ -557,7 +557,7 @@
             if ((this.options.enabledTools & AnnotationTools.TextField) == AnnotationTools.TextField) {
                 html +=
                     '    <li data-bind="visible: ($root.isTypewriterAnnotationButtonEnabled || !$root.embeddedAnnotation)">' +
-                    '      <button class="tool_field highlight_box" data-bind="css: {\'active\': $data.annotationModeObservable() == Annotation.prototype.AnnotationType.TextField }, click: setTextFieldAnnotationMode">' +
+                    '      <button class="tool_field highlight_box" Style= "min-width: 32px" data-bind="css: {\'active\': $data.annotationModeObservable() == Annotation.prototype.AnnotationType.TextField }, click: setTextFieldAnnotationMode">' +
                     '        <div class="popupdiv-hover tool_field_tooltip small_button" data-localize="TypewriterTool">Typewriter tool</div>' +
                     '      </button>' +
                     '    </li>';
@@ -566,7 +566,7 @@
             if ((this.options.enabledTools & AnnotationTools.Watermark) == AnnotationTools.Watermark) {
                 html +=
                 '    <li data-bind="visible: ($root.isWatermarkAnnotationButtonEnabled || !$root.embeddedAnnotation)">' +
-                '      <button class="tool_field watermark_box" data-bind="css: {\'active\': $data.annotationModeObservable() == Annotation.prototype.AnnotationType.Watermark }, click: setWatermarkAnnotationMode">' +
+                '      <button class="tool_field watermark_box" Style= "min-width: 32px" data-bind="css: {\'active\': $data.annotationModeObservable() == Annotation.prototype.AnnotationType.Watermark }, click: setWatermarkAnnotationMode">' +
                 '        <div class="popupdiv-hover tool_field_tooltip small_button" data-localize="WatermarkTool">Watermark tool</div>' +
                 '      </button>' +
                 '    </li>';
@@ -575,7 +575,7 @@
             if ((this.options.enabledTools & AnnotationTools.TextReplacement) == AnnotationTools.TextReplacement) {
                 html +=
                 '    <li>' +
-                '      <button class="tool_field replace_box" data-bind="css: {\'active\': $data.annotationModeObservable() == Annotation.prototype.AnnotationType.TextReplacement }, click: setReplacementAnnotationMode">' +
+                '      <button class="tool_field replace_box" Style= "min-width: 32px" data-bind="css: {\'active\': $data.annotationModeObservable() == Annotation.prototype.AnnotationType.TextReplacement }, click: setReplacementAnnotationMode">' +
                 '        <div class="popupdiv-hover tool_field_tooltip small_button" data-localize="TextReplacementTool">Text replacement tool</div>' +
                 '      </button>' +
                 '    </li>';
@@ -584,7 +584,7 @@
             if ((this.options.enabledTools & AnnotationTools.Arrow) == AnnotationTools.Arrow) {
                 html +=
                 '    <li>' +
-                '      <button class="tool_field arrow_tool" data-bind="css: {\'active\': $data.annotationModeObservable() == Annotation.prototype.AnnotationType.Arrow }, click: setArrowAnnotationMode">' +
+                '      <button class="tool_field arrow_tool" Style= "min-width: 32px" data-bind="css: {\'active\': $data.annotationModeObservable() == Annotation.prototype.AnnotationType.Arrow }, click: setArrowAnnotationMode">' +
                 '        <div class="popupdiv-hover tool_field_tooltip small_button" data-localize="PointerTool">Pointer tool</div>' +
                 '      </button>' +
                 '    </li>';
@@ -593,7 +593,7 @@
             if ((this.options.enabledTools & AnnotationTools.TextRedaction) == AnnotationTools.TextRedaction) {
                 html +=
                 '    <li data-bind="visible: canRedact()">' +
-                '      <button class="tool_field redtext_box" data-bind="css: {\'active\': $data.annotationModeObservable() == Annotation.prototype.AnnotationType.TextRedaction }, click: setTextRedactionAnnotationMode">' +
+                '      <button class="tool_field redtext_box" Style= "min-width: 32px" data-bind="css: {\'active\': $data.annotationModeObservable() == Annotation.prototype.AnnotationType.TextRedaction }, click: setTextRedactionAnnotationMode">' +
                 '        <div class="popupdiv-hover tool_field_tooltip small_button" data-localize="TextRedactionTool">Text redaction tool</div>' +
                 '      </button>' +
                 '    </li>';
@@ -602,7 +602,7 @@
             if ((this.options.enabledTools & AnnotationTools.ResourcesRedaction) == AnnotationTools.ResourcesRedaction) {
                 html +=
                 '    <li data-bind="visible: canRedact()">' +
-                '      <button class="tool_field redarea_box" data-bind="css: {\'active\': $data.annotationModeObservable() == Annotation.prototype.AnnotationType.ResourcesRedaction }, click: setResourcesRedactionAnnotationMode">' +
+                '      <button class="tool_field redarea_box" Style= "min-width: 32px" data-bind="css: {\'active\': $data.annotationModeObservable() == Annotation.prototype.AnnotationType.ResourcesRedaction }, click: setResourcesRedactionAnnotationMode">' +
                 '        <div class="popupdiv-hover tool_field_tooltip small_button" data-localize="ResourceRedactionTool">Resource redaction tool</div>' +
                 '      </button>' +
                 '    </li>';
@@ -611,7 +611,7 @@
             if ((this.options.enabledTools & AnnotationTools.TextUnderline) == AnnotationTools.TextUnderline) {
                 html +=
                 '    <li>' +
-                '      <button class="tool_field underline_tool" data-bind="css: {\'active\': $data.annotationModeObservable() == Annotation.prototype.AnnotationType.TextUnderline }, click: setTextUnderlineAnnotationMode">' +
+                '      <button class="tool_field underline_tool" Style= "min-width: 32px" data-bind="css: {\'active\': $data.annotationModeObservable() == Annotation.prototype.AnnotationType.TextUnderline }, click: setTextUnderlineAnnotationMode">' +
                 '        <div class="popupdiv-hover tool_field_tooltip small_button" data-localize="UnderlineTextTool">Underline text tool</div>' +
                 '      </button>' +
                 '    </li>';
@@ -620,7 +620,7 @@
             if ((this.options.enabledTools & AnnotationTools.Distance) == AnnotationTools.Distance) {
                 html +=
                 '    <li>' +
-                '      <button class="tool_field ruler_tool" data-bind="css: { \'active\': $data.annotationModeObservable() == Annotation.prototype.AnnotationType.Distance }, click: setDistanceAnnotationMode">' +
+                '      <button class="tool_field ruler_tool" Style= "min-width: 32px" data-bind="css: { \'active\': $data.annotationModeObservable() == Annotation.prototype.AnnotationType.Distance }, click: setDistanceAnnotationMode">' +
                 '        <div class="popupdiv-hover tool_field_tooltip small_button" data-localize="DistanceTool">Distance tool</div>' +
                 '      </button>' +
                 '    </li>';
@@ -1510,6 +1510,11 @@
             } else {
                 $(".zoom_wrappper").css('display', 'none');
             }
+            var isChrome = false; //navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
+            var urlParts = jGroupdocs.http.splitUrl($.ui.groupdocsViewer.prototype.applicationPath);
+            var baseUrl = urlParts.schema + '://' + urlParts.authority;// + (urlParts.path && urlParts.path != '/' ? '/' + urlParts.path : '');
+           
+
             //alert("AnnotationWidget.js - [connection.annotationHub]:  " + $.connection.annotationHub);
             //this.showExpandedCommentsPanel();
             this.annotationHub = $.connection.annotationHub.client;
@@ -1543,18 +1548,20 @@
             this.annotationHub.setAnnotationAccessOnClient = this._hubHandler._onAnnotationAccessChanged.bind(this);
             //alert("151551111  AnnotationWidget.js Before connection.annotationHub.client  ");
 
-            var isChrome = false; //navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
-            var urlParts = jGroupdocs.http.splitUrl($.ui.groupdocsViewer.prototype.applicationPath);
-            var baseUrl = urlParts.schema + '://' + urlParts.authority;// + (urlParts.path && urlParts.path != '/' ? '/' + urlParts.path : '');
-            //alert("baseUrl:   " + baseUrl);
-            //$.connection.hub.qs = { 'uid': this.userId };
-            //$.connection.hub.url = baseUrl + '/signalr1_1_2/hubs';
-            //$.connection.hub.start({ jsonp: isChrome }).done(this._onConnectionEstablished.bind(this));
 
+            //myhubConnection.qs = { 'uid': this.userId };
+            //myhubConnection.url = baseUrl + '/_layouts/15/GroupDocs_Annotation_SharePoint_WebPart/signalr1_1_2/hubs';
+            //myhubConnection.start({ jsonp: isChrome }).done(this._onConnectionEstablished.bind(this)).done();
+          
+
+            $.connection.hub.qs = { 'uid': this.userId };
+            $.connection.hub.url = baseUrl + '/_layouts/15/GroupDocs_Annotation_SharePoint_WebPart/signalr1_1_2/hubs';
+            $.connection.hub.start({ jsonp: isChrome }).done(this._onConnectionEstablished.bind(this));
             this._localizeElements();
             this._setThumbsImage();
 
             localizedStrings = this.localizedStrings;
+            //alert("this.userId:  " + this.userId);
             //alert("AnnotationWidget.js AFTER ENDDDDDDDD connection.annotationHub.client  ");
             //alert("AnnotationWidget.js  baseUrl + '/signalr1_1_2/hubs'   " + baseUrl + '/signalr1_1_2/hubs');
         },
