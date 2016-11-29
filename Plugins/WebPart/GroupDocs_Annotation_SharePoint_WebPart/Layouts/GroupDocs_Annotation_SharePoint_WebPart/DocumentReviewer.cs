@@ -1,4 +1,4 @@
-﻿namespace GroupDocs_Annotation_SharePoint_WebPart.SignalR
+﻿namespace GroupDocs_Annotation_SharePoint_WebPart
 {
     public struct DocumentReviewer
     {

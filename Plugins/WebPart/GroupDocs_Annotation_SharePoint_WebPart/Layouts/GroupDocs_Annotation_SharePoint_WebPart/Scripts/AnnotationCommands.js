@@ -125,15 +125,15 @@ $.extend(CreateAnnotationCommand.prototype, AnnotationCommand.prototype, {
     executeAsync: function () {
         this._model.createAnnotation(
             this._fileId,
-            this._annotation.type,
-            this._annotation.fieldText,
-            this._annotation.pageNumber,
-            this._annotation.box,
-            this._annotation.annotationPosition,
+            this._annotation.Type,
+            this._annotation.FieldText,
+            this._annotation.PageNumber,
+            this._annotation.Box,
+            this._annotation.AnnotationPosition,
             //this._annotation.range,
-            this._annotation.svgPath,
-            this._annotation.drawingOptions,
-            { family: this._annotation.fontFamily, size: this._annotation.fontSize },
+            this._annotation.SvgPath,
+            this._annotation.DrawingOptions,
+            { family: this._annotation.FontFamily, size: this._annotation.FontSize },
             this._onDone.bind(this),
             this._onDoFailed.bind(this));
     }

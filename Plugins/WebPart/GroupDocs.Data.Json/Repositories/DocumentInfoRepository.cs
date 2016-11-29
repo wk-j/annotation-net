@@ -78,5 +78,15 @@ namespace GroupDocs.Data.Json.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public void SaveTempPDF(System.IO.Stream stream, string namePDF)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Stream GetTempPDF(string namePDF)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

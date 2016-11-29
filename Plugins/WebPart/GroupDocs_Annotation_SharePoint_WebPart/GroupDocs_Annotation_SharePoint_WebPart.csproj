@@ -44,30 +44,26 @@
     <Reference Include="AutoMapper">
       <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
-    <Reference Include="GroupDocs.Annotation, Version=3.1.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+    <Reference Include="GroupDocs.Annotation, Version=16.10.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\groupdocs-annotation-dotnet.3.2.1\lib\GroupDocs.Annotation.dll</HintPath>
+      <HintPath>..\packages\groupdocs-annotation-dotnet.16.10.0\lib\GroupDocs.Annotation.dll</HintPath>
     </Reference>
     <Reference Include="GroupDocs.Data.Json, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d56750ae20482584, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\GroupDocs.Data.Json\bin\Debug\GroupDocs.Data.Json.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.1.2.2\lib\net40\Microsoft.AspNet.SignalR.Core.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.1\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.1.2.2\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.1.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
@@ -99,6 +95,10 @@
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap, Version=2.6.2.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap.2.6.2\lib\StructureMap.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -140,11 +140,18 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.SharePoint" />
     <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+    <Reference Include="WebActivator, Version=1.4.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivator.1.4.2\lib\net40\WebActivator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WebActivatorEx">
       <HintPath>..\..\GitHub\GroupDocs.Annotation-for-.NET\Showcases\GroupDocs-Annotation-Webforms-Front-End\GroupDocs.Demo.Annotation.Webforms\bin\WebActivatorEx.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Global.cs" />
+    <Compile Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\AnnotationBroadcaster.cs" />
+    <Compile Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\AnnotationHub.cs" />
     <Compile Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\BusinessLogic\AnnotationResults\AddReplyResult.cs" />
     <Compile Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\BusinessLogic\AnnotationResults\CreateAnnotationResult.cs" />
     <Compile Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\BusinessLogic\AnnotationResults\DataGeometry\Point.cs" />
@@ -202,33 +209,33 @@
     <Compile Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\DocumentReviewer.cs" />
+    <Compile Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\IAnnotationBroadcaster.cs" />
+    <Compile Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\IAnnotationHub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\Security\AuthenticationService.cs" />
     <Compile Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\Security\GroupdocsMembershipProvider.cs" />
-    <Compile Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\SignalR\AnnotationBroadcaster.cs" />
-    <Compile Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\SignalR\AnnotationHub.cs" />
-    <Compile Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\SignalR\DocumentReviewer.cs" />
-    <Compile Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\SignalR\IAnnotationBroadcaster.cs" />
-    <Compile Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\SignalR\IAnnotationHub.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\App_Data\1.pdf" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Features\Feature1\Feature1.feature">
       <FeatureId>{d5f84e29-2e1b-4a45-a0c2-23849ee1746a}</FeatureId>
     </None>
-    <None Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\App_Data\candy.pdf" />
     <None Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\App_Data\GroupDocs.annotation.collaborators.json" />
     <None Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\App_Data\GroupDocs.annotation.documents.json" />
     <None Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\App_Data\GroupDocs.annotation.replies.json" />
     <None Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\App_Data\GroupDocs.annotations.json" />
     <None Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\App_Data\GroupDocs.users.json" />
+    <None Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\App_Data\rizwandoc.pdf" />
+    <None Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\App_Data\rizwandoc1.pdf" />
     <None Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\App_Data\Windows Server AppFabric Starter Kit.docx" />
+    <None Include="key.snk" />
     <None Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\fonts\PT_Sans-Web-Bold.ttf" />
     <None Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\fonts\PT_Sans-Web-Bold.woff" />
     <None Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\fonts\PT_Sans-Web-Regular.ttf" />
     <None Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\fonts\PT_Sans-Web-Regular.woff" />
-    <None Include="key.snk" />
     <None Include="Layouts\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{c748fe9d-68ab-4b4a-8b68-d362f949393b}</SharePointProjectItemId>
     </None>
@@ -240,9 +247,12 @@
     </None>
     <None Include="Package\Package.Template.xml">
       <DependentUpon>Package.package</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Start\" />
+    <Folder Include="DependencyResolution\" />
     <Folder Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\App_Data\Temp\" />
     <Folder Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\Content\TempStorage\" />
   </ItemGroup>
@@ -293,11 +303,6 @@
     <Content Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\Scripts\installableViewer.js" />
     <Content Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\Scripts\jGroupDocs.Undo.js" />
     <Content Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\Scripts\jGroupDocs.Utils.js" />
-    <Content Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\Scripts\jquery-1.6.4-vsdoc.js" />
-    <Content Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\Scripts\jquery-1.6.4.js" />
-    <Content Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\Scripts\jquery-1.6.4.min.js" />
-    <Content Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\Scripts\jquery.signalR-2.2.1.js" />
-    <Content Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\Scripts\jquery.signalR-2.2.1.min.js" />
     <Content Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\Scripts\libs\bootstrap.min.js" />
     <Content Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\Scripts\libs\GroupdocsViewer.all.js" />
     <Content Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\Scripts\libs\GroupdocsViewer.all.min.js" />
@@ -324,7 +329,6 @@
     <Content Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\Scripts\TextStrikeout.js" />
     <Content Include="Layouts\GroupDocs_Annotation_SharePoint_WebPart\Scripts\Watermark.js" />
   </ItemGroup>
-
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

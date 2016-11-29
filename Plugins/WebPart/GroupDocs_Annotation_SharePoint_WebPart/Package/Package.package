@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="23200182-8598-4679-911c-da3d1f1e95a8" solutionId="23200182-8598-4679-911c-da3d1f1e95a8" resetWebServer="false" sharePointProductVersion="15.0" name="GroupDocs_Annotation_SharePoint_WebPart" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
   <assemblies>
-    <customAssembly location="GroupDocs.Annotation.dll" deploymentTarget="WebApplication" sourcePath="..\GroupDocs.Data.Json\bin\Debug\GroupDocs.Annotation.dll">
+    <customAssembly location="GroupDocs.Annotation.dll" deploymentTarget="WebApplication" sourcePath="..\packages\groupdocs-annotation-dotnet.16.10.0\lib\GroupDocs.Annotation.dll">
       <safeControls>
         <safeControl assemblyName="$GroupDocs.Annotation.dll$" namespaceName="GroupDocs.Annotation" typeName="*" isSafeAgainstScript="false" />
       </safeControls>
@@ -9,6 +9,11 @@
     <customAssembly location="GroupDocs.Data.Json.dll" deploymentTarget="WebApplication" sourcePath="..\GroupDocs.Data.Json\bin\Debug\GroupDocs.Data.Json.dll">
       <safeControls>
         <safeControl assemblyName="$GroupDocs.Data.Json.dll$" namespaceName="GroupDocs.Data.Json" typeName="*" isSafeAgainstScript="false" />
+      </safeControls>
+    </customAssembly>
+    <customAssembly location="GdVirtualPath.dll" deploymentTarget="WebApplication" sourcePath="..\..\..\..\GdVirtualPath.dll">
+      <safeControls>
+        <safeControl assemblyName="$GdVirtualPath.dll$" namespaceName="GdVirtualPath" typeName="*" isSafeAgainstScript="false" />
       </safeControls>
     </customAssembly>
   </assemblies>

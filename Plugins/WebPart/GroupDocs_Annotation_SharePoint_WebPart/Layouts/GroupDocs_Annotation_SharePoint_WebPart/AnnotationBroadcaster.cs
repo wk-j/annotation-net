@@ -11,7 +11,7 @@ using Point = GroupDocs_Annotation_SharePoint_WebPart.AnnotationResults.DataGeom
 using Rectangle = GroupDocs_Annotation_SharePoint_WebPart.AnnotationResults.DataGeometry.Rectangle;
 using ReviewerInfo = GroupDocs_Annotation_SharePoint_WebPart.AnnotationResults.Data.ReviewerInfo;
 
-namespace GroupDocs_Annotation_SharePoint_WebPart.SignalR
+namespace GroupDocs_Annotation_SharePoint_WebPart
 {
     public class AnnotationBroadcaster : IAnnotationBroadcaster
     {
@@ -139,7 +139,7 @@ namespace GroupDocs_Annotation_SharePoint_WebPart.SignalR
 
         public DocumentReviewer? GetConnectionUser(string connectionId)
         {
-            return _annotationsHub.GetConnectionUser(AnnotationHub.userGUID);
+            return _annotationsHub.GetConnectionUser(connectionId);
         }
 
         public void MoveAnnotationMarker(IList<string> collaboratorGuids, string connectionIdToExclude, string annotationGuid, Point position, int? pageNumber)
