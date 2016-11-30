@@ -41,8 +41,8 @@ Culture=neutral, PublicKeyToken=46f3db1189e89af3"%>
 <%@ Application Language="C#" Inherits="GroupDocs_Annotation_SharePoint_WebPart.Global" %>
 
 ```
-
-* Add following Http Module in web.config in your VirtualDirectories root path.
+* Open Web.Config from your VirtualDirectories root path: C:\Inetpub\Wwwroot\Wss\VirtualDirectories\porthost
+* Add following http module in Web.config
 
 ```
  <httpModules>
