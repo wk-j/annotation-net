@@ -31,5 +31,24 @@ The SharePoint Web-Part Front End provides end users with tools needed for conve
 * Open GroupDocs.Annotation SharePoint Web-Part in your visual studio
 * Open project properties, set your Site URL
 * Set your license path in Default.aspx.cs
-* Click Run.
+* Open Global.asax from your VirtualDirectories root path: C:\Inetpub\Wwwroot\Wss\VirtualDirectories\porthost
+* Add following code in your Global.asax
+
+```
+<%@ Assembly Name="GroupDocs_Annotation_SharePoint_WebPart, Version=1.0.0.0,
+Culture=neutral, PublicKeyToken=46f3db1189e89af3"%>
+<%@ Import Namespace="GroupDocs_Annotation_SharePoint_WebPart" %>
+<%@ Application Language="C#" Inherits="GroupDocs_Annotation_SharePoint_WebPart.Global" %>
+
+```
+
+* Add following Http Module in web.config in your VirtualDirectories root path.
+
+```
+ <httpModules>
+      <add name="Session" type="System.Web.SessionState.SessionStateModule" />
+ </httpModules>
+
+```
+* Click Run in Visual Studio.
 
