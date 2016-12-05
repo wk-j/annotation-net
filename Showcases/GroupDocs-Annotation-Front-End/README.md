@@ -12,7 +12,7 @@
 
 + Upload Source file
 + Apply Annotations
-+ Save files and allow to view Ouput in viewer using GroupDocs.Viewer
++ Save files and allow to view Ouput in viewer using any standard Browser
 
 
 ##How to Run the Examples?
