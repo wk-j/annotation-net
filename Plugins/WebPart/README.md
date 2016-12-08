@@ -27,9 +27,10 @@ The SharePoint Web-Part Front End provides end users with tools needed for conve
 
 # How to Run Plugin
 
-* Download GroupDocs.Annotation SharePoint Web-Part from GitHub
+* [Download](https://github.com/groupdocs-annotation/GroupDocs.Annotation-for-.NET/releases/download/V2.0.0/GroupDocs.Annotation.SharePoint.WebPart.V2.0.0.rar)   GroupDocs.Annotation SharePoint Web-Part from GitHub
 * Open GroupDocs.Annotation SharePoint Web-Part in your visual studio
 * Open project properties, set your Site URL
+* Set Default.aspx as your StartUp Item
 * Set your license path in Default.aspx.cs
 * Open Global.asax from your VirtualDirectories root path: C:\Inetpub\Wwwroot\Wss\VirtualDirectories\porthost
 * Add following code in your Global.asax
@@ -51,4 +52,5 @@ Culture=neutral, PublicKeyToken=46f3db1189e89af3"%>
 
 ```
 * Click Run in Visual Studio.
+* If you face virtual path issue in SharePoint 2013 please follow this [Blog Post](http://www.groupdocs.com/blog/how-to-fix-a-virtualpath-issue-in-the-sharepoint-2013)  
 
