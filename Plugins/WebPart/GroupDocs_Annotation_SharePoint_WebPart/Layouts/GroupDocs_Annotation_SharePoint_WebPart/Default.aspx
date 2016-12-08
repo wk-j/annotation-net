@@ -149,9 +149,9 @@
 </asp:Content>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">
-Application Page
+GroupDocs.Annotation SharePoint Web-Part
 </asp:Content>
 
 <asp:Content ID="PageTitleInTitleArea" ContentPlaceHolderID="PlaceHolderPageTitleInTitleArea" runat="server" >
-My Application Page
+GroupDocs.Annotation SharePoint Web-Part
 </asp:Content>
