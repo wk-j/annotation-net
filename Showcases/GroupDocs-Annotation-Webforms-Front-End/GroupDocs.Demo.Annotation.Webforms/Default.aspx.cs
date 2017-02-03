@@ -66,7 +66,7 @@ namespace GroupDocs.Demo.Annotation.Webforms
                 //Here you should apply proper GroupDocs.Annotation license (in case you want to
                 //use this sample without trial limits)
                 License lic = new License();
-                lic.SetLicense("D:/License/GroupDocs.Total.lic");
+                lic.SetLicense("D:/lic/GroupDocs.Total.lic");
             }
         }
 
