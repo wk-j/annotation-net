@@ -673,5 +673,30 @@
     "PenStyle": 0,
     "BackgroundColor": -984833,
     "DocumentId": 3
+  },
+  {
+    "Id": 30,
+    "UserId": 1,
+    "Guid": "5bb5c384-594c-4edb-8429-a1418a02b604",
+    "MarkerLeft": 450.0560302734375,
+    "MarkerTop": 108.24530792236328,
+    "Width": 59.360328674316406,
+    "Height": 25.839200973510742,
+    "Type": 1,
+    "Access": 0,
+    "CreatedOn": "2017-01-09T18:18:28.9959999Z",
+    "SvgPath": null,
+    "AnnotationLeft": 852.0,
+    "AnnotationTop": 108.24530516431925,
+    "FieldText": null,
+    "FontFamily": "Calibri",
+    "FontSize": 4.0,
+    "FontColor": 0,
+    "PageNumber": 0,
+    "PenColor": 1201033,
+    "PenWidth": 1,
+    "PenStyle": 0,
+    "BackgroundColor": null,
+    "DocumentId": 1
   }
 ]

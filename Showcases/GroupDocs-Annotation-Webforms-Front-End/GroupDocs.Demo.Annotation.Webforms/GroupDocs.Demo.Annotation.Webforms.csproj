@@ -43,8 +43,9 @@
     <Reference Include="AutoMapper">
       <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
-    <Reference Include="GroupDocs.Annotation">
-      <HintPath>..\packages\groupdocs-annotation-dotnet.16.12.0\lib\GroupDocs.Annotation.dll</HintPath>
+    <Reference Include="GroupDocs.Annotation, Version=17.1.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\groupdocs-annotation-dotnet.17.1.0\lib\GroupDocs.Annotation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.SignalR.Core">
       <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.1.2.2\lib\net40\Microsoft.AspNet.SignalR.Core.dll</HintPath>
@@ -206,7 +207,9 @@
     <Content Include="Scripts\TextReplacement.js" />
     <Content Include="Scripts\TextStrikeout.js" />
     <Content Include="Scripts\Watermark.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogic\AnnotationResults\AddReplyResult.cs" />
