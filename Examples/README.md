@@ -12,7 +12,7 @@ This package contains C# and VB.NET Example Projects for [GroupDocs.Annotation f
 
 + Visual Studio 2012 or later.
 
-+ GroupDocs.Annotation 17.1.0
++ GroupDocs.Annotation 17.2.0
 
 
 ##How to Run the Examples?

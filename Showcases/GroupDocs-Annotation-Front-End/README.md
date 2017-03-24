@@ -6,7 +6,7 @@
 
 + Visual Studio 2012 or later.
 
-+ GroupDocs.Annotation 17.1.0.
++ GroupDocs.Annotation 17.2.0.
 
 ##Features
 
