@@ -20,7 +20,7 @@ Directory | Description
 
 + **Website:** [www.groupdocs.com](http://www.groupdocs.com)
 + **Product Home:** [GroupDocs.Annotation for .NET](http://groupdocs.com/dot-net/document-Annotation-library)
-+ **Product API:** [API of GroupDocs.Annotation for .NET](http://groupdocs.com/api/net/Annotation)
++ **Product API:** [API of GroupDocs.Annotation for .NET](https://apireference.groupdocs.com/net/annotation)
 + **Download:** [Download GroupDocs.Annotation for .NET](http://groupdocs.com/Community/files/8/.net-libraries/groupdocs_Annotation_for_.net/full.aspx)
 + **Documentation:** [GroupDocs.Annotation for .NET Documentation](http://groupdocs.com/docs/display/Annotationnet/Introducing+GroupDocs.Annotation+for+.NET)
 + **Forum:** [GroupDocs.Annotation for .NET Forum](http://groupdocs.com/Community/forums/groupdocs.Annotation-product-family/5/showforum.aspx)
