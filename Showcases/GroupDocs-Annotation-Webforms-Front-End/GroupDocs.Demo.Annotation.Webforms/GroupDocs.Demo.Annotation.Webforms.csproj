@@ -44,7 +44,7 @@
       <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="GroupDocs.Annotation">
-      <HintPath>..\packages\groupdocs-annotation-dotnet.17.2.0\lib\GroupDocs.Annotation.dll</HintPath>
+      <HintPath>..\packages\groupdocs-annotation-dotnet.17.3.0\lib\GroupDocs.Annotation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.SignalR.Core">
       <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.1.2.2\lib\net40\Microsoft.AspNet.SignalR.Core.dll</HintPath>
