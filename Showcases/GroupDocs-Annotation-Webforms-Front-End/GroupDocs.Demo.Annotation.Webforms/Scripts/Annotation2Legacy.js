@@ -43,8 +43,8 @@
         childReplies: null,
 
         _init: function (reply, serverTime) {
-            this.guid = ko.observable(reply.guid);
-            this.repliedOn = reply.repliedOn;
+            this.guid = ko.observable(reply.Guid);
+            this.repliedOn = reply.RepliedOn;
             var replyDateTime = new Date(this.repliedOn);
             var now = serverTime;
 
@@ -114,12 +114,12 @@
 
             //this.displayDateTime = replyDateTime.getFullYear() + "-" + (replyDateTime.getMonth() + 1) + "-" + replyDateTime.getDate() + " " +
             //                        replyDateTime.getHours() + ":" + replyDateTime.getMinutes() + ":" + replyDateTime.getSeconds();
-            this.userGuid = reply.userGuid;
-            this.userName = (reply.userName == GuestUser.Name ? GuestUser.DisplayName : reply.userName || GuestUser.DisplayName);
-            this.text = ko.observable(reply.text);
-            this.parentReplyGuid = ko.observable(reply.parentReplyGuid);
-            this.replyLevel = reply.replyLevel;
-            this.avatarUrl = (reply.isAvatarExist === false ? null : this.baseAvatarUrl + reply.userGuid);
+            this.userGuid = reply.UserGuid;
+            this.userName = (reply.UserName == GuestUser.Name ? GuestUser.DisplayName : reply.UserName || GuestUser.DisplayName);
+            this.text = ko.observable(reply.Message);
+            this.parentReplyGuid = ko.observable(reply.ParentReplyGuid);
+            this.replyLevel = reply.ReplyLevel;
+            this.avatarUrl = (reply.IsAvatarExist === false ? null : this.baseAvatarUrl + reply.UserGuid);
             this.childReplies = ko.observableArray([]);
 
             this.isEmpty = ko.computed(function () {
@@ -1066,7 +1066,7 @@
                     onDoFailed: this._onError.bind(this),
 
                     onUndone: function (response) {
-                        annotationGuid = data.guid = response.data.d.AnnotationGuid;
+                        annotationGuid = data.guid = response.data.d.Guid;
                         annotation.guid = annotationGuid;
 
                         this._addAnnotation(annotation);
@@ -1281,7 +1281,6 @@
                         }));
                         this.updateAnnotationDisplayPosition(annotation);
                         this._onAnnotationCreated(annotation, markerFigure);
-                        //alert("afterrr _onAnnotationCreated: ");
 
                         if (this.toolDeactivationMode == ToolDeactivationMode.Auto)
                             this.setHandToolMode();
@@ -1325,7 +1324,6 @@
             this.preventIconsFromOverlapping();
 
             var color = annotation.backgroundColor();
-            //alert("before  selectionCounter");
 
             annotation.selectionCounter = this.selectTextInRect(
                 annotation.bounds(),
@@ -1334,12 +1332,9 @@
                 annotation.selectionCounter,
                 color && color !== undefined ? this.getRgbColorFromInteger(color) : null,
                 { mouseenter: function () { this.hoveredAnnotation(annotation); }.bind(this), mouseleave: function () { this.hoveredAnnotation(null); }.bind(this) });
-            //alert("annotation.selectionCounter: " + annotation.selectionCounter);
-            //alert("after  selectionCounter");
 
             this.createConnectingLineAndIcon(annotation);
             this.activeAnnotation(annotation);
-            //alert("after activeAnnotation");
 
             $(this).trigger('onAnnotationCreated', [annotation, markerFigure]);
             annotation.activeReply(0);
@@ -1429,7 +1424,7 @@
         },
 
         _onAnnotationReplyRemoved: function (response) {
-            var annotation = this.findAnnotation(response.data.d.AnnotationGuid);
+            var annotation = this.findAnnotation(response.data.d.Guid);
             annotation.deleteAllReplies();
 
             annotation.sortReplies(response.data.d.Replies, new Date(response.data.d.ServerTime));
@@ -1457,9 +1452,9 @@
         },
 
         addAnnotationReply: function (annotation, reply, keepFocusedReply) {
-            if (annotation.Guid && reply && reply.text().length) {
+            if (annotation.guid && reply && reply.text().length) {
                 var replyGuid = reply.guid() || '',
-                    annotationGuid = annotation.Guid,
+                    annotationGuid = annotation.guid,
                     addReplyCommand = new CreateAnnotationReplyCommand(this._model, this.fileId, annotation, {
                         onDone: function (response) {
                             reply.guid(response.data.d.ReplyGuid);
@@ -1778,7 +1773,6 @@
         },
 
         _onAnnotationsReceived: function (response, appendOnly) {
-            //alert(JSON.stringify(response));
             var list = [];
             var selectable = this.getSelectableInstance();
             var pages = selectable.getPages(),
@@ -1789,9 +1783,6 @@
                         continue;
                     }
 
-                    //if (i <= 0) {
-                    //    alert("ENNNNDDD response.Annotations[i].pageNumber:  " + response.Annotations[0].PageNumber + "   pageCount:   " + pageCount);
-                    //}
                     var annotation = new Annotation(response.Annotations[i], new Date(response.serverTime));
                     this._onAnnotationReceived(annotation);
                     list.push(annotation);
@@ -1813,7 +1804,6 @@
 
         _onAnnotationReceived: function (annotation) {
             this.updateAnnotationDisplayPosition(annotation);
-
             if (annotation.commentsEnabled) {
                 if (annotation.replies().length == 0) {
                     annotation.addReply(this.userId, this.userName);
@@ -2362,7 +2352,6 @@
         getDocumentCollaborators: function (fileId) {
             if ((fileId || this.fileId) && !this.anonymousAnnotation) {
                 var response = this._model.getDocumentCollaborators(fileId || this.fileId);
-                //alert("getDocumentCollaborators:  " + JSON.stringify(response));
                 if (response.error) {
                     jerror(response.error.Reason);
                 }
