@@ -29,7 +29,7 @@
         //alert("addAnnotationReplyAsync:  parentReplyGuid:  " + parentReplyGuid);
         var data = {
             connectionId: connectionId, userId: userId, privateKey: privateKey, fileId: fileId,
-            annotationGuid: annotationGuid, message: (typeof message === 'undefined') ? 'default' : message, parentReplyGuid: (typeof parentReplyGuid === 'undefined') ? '' : parentReplyGuid
+            annotationGuid: annotationGuid, message: (typeof message === 'undefined') ? 'default' : message, parentReplyGuid: (typeof parentReplyGuid === 'undefined') ? null : parentReplyGuid
         };
         return this._runServiceAsync(this.applicationPath + '/AddAnnotationReply' + this._urlSuffix, data, successCallback, errorCallback, false);
     },

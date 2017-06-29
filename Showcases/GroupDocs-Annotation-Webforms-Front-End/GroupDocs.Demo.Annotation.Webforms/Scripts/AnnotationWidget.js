@@ -65,7 +65,7 @@
                     element: self.element,
                     showHyperlinks: false,
                     storeAnnotationCoordinatesRelativeToPages: true,
-                    baseAvatarUrl: self.applicationPath + 'GetAvatar' + (self.useHttpHandlers ? 'Handler' : '') + '?userId=',
+                    baseAvatarUrl: self.applicationPath + '/GetAvatar' + (self.useHttpHandlers ? 'Handler' : '') + '?userId=',
                     imageHorizontalMargin: 0,
                     redactionToolOptions: {
                         pen: { width: 1, color: 0x333333, dashStyle: 0 },
