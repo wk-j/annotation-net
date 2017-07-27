@@ -611,7 +611,7 @@ namespace GroupDocs.Demo.Annotation.Webforms
                 }
                 return new FileResponse(fileId);
             }
-            catch (IOException e)
+            catch (Exception e)
             {
                 return null;
             }

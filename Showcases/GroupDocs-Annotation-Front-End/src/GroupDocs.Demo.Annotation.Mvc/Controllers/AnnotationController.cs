@@ -320,7 +320,7 @@ namespace GroupDocs.Demo.Annotation.Mvc.Controllers
                 }
                 return this.JsonOrJsonP(new FileResponse(fileId), callback);
             }
-            catch (IOException e)
+            catch (Exception e)
             {
                 return this.JsonOrJsonP(new FailedResponse {success = false, Reason = e.Message}, callback);
             }
