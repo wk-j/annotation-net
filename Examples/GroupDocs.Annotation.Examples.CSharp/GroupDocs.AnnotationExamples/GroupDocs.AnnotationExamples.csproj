@@ -35,7 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GroupDocs.Annotation">
-      <HintPath>..\..\packages\groupdocs-annotation-dotnet.17.6.0\lib\GroupDocs.Annotation.dll</HintPath>
+      <HintPath>..\..\packages\groupdocs-annotation-dotnet.17.7.0\lib\GroupDocs.Annotation.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -73,12 +73,6 @@
     <Content Include="bin\Debug\GroupDocs.Annotation.CSharp.vshost.exe" />
     <Content Include="bin\Debug\GroupDocs.Annotation.dll" />
     <Content Include="bin\Debug\Newtonsoft.Json.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GroupDocs.AnnotationDataStorage\Groupdocs.AnnotationDataStorage.csproj">
-      <Project>{352bbb7a-98af-4b05-b8d7-74334edce61c}</Project>
-      <Name>Groupdocs.AnnotationDataStorage</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
