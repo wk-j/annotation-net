@@ -5,8 +5,6 @@ using GroupDocs.Annotation.Exception;
 using GroupDocs.Annotation.Handler;
 using GroupDocs.Annotation.Handler.Input;
 using GroupDocs.Annotation.Handler.Input.DataObjects;
-using GroupDocs.Data.Json;
-using GroupDocs.Data.Json.Repositories;
 using System;
 using System.Collections.Generic;
 using System.IO;

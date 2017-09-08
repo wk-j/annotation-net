@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GroupDocs.Data.Json;
-using GroupDocs.Data.Json.Repositories;
 using System.IO;
 
 namespace GroupDocs.Annotation.CSharp
