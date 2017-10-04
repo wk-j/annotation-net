@@ -1,6 +1,6 @@
 # GroupDocs.Annotation for .NET
 
-This package contains [Examples](https://github.com/groupdocsAnnotation/GroupDocs_Annotation_NET/tree/master/Examples) and  [Showcases](https://github.com/groupdocsAnnotation/GroupDocs_Annotation_NET/tree/master/Showcases) for [GroupDocs.Annotation for .NET](http://groupdocs.com/dot-net/document-Annotation-library) that will help you in understanding the API's working and writing your own applications.
+This package contains [Examples](https://github.com/groupdocsAnnotation/GroupDocs_Annotation_NET/tree/master/Examples) and  [Showcases](https://github.com/groupdocsAnnotation/GroupDocs_Annotation_NET/tree/master/Showcases) for [GroupDocs.Annotation for .NET](https://www.groupdocs.com/products/annotation/net) that will help you in understanding the API's working and writing your own applications.
 
 GroupDocs.Annotation is essentially devised to add annotations in documents within a .NET applications. API comes with an extensive number of markup tools. These tools permit users to highlight, strikeout, and comment on text and images. This doesn't end up here user can avail numerous properties to control annotation's appearance in the document.
 
