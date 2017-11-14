@@ -18,7 +18,7 @@ Directory | Description
 [Plugins](https://github.com/groupdocs-Annotation/GroupDocs.Annotation-for-.NET/tree/master/Plugins/GroupDocs_Annotation_VSPlugin)  | Contains the plugins related to GroupDocs.Annotation 3.x for Visual Studio.
 ## Resources
 + **Website:** [www.groupdocs.com](http://www.groupdocs.com)
-+ **Product Home:** [GroupDocs.Annotation for .NET](https://www.groupdocs.com/products/annotation/net)
++ **Product Home:** [GroupDocs.Annotation for .NET](https://products.groupdocs.com/annotation/net)
 + **Product API:** [API of GroupDocs.Annotation for .NET](https://apireference.groupdocs.com/net/annotation)
 + **Download:** [Download GroupDocs.Annotation for .NET](https://downloads.groupdocs.com/annotation/net)
 + **Documentation:** [GroupDocs.Annotation for .NET Documentation](https://docs.groupdocs.com/display/Annotationnet/Introducing+GroupDocs.Annotation+for+.NET)
