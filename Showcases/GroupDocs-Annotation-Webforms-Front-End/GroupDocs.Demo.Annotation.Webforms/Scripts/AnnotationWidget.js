@@ -65,7 +65,7 @@
                     element: self.element,
                     showHyperlinks: false,
                     storeAnnotationCoordinatesRelativeToPages: true,
-                    baseAvatarUrl: self.applicationPath + 'GetAvatar' + (self.useHttpHandlers ? 'Handler' : '') + '?userId=',
+                    baseAvatarUrl: self.applicationPath + '/GetAvatar' + (self.useHttpHandlers ? 'Handler' : '') + '?userId=',
                     imageHorizontalMargin: 0,
                     redactionToolOptions: {
                         pen: { width: 1, color: 0x333333, dashStyle: 0 },
@@ -1510,7 +1510,7 @@
             } else {
                 $(".zoom_wrappper").css('display', 'none');
             }
-            //alert("777777777777777777  AnnotationWidget.js Before connection.annotationHub.client  ");
+            //alert("AnnotationWidget.js - [connection.annotationHub]:  " + $.connection.annotationHub);
             //this.showExpandedCommentsPanel();
             this.annotationHub = $.connection.annotationHub.client;
             ////alert("1111111111  AnnotationWidget.js Before connection.annotationHub.client  ");
@@ -1547,14 +1547,15 @@
             var urlParts = jGroupdocs.http.splitUrl($.ui.groupdocsViewer.prototype.applicationPath);
             var baseUrl = urlParts.schema + '://' + urlParts.authority;// + (urlParts.path && urlParts.path != '/' ? '/' + urlParts.path : '');
             //alert("baseUrl:   " + baseUrl);
-            //$.connection.hub.qs = { 'uid': this.userId };
-            //$.connection.hub.url = baseUrl + '/signalr1_1_2/hubs';
-            //$.connection.hub.start({ jsonp: isChrome }).done(this._onConnectionEstablished.bind(this));
 
+            $.connection.hub.qs = { 'uid': this.userId };
+            $.connection.hub.url = baseUrl + '/signalr1_1_2/hubs';
+            $.connection.hub.start({ jsonp: isChrome }).done(this._onConnectionEstablished.bind(this));
             this._localizeElements();
             this._setThumbsImage();
 
             localizedStrings = this.localizedStrings;
+            //alert("this.userId:  " + this.userId);
             //alert("AnnotationWidget.js AFTER ENDDDDDDDD connection.annotationHub.client  ");
             //alert("AnnotationWidget.js  baseUrl + '/signalr1_1_2/hubs'   " + baseUrl + '/signalr1_1_2/hubs');
         },

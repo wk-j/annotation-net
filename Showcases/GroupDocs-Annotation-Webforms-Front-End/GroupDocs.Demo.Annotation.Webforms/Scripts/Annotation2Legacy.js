@@ -43,8 +43,8 @@
         childReplies: null,
 
         _init: function (reply, serverTime) {
-            this.guid = ko.observable(reply.guid);
-            this.repliedOn = reply.repliedOn;
+            this.guid = ko.observable(reply.Guid);
+            this.repliedOn = reply.RepliedOn;
             var replyDateTime = new Date(this.repliedOn);
             var now = serverTime;
 
@@ -114,12 +114,12 @@
 
             //this.displayDateTime = replyDateTime.getFullYear() + "-" + (replyDateTime.getMonth() + 1) + "-" + replyDateTime.getDate() + " " +
             //                        replyDateTime.getHours() + ":" + replyDateTime.getMinutes() + ":" + replyDateTime.getSeconds();
-            this.userGuid = reply.userGuid;
-            this.userName = (reply.userName == GuestUser.Name ? GuestUser.DisplayName : reply.userName || GuestUser.DisplayName);
-            this.text = ko.observable(reply.text);
-            this.parentReplyGuid = ko.observable(reply.parentReplyGuid);
-            this.replyLevel = reply.replyLevel;
-            this.avatarUrl = (reply.isAvatarExist === false ? null : this.baseAvatarUrl + reply.userGuid);
+            this.userGuid = reply.UserGuid;
+            this.userName = (reply.UserName == GuestUser.Name ? GuestUser.DisplayName : reply.UserName || GuestUser.DisplayName);
+            this.text = ko.observable(reply.Message);
+            this.parentReplyGuid = ko.observable(reply.ParentReplyGuid);
+            this.replyLevel = reply.ReplyLevel;
+            this.avatarUrl = (reply.IsAvatarExist === false ? null : this.baseAvatarUrl + reply.UserGuid);
             this.childReplies = ko.observableArray([]);
 
             this.isEmpty = ko.computed(function () {
@@ -188,45 +188,45 @@
         ConnectorPosition: { Middle: 0, Bottom: 1 },
 
         _init: function (annotation, serverTime) {
-            this.guid = annotation.guid;
-            this.type = annotation.type;
-            this.access = annotation.access;
-            this.pageNumber = annotation.pageNumber;
-            this.bounds = ko.observable(new jSaaspose.Rect(annotation.box.x, annotation.box.y, annotation.box.x + annotation.box.width, annotation.box.y + annotation.box.height, false));
+            this.guid = annotation.Guid;
+            this.type = annotation.Type;
+            this.access = annotation.Access;
+            this.pageNumber = annotation.PageNumber;
+            this.bounds = ko.observable(new jSaaspose.Rect(annotation.Box.X, annotation.Box.Y, annotation.Box.X + annotation.Box.Width, annotation.Box.Y + annotation.Box.Height, false));
             this.displayBounds = ko.observable(new jSaaspose.Rect(0, 0, 0, 0));
-            this.annotationPosition = ko.observable(new jSaaspose.Point(annotation.annotationPosition.x, annotation.annotationPosition.y));
+            this.annotationPosition = ko.observable(new jSaaspose.Point(annotation.AnnotationPosition.X, annotation.AnnotationPosition.Y));
             this.annotationOriginalTextBoxDisplayPosition = ko.observable(new jSaaspose.Point(0, 0));
             this.annotationSideIconDisplayPosition = ko.observable(new jSaaspose.Point(0, 0));
-            this.createdOn = annotation.createdOn;
-            this.documentGuid = annotation.documentGuid;
+            this.createdOn = annotation.CreatedOn;
+            this.documentGuid = annotation.DocumentGuid;
             this.replies = ko.observableArray([]);
             this.comments = ko.observableArray([]);
             this.activeReply = ko.observable(-1);
-            this.svgPath = annotation.svgPath;
+            this.svgPath = annotation.SvgPath;
             this.displaySvgPath = "";
-            this.annotationIsPublic = ko.observable(annotation.access == Annotation.prototype.AnnotationAccess.Public);
-            this.creatorGuid = annotation.creatorGuid;
+            this.annotationIsPublic = ko.observable(annotation.Access == Annotation.prototype.AnnotationAccess.Public);
+            this.creatorGuid = annotation.CreatorGuid;
             this.startingPoint = annotation.startingPoint;
-            this.text = annotation.fieldText;
-            this.fontFamily = annotation.fontFamily;
-            this.fontSize = annotation.fontSize;
+            this.text = annotation.FieldText;
+            this.fontFamily = annotation.FontFamily;
+            this.fontSize = annotation.FontSize;
             this.isBeingDeleted = ko.observable(false);
-            this.fontColor = ko.observable(annotation.fontColor || 0);
+            this.fontColor = ko.observable(annotation.FontColor || 0);
             this.selectionCounter = annotation.selectionCounter;
-            this.penColor = annotation.penColor || (annotation.drawingOptions ? annotation.drawingOptions.penColor : undefined);
-            this.penWidth = annotation.penWidth || (annotation.drawingOptions ? annotation.drawingOptions.penWidth : undefined);
-            this.penStyle = annotation.penStyle || (annotation.drawingOptions ? annotation.drawingOptions.penStyle : undefined);
-            this.backgroundColor = ko.observable(annotation.backgroundColor || (annotation.drawingOptions ? annotation.drawingOptions.brushColor : undefined));
+            this.penColor = annotation.PenColor || (annotation.DrawingOptions ? annotation.DrawingOptions.penColor : undefined);
+            this.penWidth = annotation.PenWidth || (annotation.DrawingOptions ? annotation.DrawingOptions.penWidth : undefined);
+            this.penStyle = annotation.PenStyle || (annotation.DrawingOptions ? annotation.DrawingOptions.penStyle : undefined);
+            this.backgroundColor = ko.observable(annotation.BackgroundColor || (annotation.DrawingOptions ? annotation.DrawingOptions.BrushColor : undefined));
 
-            if (annotation.range) {
-                this.textRange = { position: annotation.range.position, length: annotation.range.length };
+            if (annotation.Range) {
+                this.textRange = { position: annotation.Range.Position, length: annotation.Range.Length };
             }
 
             this.commentsEnabled = (this.type != Annotation.prototype.AnnotationType.TextStrikeout &&
                 this.type != Annotation.prototype.AnnotationType.TextField &&
                 this.type != Annotation.prototype.AnnotationType.Watermark);
 
-            this.sortReplies(annotation.replies, serverTime);
+            this.sortReplies(annotation.Replies, serverTime);
 
             this.replyCount = ko.computed(function () {
                 return $.grep(this.replies(), function (r) { return !r.isEmpty(); }).length;
@@ -558,9 +558,9 @@
     };
 
     $.extend(annotationModel.prototype, docViewerModel.prototype, {
-        createAnnotation: function (fileId, type, message, pageNumber, rectangle, annotationPosition,  svgPath, drawingOptions, font, callback, errorCallback) {
+        createAnnotation: function (fileId, type, message, pageNumber, rectangle, annotationPosition, svgPath, drawingOptions, font, callback, errorCallback) {
             this._portalService.createAnnotationAsync($.connection.hub.id, this.userId, this.userKey, fileId, type, message,
-                                                      pageNumber, rectangle, annotationPosition,  svgPath, drawingOptions, font,
+                                                      pageNumber, rectangle, annotationPosition, svgPath, drawingOptions, font,
                 function (response) {
                     callback.apply(this, [response]);
                 },
@@ -592,8 +592,8 @@
         editAnnotationReply: function (fileId, annotationGuid, replyGuid, message, callback, errorCallback) {
             this._portalService.editAnnotationReplyAsync($.connection.hub.id, this.userId, this.userKey, fileId, annotationGuid, replyGuid, message,
                 function (response) {
-                    if (!response.data || response.data.success == false) {
-                        errorCallback.apply(this, [response.data || {}]);
+                    if (!response.data.d || response.data.d.Success == false) {
+                        errorCallback.apply(this, [response.data.d || {}]);
                     }
                     else {
                         callback.apply(this, [response]);
@@ -607,8 +607,8 @@
         restoreAnnotationReplies: function (fileId, annotationGuid, replies, callback, errorCallback) {
             this._portalService.restoreAnnotationRepliesAsync($.connection.hub.id, fileId, annotationGuid, replies,
                 function (response) {
-                    if (!response.data || response.data.success == false) {
-                        errorCallback.apply(this, [response.data || {}]);
+                    if (!response.data.d || response.data.d.Success == false) {
+                        errorCallback.apply(this, [response.data.d || {}]);
                     }
                     else {
                         callback.apply(this, [response]);
@@ -641,7 +641,7 @@
         exportAnnotations: function (fileId, format, mode, callback, errorCallback) {
             this._portalService.exportAnnotationsAsync($.connection.hub.id, fileId, format, mode,
                 function (response) {
-                    callback.apply(this, [response.data]);
+                    callback.apply(this, [response.data.d]);
                 }.bind(this),
                 function (error) {
                     errorCallback.apply(this, [error]);
@@ -651,7 +651,7 @@
         importAnnotations: function (fileId, saveCurrentAnnotations, callback, errorCallback) {
             this._portalService.importAnnotationsAsync(this.userId, this.userKey, $.connection.hub.id, fileId, saveCurrentAnnotations,
                 function (response) {
-                    callback.apply(this, [response.data]);
+                    callback.apply(this, [response.data.d]);
                 }.bind(this),
                 function (error) {
                     error.Reason = window.localizedStrings[error.Reason];
@@ -662,7 +662,7 @@
         getPdfVersionOfDocument: function (fileGuid, callback, errorCallback) {
             this._portalService.getPdfVersionOfDocumentAsync($.connection.hub.id, fileGuid,
                 function (response) {
-                    callback.apply(this, [response.data]);
+                    callback.apply(this, [response.data.d]);
                 }.bind(this),
                 function (error) {
                     errorCallback.apply(this, [error]);
@@ -672,7 +672,7 @@
         getJobOutDoc: function (jobId, callback, errorCallback) {
             this._portalService.getJobOutDocAsync(this.userId, this.userKey, jobId,
                 function (response) {
-                    callback.apply(this, [response.data]);
+                    callback.apply(this, [response.data.d]);
                 }.bind(this),
                 function (error) {
                     errorCallback.apply(this, [error]);
@@ -1010,7 +1010,7 @@
         listAnnotations: function () {
             this._model.listAnnotations(this.fileId,
                 function (response) {
-                    this._onAnnotationsReceived(response.data);
+                    this._onAnnotationsReceived(response.data.d);
                 }.bind(this),
                 function (error) {
                     this._onError(error);
@@ -1066,7 +1066,7 @@
                     onDoFailed: this._onError.bind(this),
 
                     onUndone: function (response) {
-                        annotationGuid = data.guid = response.data.annotationGuid;
+                        annotationGuid = data.guid = response.data.d.Guid;
                         annotation.guid = annotationGuid;
 
                         this._addAnnotation(annotation);
@@ -1205,10 +1205,10 @@
             if (!markerFigure)
                 markerFigure = null;
 
-            var box = { x: bounds.left(), y: bounds.top(), width: bounds.width(), height: bounds.height() };
+            var box = { X: bounds.left(), Y: bounds.top(), Width: bounds.width(), Height: bounds.height() };
             var offsets = this.getPageImageOffsets(type);
 
-            var annotationTextBoxPosition = { x: this.pageWidth(), y: bounds.top() };
+            var annotationTextBoxPosition = { X: this.pageWidth(), Y: bounds.top() };
             var containerWidth = this.graphicsContainerElement.width();
             var textBoxWidth = 265;
             var margin = 10;
@@ -1256,30 +1256,29 @@
             var annotation = null,
                 annotationGuid = '',
                 data = {
-                    guid: '',
-                    type: type,
-                    fieldText: fieldText,
-                    pageNumber: pageNumber,
-                    box: box,
-                    annotationPosition: annotationTextBoxPosition,
-                    range: range,
-                    svgPath: svgPath,
-                    drawingOptions: drawingOptions,
-                    fontFamily: font ? font.family : null,
-                    fontSize: font ? font.size : null
+                    Guid: '',
+                    Type: type,
+                    FieldText: fieldText,
+                    PageNumber: pageNumber,
+                    Box: box,
+                    AnnotationPosition: annotationTextBoxPosition,
+                    Range: range,
+                    SvgPath: svgPath,
+                    DrawingOptions: drawingOptions,
+                    FontFamily: font ? font.Family : null,
+                    FontSize: font ? font.size : null
                 },
                 createCommand = new CreateAnnotationCommand(this._model, this.fileId, data, {
                     onDone: function (response) {
-                        annotationGuid = response.data.annotationGuid;
+                        annotationGuid = response.data.d.Guid;
                         annotation = new Annotation($.extend(data, {
-                            guid: annotationGuid,
-                            replies: [],
-                            creatorGuid: this.userId,
-                            access: Annotation.prototype.AnnotationAccess.Public,
+                            Guid: annotationGuid,
+                            Replies: [],
+                            CreatorGuid: this.userId,
+                            Access: Annotation.prototype.AnnotationAccess.Public,
                             startingPoint: startingPoint,
                             selectionCounter: selectionCounter
                         }));
-
                         this.updateAnnotationDisplayPosition(annotation);
                         this._onAnnotationCreated(annotation, markerFigure);
 
@@ -1300,7 +1299,7 @@
                     onUndoFailed: this._onError.bind(this),
 
                     onIdsFixedUp: function (ids) {
-                        annotationGuid = annotation.guid = ids.newId;
+                        annotationGuid = annotation.Guid = ids.newId;
                         annotation = this.findAnnotation(annotationGuid);
                         markerFigure = null;
                     }.bind(this)
@@ -1425,10 +1424,10 @@
         },
 
         _onAnnotationReplyRemoved: function (response) {
-            var annotation = this.findAnnotation(response.data.annotationGuid);
+            var annotation = this.findAnnotation(response.data.d.Guid);
             annotation.deleteAllReplies();
 
-            annotation.sortReplies(response.data.replies, new Date(response.data.serverTime));
+            annotation.sortReplies(response.data.d.Replies, new Date(response.data.d.ServerTime));
             if (annotation.replies().length == 0) {
                 annotation.addReply(this.userId, this.userName);
                 annotation.activeReply(0);
@@ -1458,8 +1457,8 @@
                     annotationGuid = annotation.guid,
                     addReplyCommand = new CreateAnnotationReplyCommand(this._model, this.fileId, annotation, {
                         onDone: function (response) {
-                            reply.guid(response.data.replyGuid);
-                            reply.repliedOn = response.data.repliedOn;
+                            reply.guid(response.data.d.ReplyGuid);
+                            reply.repliedOn = response.data.d.RepliedOn;
 
                             var redone = (replyGuid != null && replyGuid !== undefined && replyGuid.length > 0 && replyGuid != reply.guid());
                             replyGuid = reply.guid();
@@ -1778,14 +1777,13 @@
             var selectable = this.getSelectableInstance();
             var pages = selectable.getPages(),
                 pageCount = (pages ? pages.length : 0);
-
-            if (response.annotations) {
-                for (var i = 0; i < response.annotations.length; i++) {
-                    if (response.annotations[i].pageNumber >= pageCount) {
+            if (response.Annotations) {
+                for (var i = 0; i < response.Annotations.length; i++) {
+                    if (response.Annotations[i].PageNumber >= pageCount) {
                         continue;
                     }
 
-                    var annotation = new Annotation(response.annotations[i], new Date(response.serverTime));
+                    var annotation = new Annotation(response.Annotations[i], new Date(response.serverTime));
                     this._onAnnotationReceived(annotation);
                     list.push(annotation);
                 }
@@ -1806,9 +1804,7 @@
 
         _onAnnotationReceived: function (annotation) {
             this.updateAnnotationDisplayPosition(annotation);
-
             if (annotation.commentsEnabled) {
-
                 if (annotation.replies().length == 0) {
                     annotation.addReply(this.userId, this.userName);
                     annotation.setActiveReplyIndex(0);
@@ -2360,16 +2356,16 @@
                     jerror(response.error.Reason);
                 }
 
-                var owner = response.data.owner;
+                var owner = response.data.d.Owner;
                 this.createReviewersFromResponse(response);
-                this.currentUserIsDocumentOwner(owner != null && owner.guid == this.userId);
+                this.currentUserIsDocumentOwner(owner != null && owner.Guid == this.userId);
 
-                if (response.data.shared_link_access_rights) {
-                    this._setAccessRights(response.data.shared_link_access_rights || -1);
+                if (response.data.d.SharedLinkAccessRights) {
+                    this._setAccessRights(response.data.d.SharedLinkAccessRights || -1);
                 }
                 else
                     if (owner)
-                        this._setAccessRights(owner.access_rights || -1);
+                        this._setAccessRights(owner.AccessRights || -1);
             }
         },
 
@@ -2477,7 +2473,7 @@
 
         createReviewersFromResponse: function (response) {
             var newItems = [];
-            var owner = response.data.owner;
+            var owner = response.data.d.Owner;
             var ownerIsSet = false;
             var canAnnotate, canDownload, canView, canExport, canDelete, canRedact;
             var access;
@@ -2485,7 +2481,7 @@
             var ownerSuffix = " (Owner)";
             var viewModel = this;
             var isOwner;
-            $.each(response.data.collaborators, function (index, value) {
+            $.each(response.data.d.Collaborators, function (index, value) {
                 access = value.access_rights;
                 emailAddress = value.primary_email;
                 if (value.firstName != null && value.lastName != null && value.firstName != "" && value.lastName != "")
@@ -2566,7 +2562,7 @@
             if (this.fileId && !this.anonymousAnnotation) {
                 this._model.getReviewerContacts(function (response) {
                     var newItems = [];
-                    $.each(response.data.reviewerContacts, function (index, value) {
+                    $.each(response.data.d.ReviewerContacts, function (index, value) {
                         newItems.push({
                             emailAddress: value.emailAddress,
                             firstName: value.firstName == null ? "" : value.firstName,
@@ -2609,7 +2605,7 @@
                     function (response) {
                         this.busySavingReviewerContacts(false);
                         var newItems = [];
-                        $.each(response.data.reviewerContacts, function (index, value) {
+                        $.each(response.data.d.ReviewerContacts, function (index, value) {
                             newItems.push({
                                 emailAddress: value.emailAddress,
                                 firstName: value.firstName == null ? "" : value.firstName,

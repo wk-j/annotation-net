@@ -60,7 +60,7 @@
 .raphaelWrapper
 {
     width: 100%;
-    height: 100%;
+    height: 100;
     z-index: 22;
     overflow: visible;
 }

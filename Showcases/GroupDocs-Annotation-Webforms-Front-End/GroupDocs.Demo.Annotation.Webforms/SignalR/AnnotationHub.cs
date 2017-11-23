@@ -37,7 +37,7 @@ namespace GroupDocs.Demo.Annotation.Webforms.SignalR
             return null;
         }
 
-        public override System.Threading.Tasks.Task OnDisconnected(bool stopCalled)
+        public override System.Threading.Tasks.Task OnDisconnected()
         {
             lock (_connectionsAndUserGuids)
             {
@@ -111,7 +111,7 @@ namespace GroupDocs.Demo.Annotation.Webforms.SignalR
             Clients.Others.setDocumentScaleOnClient(fileGuid, scale);
         }
 
-        public void BroadcastDocumentScroll(string userGuid, string privateKey, string fileGuid, 
+        public void BroadcastDocumentScroll(string userGuid, string privateKey, string fileGuid,
                                             double horizontalScrollPortion, int verticalScrollPosition, double scale)
         {
             Clients.Others.setDocumentScrollOnClient(fileGuid, horizontalScrollPortion, verticalScrollPosition, scale);
