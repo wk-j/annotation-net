@@ -32,7 +32,7 @@ namespace GroupDocs.Annotation.CSharp
                 AnnotationInfo textAnnotation = new AnnotationInfo
                 {
                     Box = new Rectangle((float)265.44, (float)153.86, 206, 36),
-                    PageNumber = 0,
+                    PageNumber = 1,
                     SvgPath = "[{\"x\":265.44,\"y\":388.83},{\"x\":472.19,\"y\":388.83},{\"x\": 265.44,\"y\":349.14},{\"x\":472.19,\"y\":349.14}]",
                     Type = AnnotationType.Text,
                     CreatorName = "Anonym A."
