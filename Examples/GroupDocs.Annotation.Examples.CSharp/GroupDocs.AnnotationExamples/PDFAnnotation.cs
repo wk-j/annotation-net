@@ -43,7 +43,7 @@ namespace GroupDocs.Annotation.CSharp
                 annotations.Add(textAnnotation);
 
                 // Export annotation and save output file
-                CommonUtilities.SaveOutputDocument(inputFile, annotations, DocumentType.Words);
+                CommonUtilities.SaveOutputDocument(inputFile, annotations, DocumentType.Pdf);
                 //ExEnd:AddTextAnnotation
             }
             catch (System.Exception exp)

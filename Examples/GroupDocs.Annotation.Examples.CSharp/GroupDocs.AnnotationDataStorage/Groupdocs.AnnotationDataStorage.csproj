@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GroupDocs.Annotation">
-      <HintPath>..\..\packages\groupdocs-annotation-dotnet.17.8.0\lib\GroupDocs.Annotation.dll</HintPath>
+      <HintPath>..\..\packages\GroupDocs.Annotation.17.11\lib\GroupDocs.Annotation.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
