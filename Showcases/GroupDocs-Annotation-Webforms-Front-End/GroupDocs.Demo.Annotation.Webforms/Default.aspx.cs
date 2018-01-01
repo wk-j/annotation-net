@@ -31,6 +31,7 @@ using Point = GroupDocs.Demo.Annotation.Webforms.AnnotationResults.DataGeometry.
 using Rectangle = GroupDocs.Demo.Annotation.Webforms.AnnotationResults.DataGeometry.Rectangle;
 using RestoreRepliesResult = GroupDocs.Demo.Annotation.Webforms.AnnotationResults.RestoreRepliesResult;
 using GroupDocs.Demo.Annotation.Webforms.SignalR;
+using GroupDocs.Annotation.Common.License;
 
 #endregion
 
@@ -66,7 +67,7 @@ namespace GroupDocs.Demo.Annotation.Webforms
                 //Here you should apply proper GroupDocs.Annotation license (in case you want to
                 //use this sample without trial limits)
                 License lic = new License();
-                lic.SetLicense("D:/lic/GroupDocs.Total.lic");
+                lic.SetLicense("E:/GroupDocs.Total.lic");
             }
         }
 
