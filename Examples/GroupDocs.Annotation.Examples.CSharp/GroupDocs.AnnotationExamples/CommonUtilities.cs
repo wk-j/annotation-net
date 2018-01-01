@@ -1,4 +1,5 @@
-﻿using GroupDocs.Annotation.Config;
+﻿using GroupDocs.Annotation.Common.License;
+using GroupDocs.Annotation.Config;
 using GroupDocs.Annotation.Domain;
 using GroupDocs.Annotation.Domain.Image;
 using GroupDocs.Annotation.Domain.Options;
@@ -19,7 +20,7 @@ namespace GroupDocs.Annotation.CSharp
         //ExStart:CommonProperties
         public static string StorageFolderPath = "../../../../Data/Samples/";
         public static string DestinationFolderPath = "../../../../Data/Output/";
-        public static string LicenseFilePath = "D://License/Groupdocs.Total.lic";
+        public static string LicenseFilePath = "E://License/Groupdocs.Total.lic";
         public static string filePath = "Annotated.pdf";
         //ExEnd:CommonProperties
 

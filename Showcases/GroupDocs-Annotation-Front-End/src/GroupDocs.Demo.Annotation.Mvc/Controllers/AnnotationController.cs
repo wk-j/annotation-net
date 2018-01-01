@@ -16,6 +16,7 @@ using DeleteReplyResult = GroupDocs.Demo.Annotation.Mvc.AnnotationResults.Delete
 using Point = GroupDocs.Demo.Annotation.Mvc.AnnotationResults.DataGeometry.Point;
 using Rectangle = GroupDocs.Demo.Annotation.Mvc.AnnotationResults.DataGeometry.Rectangle;
 using RestoreRepliesResult = GroupDocs.Demo.Annotation.Mvc.AnnotationResults.RestoreRepliesResult;
+using GroupDocs.Annotation.Common.License;
 
 namespace GroupDocs.Demo.Annotation.Mvc.Controllers
 {
@@ -33,7 +34,7 @@ namespace GroupDocs.Demo.Annotation.Mvc.Controllers
             
             //Here you should apply proper GroupDocs.Annotation license (in case you want to
             //use this sample without trial limits)
-            new License().SetLicense("D:/lic/GroupDocs.Total.lic");
+            new License().SetLicense("E:/GroupDocs.Total.lic");
         }
 
         #region Annotation members
