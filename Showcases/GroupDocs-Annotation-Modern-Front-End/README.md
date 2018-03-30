@@ -1,3 +1,5 @@
+> ## *Showcases in this directory are not updated and maintained anymore. The source code is kept here for reference only. For latest updates, checkout our [new and feature-rich sample applications](https://github.com/groupdocs-annotation).*
+
 # GroupDocs.Annotation for .NET using Controllers
 
 This application allows user to view and annotate a document in a web browser. Users can view document pages in image form and draw annotations on it. The annotated file can be downloaded later.
