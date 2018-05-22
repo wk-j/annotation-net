@@ -16,11 +16,13 @@ Directory | Description
 [Examples](https://github.com/groupdocs-annotation/GroupDocs.Annotation-for-.NET/tree/master/Examples)  | Contains the package of all .NET examples and sample files that will help you learn how to use product features. 
 [Showcases](https://github.com/groupdocs-annotation/GroupDocs.Annotation-for-.NET/tree/master/Showcases)  | The *Legacy Front End* is the open source web based projects. This project is based on Front Controller Design pattern and demonstrate the salient features of GroupDocs.Annotation API. 
 [Plugins](https://github.com/groupdocs-Annotation/GroupDocs.Annotation-for-.NET/tree/master/Plugins/GroupDocs_Annotation_VSPlugin)  | Contains the plugins related to GroupDocs.Annotation 3.x for Visual Studio.
-## Resources
-+ **Website:** [www.groupdocs.com](http://www.groupdocs.com)
-+ **Product Home:** [GroupDocs.Annotation for .NET](https://products.groupdocs.com/annotation/net)
-+ **Product API:** [API of GroupDocs.Annotation for .NET](https://apireference.groupdocs.com/net/annotation)
-+ **Download:** [Download GroupDocs.Annotation for .NET](https://downloads.groupdocs.com/annotation/net)
-+ **Documentation:** [GroupDocs.Annotation for .NET Documentation](https://docs.groupdocs.com/display/Annotationnet/Introducing+GroupDocs.Annotation+for+.NET)
-+ **Forum:** [GroupDocs.Annotation for .NET Forum](https://forum.groupdocs.com/c/annotation)
+
+# Resources
+
++ **Website:** [www.groupdocs.com](https://www.groupdocs.com/)
++ **Product Home:** [GroupDocs.Annotation for .NET](https://products.groupdocs.com/annotation) 
++ **Documentation:** [GroupDocs.Annotation for .NET Documentation](https://docs.groupdocs.com/display/annotationnet/Home)
++ **Installation:** [GroupDocs.Annotation for .NET NuGet Package](https://www.nuget.org/packages/GroupDocs.Annotation/)
++ **Free Support:** [GroupDocs.Annotation for .NET Free Support Forum](https://forum.groupdocs.com/c/annotation)
++ **Paid Support:** [GroupDocs.Annotation for .NET Paid Support Helpdesk](https://helpdesk.groupdocs.com/)
 + **Blog:** [GroupDocs.Annotation for .NET Blog](https://blog.groupdocs.com/category/groupdocs-annotation-product-family/)
