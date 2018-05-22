@@ -14,7 +14,7 @@ namespace GroupDocs.Annotation.CSharp
 
             CommonUtilities.StorageFolderPath = "../../../../Data/Samples/";
             CommonUtilities.DestinationFolderPath = "../../../../Data/Output/";
-            CommonUtilities.LicenseFilePath = "D://Groupdocs.Total.lic";
+            CommonUtilities.LicenseFilePath = "E://Groupdocs.Total.lic";
 
             /* Apply product license
              * Uncomment following function if you have product license
