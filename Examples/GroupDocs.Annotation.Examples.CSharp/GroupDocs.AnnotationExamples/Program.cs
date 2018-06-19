@@ -73,7 +73,7 @@ namespace GroupDocs.Annotation.CSharp
             #region Annotation Functions for Words Document format
 
 
-            //CommonUtilities.filePath = "Annotated.docx";
+            CommonUtilities.filePath = "Annotated.docx";
 
             //////Add area annotation with replies  for Words Document format
             //WordAnnotation.AddAreaAnnotationWithRepliesforWords();
@@ -106,6 +106,15 @@ namespace GroupDocs.Annotation.CSharp
 
             //////Import and Export Annotations from Words document.
             //WordAnnotation.ImportAndExportAnnotationsFromWords();
+
+            ////Add distance annotation for Words Document format
+            //WordAnnotation.AddDistanceAnnotationforWords();
+
+            ////Add watermark annotation for Words Document format
+            //WordAnnotation.AddWatermarkAnnotationforWords();
+
+            ////Add polyline annotation for Words Document format
+            //WordAnnotation.AddPolylineAnnotationforWords();
 
             #endregion
 
@@ -273,6 +282,37 @@ namespace GroupDocs.Annotation.CSharp
 
             //////Get text coordinates in image representation of the document
             ////CommonUtilities.GetTextCoordinates("sample.pdf");
+            #endregion
+
+            #region Working with Diagrams
+
+            //CommonUtilities.filePath = "sample.vsd";
+
+            ////Add area annotation in Diagrams
+            //DiagramsAnnotation.AddAreaAnnotationInDiagrams();
+
+            ////Add polyline annotation
+            //DiagramsAnnotation.AddPolylineAnnotationInDiagrams();
+
+            ////Add text field annotation
+            //DiagramsAnnotation.AddTextFieldAnnotationInDiagrams();
+
+            ////Add arrow annotation
+            //DiagramsAnnotation.AddArrowAnnotationInDiagrams();
+
+            ////Add resource redaction annotation
+            //DiagramsAnnotation.AddResourceRedactionAnnotationInDiagrams();
+
+            ////Add distance annotation
+            //DiagramsAnnotation.AddDistanceAnnotationInDiagrams();
+
+            ////Add point annotation
+            //DiagramsAnnotation.AddPointAnnotationInDiagrams();
+
+            ////Add watermark annotation
+            //DiagramsAnnotation.AddWatermarkAnnotationInDiagrams();
+
+
             #endregion
 
             Console.ReadKey();

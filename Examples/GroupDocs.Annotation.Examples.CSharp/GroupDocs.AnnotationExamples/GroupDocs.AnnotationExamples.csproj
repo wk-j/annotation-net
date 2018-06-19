@@ -54,6 +54,7 @@
     <Compile Include="CommonUtilities.cs" />
     <Compile Include="DataStorage.cs" />
     <Compile Include="ImagesAnnotation.cs" />
+    <Compile Include="DiagramsAnnotation.cs" />
     <Compile Include="PDFAnnotation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

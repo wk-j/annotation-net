@@ -176,10 +176,6 @@ namespace GroupDocs.Annotation.CSharp
         }
 
         /// <summary>
-        /// Adds polyline annotation in words document
-        /// </summary>
-
-        /// <summary>
         /// Adds text field annotation in words document
         /// </summary>
         public static void AddTextFieldAnnotationforWords()
@@ -217,10 +213,6 @@ namespace GroupDocs.Annotation.CSharp
                 Console.WriteLine(exp.Message);
             }
         }
-
-        /// <summary>
-        /// Adds watermark annotation in words document
-        /// </summary>
 
         /// <summary>
         /// Adds text replacement annotation in words document
@@ -373,11 +365,7 @@ namespace GroupDocs.Annotation.CSharp
             }
         }
 
-        /// <summary>
-        /// Adds distance annotation in words document
-        /// </summary>
-
-
+        
         /// <summary>
         /// Adds resource redaction annotation in words document
         /// </summary>
@@ -417,47 +405,6 @@ namespace GroupDocs.Annotation.CSharp
         }
 
         /// <summary>
-        /// Removes all annotations in words document
-        /// </summary>
-
-
-
-        /// <summary>
-        /// Add text annotation in cells
-        /// </summary>
-        /// Update CommonUtilities.filePath with path to Cells file before using this function
-        public static void AddTextAnnotationInCells()
-        {
-            try
-            {
-                //ExStart:AddTextAnnotationInCells
-                // Get input file stream
-                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
-
-                // Initialize list of AnnotationInfo
-                List<AnnotationInfo> annotations = new List<AnnotationInfo>();
-
-                // Initialize text annotation.
-                AnnotationInfo textAnnotation = new AnnotationInfo
-                {
-                    PageNumber = 1,
-                    AnnotationPosition = new Point(3, 3),
-                    FieldText = "Hello!"
-                };
-
-                // Add annotation to list
-                annotations.Add(textAnnotation);
-
-                // Export annotation and save output file
-                CommonUtilities.SaveOutputDocument(inputFile, annotations, DocumentType.Cells);
-                //ExEnd:AddTextAnnotationInCells
-            }
-            catch (System.Exception exp)
-            {
-                Console.WriteLine(exp.Message);
-            }
-        }
-        /// <summary>
         /// Import and Export Annotations from Words document.
         /// </summary>
         /// Update CommonUtilities.filePath with path to word document files before using this function
@@ -493,6 +440,112 @@ namespace GroupDocs.Annotation.CSharp
                     fileStream.Close();
                 }
                 //ExEnd:ImportAndExportAnnotationsFromWords
+            }
+            catch (System.Exception exp)
+            {
+                Console.WriteLine(exp.Message);
+            }
+        }
+
+        /// <summary>
+        /// Adds Distance annotation in words document
+        /// </summary>
+        public static void AddDistanceAnnotationforWords()
+        {
+            try
+            {
+                //ExStart:AddDistanceAnnotationforWords
+                // Get input file stream
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
+                // Initialize list of AnnotationInfo
+                List<AnnotationInfo> annotations = new List<AnnotationInfo>();
+
+                // Distance annotation
+                AnnotationInfo distanceAnnnotation = new AnnotationInfo
+                {
+                    Box = new Rectangle((float)248.73202514648438, (float)287.85653686523438, (float)115.9178466796875, (float)25.143020629882812),
+                    Opacity = 0.3,
+                    PageNumber = 0,
+                    SvgPath = "M248.73201877934272,295.5439436619718 l115.28309859154929,-4.192112676056338",
+                    Type = AnnotationType.Distance,
+                };
+                // Add annotation to list
+                annotations.Add(distanceAnnnotation);
+
+                // Export annotation and save output file
+                CommonUtilities.SaveOutputDocument(inputFile, annotations, DocumentType.Words);
+                //ExEnd:AddDistanceAnnotationforWords
+            }
+            catch (System.Exception exp)
+            {
+                Console.WriteLine(exp.Message);
+            }
+        }
+
+        /// <summary>
+        /// Adds Watermark annotation in words document
+        /// </summary>
+        public static void AddWatermarkAnnotationforWords()
+        {
+            try
+            {
+                //ExStart:AddWatermarkAnnotationforWords
+                // Get input file stream
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
+                // Initialize list of AnnotationInfo
+                List<AnnotationInfo> annotations = new List<AnnotationInfo>();
+
+                // Watermark annotation
+                AnnotationInfo watermarkAnnotation = new AnnotationInfo
+                {
+                    FieldText = "watermark text",
+                    FontFamily = "Microsoft Sans Serif",
+                    FontSize = 17,
+                    Box = new Rectangle(195.225f, 216.464f, 230.73f, 58.18f),
+                    PageNumber = 0,
+                    Type = AnnotationType.Watermark,
+                    FontColor = 16711680
+                };
+                // Add annotation to list
+                annotations.Add(watermarkAnnotation);
+
+                // Export annotation and save output file
+                CommonUtilities.SaveOutputDocument(inputFile, annotations, DocumentType.Words);
+                //ExEnd:AddWatermarkAnnotationforWords
+            }
+            catch (System.Exception exp)
+            {
+                Console.WriteLine(exp.Message);
+            }
+        }
+
+        /// <summary>
+        /// Adds Polyline annotation in words document
+        /// </summary>
+        public static void AddPolylineAnnotationforWords()
+        {
+            try
+            {
+                //ExStart:AddPolylineAnnotationforWords
+                // Get input file stream
+                Stream inputFile = new FileStream(CommonUtilities.MapSourceFilePath(CommonUtilities.filePath), FileMode.Open, FileAccess.ReadWrite);
+                // Initialize list of AnnotationInfo
+                List<AnnotationInfo> annotations = new List<AnnotationInfo>();
+
+                // Polyline annotation
+                AnnotationInfo polylineAnnotation = new AnnotationInfo
+                {
+                    PageNumber = 0,
+                    Type = AnnotationType.Polyline,
+                    Box = new Rectangle(288.760559f, 533.7042f, 216.929581f, 171.676056f),
+                    SvgPath = "M504.9718309859155,678.0845070422536l-0.7183098591549296,0l-0.7183098591549296,0l-0.7183098591549296,0.7183098591549296l-0.7183098591549296,0.7183098591549296l-1.4366197183098592,0.7183098591549296l-2.154929577464789,2.154929577464789l-2.8732394366197185,0.7183098591549296l-5.028169014084507,2.154929577464789l-6.464788732394367,3.591549295774648l-10.774647887323944,3.591549295774648l-10.056338028169014,2.154929577464789l-9.338028169014084,2.154929577464789l-8.619718309859156,2.154929577464789l-9.338028169014084,3.591549295774648l-7.183098591549296,0l-7.183098591549296,0.7183098591549296l-5.028169014084507,0.7183098591549296l-5.746478873239437,1.4366197183098592l-5.746478873239437,0l-8.619718309859156,0l-12.211267605633804,0l-6.464788732394367,0l-8.619718309859156,-1.4366197183098592l-7.901408450704226,-3.591549295774648l-10.774647887323944,-5.746478873239437l-8.619718309859156,-5.028169014084507l-9.338028169014084,-5.746478873239437l-12.211267605633804,-9.338028169014084l-10.056338028169014,-10.056338028169014l-5.746478873239437,-7.901408450704226l-           6.464788732394367,-12.211267605633804l-2.154929577464789,-3.591549295774648l-5.028169014084507,-13.647887323943662l-2.154929577464789,-7.901408450704226l0,-7.183098591549296l0,-9.338028169014084l0,-5.746478873239437l2.8732394366197185,-7.901408450704226l5.028169014084507,-5.746478873239437l6.464788732394367,-7.183098591549296l10.774647887323944,-7.901408450704226l10.774647887323944,-6.464788732394367l15.084507042253522,-6.464788732394367l14.366197183098592,-6.464788732394367l22.267605633802816,-7.183098591549296l13.647887323943662,-3.591549295774648l14.366197183098592,-3.591549295774648l16.52112676056338,-0.7183098591549296l16.52112676056338,0l15.084507042253522,0l10.774647887323944,0l7.183098591549296,2.154929577464789l4.309859154929578,2.154929577464789l5.028169014084507,2.8732394366197185l3.591549295774648,2.154929577464789l3.591549295774648,2.8732394366197185l6.464788732394367,6.464788732394367l2.8732394366197185,4.309859154929578l2.154929577464789,2.154929577464789l2.154929577464789,4.309859154929578l1.4366197183098592,2.8732394366197185l2.154929577464789,5.028169014084507l0.7183098591549296,3.591549295774648l0.7183098591549296,5.028169014084507l0,5.028169014084507l0,4.309859154929578l0,7.183098591549296l-0.7183098591549296,2.8732394366197185l-3.591549295774648,6.464788732394367l-3.591549295774648,6.464788732394367l-4.309859154929578,5.028169014084507l-5.028169014084507,5.028169014084507l-7.183098591549296,4.309859154929578l-7.183098591549296,4.309859154929578l-10.774647887323944,6.464788732394367l-9.338028169014084,4.309859154929578l-9.338028169014084,4.309859154929578l-10.056338028169014,2.8732394366197185l-7.901408450704226,2.8732394366197185l-10.774647887323944,1.4366197183098592l-5.028169014084507,0.7183098591549296l-3.591549295774648,0l-2.8732394366197185,0l-3.591549295774648,0l-5.028169014084507,0l-5.746478873239437,0l-7.183098591549296,-1.4366197183098592l-5.746478873239437,-1.4366197183098592l-6.464788732394367,-2.8732394366197185l-4.309859154929578,-1.4366197183098592l-2.154929577464789,-1.4366197183098592l-1.4366197183098592,-0.7183098591549296l-1.4366197183098592,-0.7183098591549296l-0.7183098591549296,-0.7183098591549296l-1.4366197183098592,-1.4366197183098592l0,-0.7183098591549296l-1.4366197183098592,-0.7183098591549296l0,-1.4366197183098592l-0.7183098591549296,-0.7183098591549296l0,-0.7183098591549296",
+                };
+                // Add annotation to list
+                annotations.Add(polylineAnnotation);
+
+                // Export annotation and save output file
+                CommonUtilities.SaveOutputDocument(inputFile, annotations, DocumentType.Words);
+                //ExEnd:AddPolylineAnnotationforWords
             }
             catch (System.Exception exp)
             {
