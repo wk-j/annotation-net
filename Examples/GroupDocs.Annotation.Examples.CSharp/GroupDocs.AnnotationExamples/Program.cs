@@ -73,7 +73,7 @@ namespace GroupDocs.Annotation.CSharp
             #region Annotation Functions for Words Document format
 
 
-            CommonUtilities.filePath = "Annotated.docx";
+            //CommonUtilities.filePath = "Annotated.docx";
 
             //////Add area annotation with replies  for Words Document format
             //WordAnnotation.AddAreaAnnotationWithRepliesforWords();
