@@ -126,6 +126,18 @@ namespace GroupDocs.Annotation.CSharp
         }
         //ExEnd:ApplyLicense
 
+        /// <summary>
+        /// Set Metered License
+        /// </summary>
+        public static void SetMeteredLicense(Stream licenseStream)
+        {
+            string PublicKey = ""; // Your public license key
+            string PrivateKey = ""; // Your private license key
+            GroupDocs.Annotation.Common.License.Metered metered = new GroupDocs.Annotation.Common.License.Metered();
+            metered.SetMeteredKey(PublicKey, PrivateKey);
+        }
+        //ExEnd:SetMeteredLicense
+
         //ExStart:GetConfiguration
         /// <summary>
         /// Sets annotation configuration
